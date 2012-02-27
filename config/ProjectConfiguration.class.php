@@ -9,4 +9,9 @@ class ProjectConfiguration extends sfProjectConfiguration
   {
     $this->enablePlugins('sfDoctrinePlugin');
   }
+  
+  public function configureDoctrine(Doctrine_Manager $manager) 
+  { 
+    $manager->setAttribute(Doctrine::ATTR_VALIDATE, Doctrine::VALIDATE_ALL);
+  }
 }

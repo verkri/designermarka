@@ -12,4 +12,22 @@
  */
 class MarkaCategory extends BaseMarkaCategory
 {
+  public function countActiveProducts()
+  {
+    $q = Doctrine_Query::create()
+      ->from('MarkaProduct m')
+      ->where('m.category_id = ?', $this->getId());
+ 
+    return Doctrine_Core::getTable('MarkaProduct')->countActiveProducts($q);
+  }
+  
+  public function getActiveProducts()
+  {
+    $q = Doctrine_Query::create()
+      ->from('MarkaProduct m')
+      ->where('m.category_id = ?', $this->getId());
+ 
+    return Doctrine_Core::getTable('MarkaProduct')->getActiveProducts($q);
+  }
+  
 }
