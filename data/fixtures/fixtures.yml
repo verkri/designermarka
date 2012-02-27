@@ -1,17 +1,87 @@
-# # Populate this file with data to be loaded by your ORM's *:data-load task.
-# # You can create multiple files in this directory (i.e. 010_users.yml,
-# # 020_articles.yml, etc) which will be loaded in alphabetical order.
-# # 
-# # See documentation for your ORM's *:data-load task for more information.
-# 
-# User:
-#   fabien:
-#     username: fabien
-#     password: changeme
-#     name:     Fabien Potencier
-#     email:    fabien.potencier@symfony-project.com
-#   kris:
-#     username: Kris.Wallsmith
-#     password: changeme
-#     name:     Kris Wallsmith
-#     email:    kris.wallsmith@symfony-project.com
+<?php 
+  $product_size  = 50; 
+  $users_size     = 2;
+  $order_size   = 20;
+  $namearray = array('Necklace', 'Accessory', 'Ring', 'Bracelet', 'Decoration');
+  function rand_date() {
+    $rday = mt_rand(1,28);
+    echo "'".date('Y-m')."-$rday'";
+  }
+?>
+
+MarkaCategory:
+  cat_0:
+    name: Necklaces
+  cat_1:
+    name: Accessories
+  cat_2:
+    name: Rings
+  cat_3:
+    name: Bracelets
+  cat_4:
+    name: Miscallaneous
+
+MarkaCustomer:
+  cust_0:
+    name: Krisztian
+    surname: Veress
+    email: verkri@inf.u-szeged.hu
+    telephone: 36203230390
+    country: Hungary
+    state: Csongrad
+    zipcode: 6725
+    city: Szeged
+    address: Kormanyos u 11.
+  cust_1:
+    name: Dora
+    surname: Pajti
+    email: dora.pajti@gmail.com
+    telephone: 36205733793
+    country: Hungary
+    state: Csongrad
+    zipcode: 6725
+    city: Szeged
+    address: Kormanyos u 11.
+  cust_2:
+    name: Ildiko
+    surname: Farkas
+    email: ifarkas@gmail.com
+    telephone: 36209269954
+    country: Hungary
+    state: Csongrad
+    zipcode: 6720
+    city: Szeged
+    address: Martonosi u. 18.
+
+MarkaProduct:
+<?php for($i=0; $i< $product_size; $i++): ?>
+<?php $icat = mt_rand(0,4) ?>
+
+  product_<?php echo $i?>:
+    name: <?php echo $namearray[$icat]."#$i\n" ?>
+    fabricated: <?php echo rand_date()."\n" ?>
+    token: <?php echo md5("product_${i}_${icat}")."\n" ?>
+    stockqty:  <?php echo mt_rand(1,10)."\n" ?>
+    cadprice:  <?php echo mt_rand(10,400)."\n" ?>
+    is_active: <?php echo (mt_rand(0,1) == 0) ? "true\n" : "false\n" ?>
+    Category: cat_<?php echo $icat."\n" ?>    
+<?php endfor ?>
+
+MarkaOrder:
+<?php for($i =0; $i< $order_size; $i++): ?>
+<?php $icat = mt_rand(0,4) ?>
+  order_<?php echo $i ?>:
+    Customer: cust_<?php echo mt_rand(0,$users_size)."\n" ?>
+    pending: <?php echo (mt_rand(0,1) == 0) ? "true\n" : "false\n" ?>
+    shipped: <?php echo (mt_rand(0,1) == 0) ? "true\n" : "false\n" ?>
+<?php endfor ?>
+  
+MarkaOrderDetails:
+<?php for($i =0; $i< $order_size*3; $i++): ?>
+<?php $iord = mt_rand(0,$order_size-1) ?>
+  details_<?php echo $i ?>:
+    Order: order_<?php echo $iord."\n" ?>
+    Product: product_<?php echo mt_rand(0,$product_size-1)."\n" ?>
+    quantity: <?php echo mt_rand(1,10)."\n" ?>
+    cadprice: <?php echo mt_rand(10,400)."\n" ?>
+<?php endfor ?>

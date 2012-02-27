@@ -1,0 +1,76 @@
+MarkaCategory:
+  columns:
+    name: { type: string(255), notnull: true, unique: true }
+
+MarkaProduct:
+  actAs: 
+    Timestampable:
+      created:
+        name: created_at
+        type: timestamp
+      updated:
+        disabled: true
+  columns:
+    name: { type: string(255), notnull: true, unique: true }
+    category_id:  { type: integer, notnull: true }
+    fabricated: { type: date }
+    token:     { type: string(255), notnull: true }
+    stockqty:  { type: integer, notnull: true, default: 1 }
+    cadprice:  { type: integer, notnull: true }
+    is_active: { type: boolean, notnull: true, default: 0 }
+  relations:
+    Category: 
+      class: MarkaCategory
+      onDelete: RESTRICT
+      local: category_id
+      foreign: id
+      foreignAlias: Products
+    
+MarkaCustomer:
+  actAs: 
+    Timestampable:
+      created:
+        name: created_at
+        type: timestamp
+      updated:
+        disabled: true
+  columns:
+    name: { type: string(255), notnull: true }
+    surname: { type: string(255), notnull: true }
+    email: { type: string(100), notnull: true, email: true }
+    telephone: { type: string(15), notnull: true }
+    country:  { type: string(100), notnull: true }
+    state: { type: string(100) }
+    zipcode: { type: integer }
+    city: { type: string(100), notnull: true }
+    address: { type: string(255), notnull: true }
+  relations:
+    Orders:
+      type: many
+      class: MarkaOrder
+      local: id
+      foreign: customer_id
+        
+MarkaOrder:
+  actAs: { Timestampable: ~ }
+  columns:
+    pending: { type: boolean, notnull: true, default: 1 }
+    shipped: { type: boolean, notnull: true, default: 0 }
+    customer_id: { type: integer, notnull: true }
+  relations:
+    Customer: 
+      class: MarkaCustomer
+      local: customer_id
+      foreign: id
+      onDelete: CASCADE
+      
+MarkaOrderDetails:
+  columns:
+    order_id:  { type: integer, primary: true }
+    product_id: { type: integer, primary: true }
+    quantity: { type: integer, notnull: true, default: 1 }
+    cadprice: { type: integer, notnull: true }
+  relations:
+    Order:  { class: MarkaOrder, onDelete: CASCADE, local: order_id, foreign: id }
+    Product: { class: MarkaProduct, onDelete: CASCADE, local: product_id, foreign: id }
+    
