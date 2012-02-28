@@ -12,6 +12,10 @@
  */
 class MarkaCategory extends BaseMarkaCategory
 {
+  public function getCategorySlug() {
+    return Utility::slugify($this->getName());
+  }
+  
   public function countActiveProducts()
   {
     $q = Doctrine_Query::create()

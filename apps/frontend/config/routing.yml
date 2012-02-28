@@ -1,16 +1,76 @@
 # You can find more information about this file on the symfony website:
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
-# default rules
-homepage:
+# Online Store related routes
+
+product_show:
+  url:     /store/:category_slug/:name_slug/:token
+  class:   sfDoctrineRoute
+  options: { model: MarkaProduct, type: object }
+  param:   { module: store, action: showproduct }
+  requirements:
+    token: ([a-fA-F\d]){32}
+    sf_method: [get]
+
+category_show:
+  url:     /store/:category_slug/:id
+  class:   sfDoctrineRoute
+  options: { model: MarkaCategory, type: object }
+  param:   { module: store, action: showcategory }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
+store:
+  url:     /store
+  param:   { module: store, action: display }
+  
+# Shopping Cart related routes
+
+cart_show:
+  url:   /cart
+  param: { module: cart, action: show }
+  requirements:
+    sf_method: [get]
+    
+cart_push:
+  url:   /cart/push/:token
+  param: { module: cart, action: push }
+  requirements:
+    token: ([a-fA-F\d]){32}
+    sf_method: [get]
+    
+cart_pop:
+  url:   /cart/pop/:token
+  param: { module: cart, action: pop }
+  requirements:
+    token: ([a-fA-F\d]){32}
+    sf_method: [get]
+    
+cart_clear:
+  url:   /cart/clear
+  param: { module: cart, action: clear }
+  requirements:
+    sf_method: [get]
+  
+#Other routes  
+  
+about:
+  url:   /about
+  param: { module: content, action: about }
+  
+inspiration:
+  url:   /inspiration
+  param: { module: content, action: inspiration }
+
+contact:
+  url:   /contact
+  param: { module: content, action: contact }
+  
+concept:
+  url:   /concept
+  param: { module: concept, action: index }
+
+home:
   url:   /
-  param: { module: default, action: index }
-
-# generic rules
-# please, remove them by adding more specific rules
-default_index:
-  url:   /:module
-  param: { action: index }
-
-default:
-  url:   /:module/:action/*
+  param: { module: content, action: home }

@@ -12,14 +12,19 @@
 MarkaCategory:
   cat_0:
     name: Necklaces
+    description: Unique necklace jewellery for every woman who want to become beautiful!
   cat_1:
     name: Accessories
+    description: Decorative accessories for everyone.
   cat_2:
     name: Rings
+    description: Wedding rings, all-day rings, colorful and clean rings, you name it!
   cat_3:
     name: Bracelets
+    description: Marka bracelets are made of high-quality fabrics, sewed with professionals.
   cat_4:
     name: Miscallaneous
+    description: Interior and exterior decorations, home design, wedding decor.
 
 MarkaCustomer:
   cust_0:

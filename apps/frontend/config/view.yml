@@ -3,18 +3,16 @@
 
 default:
   http_metas:
-    content-type: text/html
-
+    content-type: text/html; charset=UTF-8
+    
   metas:
-    #title:        symfony project
-    #description:  symfony project
-    #keywords:     symfony, project
-    #language:     en
-    #robots:       index, follow
+    description:  Marka Designs
+    author:       Krisztian Veress
+    viewport:     initial-scale=1.0; maximum-scale=1.0;
 
-  stylesheets:    [main.css]
+  stylesheets:    [main.css, karma-coffee.css]
 
-  javascripts:    []
+  javascripts:    [jquery-1.4.2.min.js, karma.js]
 
   has_layout:     true
   layout:         layout

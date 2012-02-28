@@ -16,4 +16,20 @@ class MarkaCategoryTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('MarkaCategory');
     }
+    
+    public function getNotEmptyCategories()
+    {
+      $ptablename = Doctrine_Core::getTable('MarkaProduct')->getTableName();
+      return $this->createQuery('c')->innerJoin('c.Products p')->execute();
+    }
+    
+    public function getRandomLimitedCategories($limit)
+    {
+      return $this->createQuery('c')
+              ->select('*,RANDOM() AS rand')
+              ->orderBy('rand')
+              ->limit($limit)
+              ->execute();
+    }
+    
 }

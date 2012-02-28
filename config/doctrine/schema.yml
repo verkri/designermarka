@@ -1,6 +1,7 @@
 MarkaCategory:
   columns:
     name: { type: string(255), notnull: true, unique: true }
+    description: { type: string(1000), notnull: true }
 
 MarkaProduct:
   actAs: 
@@ -14,10 +15,11 @@ MarkaProduct:
     name: { type: string(255), notnull: true, unique: true }
     category_id:  { type: integer, notnull: true }
     fabricated: { type: date }
-    token:     { type: string(255), notnull: true }
+    token:     { type: string(255), notnull: true, unique: true }
     stockqty:  { type: integer, notnull: true, default: 1 }
     cadprice:  { type: integer, notnull: true }
     is_active: { type: boolean, notnull: true, default: 0 }
+    description: { type: string(3000) }
   relations:
     Category: 
       class: MarkaCategory

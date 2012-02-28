@@ -12,6 +12,7 @@
  * @property integer $stockqty
  * @property integer $cadprice
  * @property boolean $is_active
+ * @property string $description
  * @property MarkaCategory $Category
  * @property Doctrine_Collection $MarkaOrderDetails
  * 
@@ -22,6 +23,7 @@
  * @method integer             getStockqty()          Returns the current record's "stockqty" value
  * @method integer             getCadprice()          Returns the current record's "cadprice" value
  * @method boolean             getIsActive()          Returns the current record's "is_active" value
+ * @method string              getDescription()       Returns the current record's "description" value
  * @method MarkaCategory       getCategory()          Returns the current record's "Category" value
  * @method Doctrine_Collection getMarkaOrderDetails() Returns the current record's "MarkaOrderDetails" collection
  * @method MarkaProduct        setName()              Sets the current record's "name" value
@@ -31,6 +33,7 @@
  * @method MarkaProduct        setStockqty()          Sets the current record's "stockqty" value
  * @method MarkaProduct        setCadprice()          Sets the current record's "cadprice" value
  * @method MarkaProduct        setIsActive()          Sets the current record's "is_active" value
+ * @method MarkaProduct        setDescription()       Sets the current record's "description" value
  * @method MarkaProduct        setCategory()          Sets the current record's "Category" value
  * @method MarkaProduct        setMarkaOrderDetails() Sets the current record's "MarkaOrderDetails" collection
  * 
@@ -60,6 +63,7 @@ abstract class BaseMarkaProduct extends sfDoctrineRecord
         $this->hasColumn('token', 'string', 255, array(
              'type' => 'string',
              'notnull' => true,
+             'unique' => true,
              'length' => 255,
              ));
         $this->hasColumn('stockqty', 'integer', null, array(
@@ -75,6 +79,10 @@ abstract class BaseMarkaProduct extends sfDoctrineRecord
              'type' => 'boolean',
              'notnull' => true,
              'default' => 0,
+             ));
+        $this->hasColumn('description', 'string', 3000, array(
+             'type' => 'string',
+             'length' => 3000,
              ));
     }
 
