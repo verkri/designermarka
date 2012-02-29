@@ -20,6 +20,7 @@ MarkaProduct:
     cadprice:  { type: integer, notnull: true }
     is_active: { type: boolean, notnull: true, default: 0 }
     description: { type: string(3000) }
+    short: { type: string(200) }
   relations:
     Category: 
       class: MarkaCategory

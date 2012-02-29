@@ -69,6 +69,15 @@ MarkaProduct:
     stockqty:  <?php echo mt_rand(1,10)."\n" ?>
     cadprice:  <?php echo mt_rand(10,400)."\n" ?>
     is_active: <?php echo (mt_rand(0,1) == 0) ? "true\n" : "false\n" ?>
+    description: |
+      You've already developed websites with symfony and you want to work
+      with Open-Source technologies. You have a minimum of 3 years
+      experience in web development with PHP or Java and you wish to
+      participate to development of Web 2.0 sites using the best
+      frameworks available.Some detailed description here
+    short: |
+      Fabricated by metals and other stuff. 
+      Diameter: 23 inches, Length: 12 inches.
     Category: cat_<?php echo $icat."\n" ?>    
 <?php endfor ?>
 
