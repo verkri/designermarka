@@ -1,27 +1,35 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
 <head>
-  
-  <!--[if lte IE 8]><meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /><![endif]-->
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <title><?php include_slot('title','Marka Designs'); ?></title>
-  
-  <?php include_javascripts() ?>  
-  <?php include_stylesheets() ?>
-  
-  <link rel="shortcut icon" href="#"/>
-  <!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="css/lt8.css" media="screen"/><![endif]-->
+<!--[if IE]><![endif]-->
+    <?php include_http_metas() ?>
+    <meta itemprop="name" content="">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="">
+    
+    <title><?php include_slot('title','Marka Designs'); ?></title>
+    <?php include_metas() ?>
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <?php include_stylesheets() ?>
 
+    <script type="text/javascript" src="/js/libs/modernizr-1.7.min.js"></script>
+    <meta charset="UTF-8"/>
 </head>
-<body>
- 
-<div id="wrapper">
 
+<!--[if lt IE 7 ]> <body class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <body class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <body class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <body class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<body class="_960wide">
+<!--<![endif]-->
   <?php include_partial('global/header') ?>
-  <div id="main">
-  <div class="main-area">
-  
-    <div class="content_full_width">
+
     <?php if ($sf_user->hasFlash('flash_ok')): ?>
       <p class="message_green">
         <?php echo $sf_user->getFlash('flash_ok') ?>
@@ -36,26 +44,21 @@
         <?php echo $sf_user->getFlash('flash_error') ?>
       </p>
     <?php endif; ?>
-    </div>
-    <br class="clear">
-      
-    <div class="tools"><div class="holder"><div class="frame">
-      <h1><?php include_slot('page-heading'); ?></h1>
-    </div></div></div>
-  
-    <div class="main-holder">
-    <?php echo $sf_content; ?>
-    </div>
-    
-  </div>
-  <?php include_partial('global/footer') ?>
-  </div>
-  
-</div>
-  
-<script type="text/javascript" src="/js/jquery.cycle.all.min.js"></script>
-<script type="text/javascript" src="/js/jquery-1-slider.js"></script>
-<script type="text/javascript" src="/js/testimonial-slider.js"></script>
 
+  <?php echo $sf_content; ?>
+  <?php include_partial('global/footer') ?>
+
+  <!--[if lt IE 7 ]>
+    <script src="js/libs/dd_belatedpng.js"></script>
+    <script>DD_belatedPNG.fix("img, .png_bg");</script>
+  <![endif]-->
+  <?php include_javascripts() ?>
+  <script type="text/javascript">
+  <?php echo JavascriptRegister::get_functional() ?>
+  $(function() {
+    <?php echo JavascriptRegister::get_content() ?>
+  });
+  </script>
+  
 </body>
 </html>

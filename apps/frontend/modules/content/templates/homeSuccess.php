@@ -1,63 +1,105 @@
-<div class="content_full_width">
+<?php use_helper('JavascriptRegister'); ?>
+
+<?php register_js() ?><script>
+ $('.peKenBurns').peKenburnsSlider();
+ prettyPhoto();
+</script><?php end_register_js() ?>
+
+<style type="text/css">
+.peKenBurns {
+  width: 90%;
+  height: 400px;
+  margin: auto;
+}
+</style>
+
+<div id="main"> 
+  <div class="inner"> 
+
+      <div class="peKenBurns peNoJs" data-autopause="image" data-mode="kb" data-controls="disabled" data-shadow="enabled" data-logo="disabled">
+        
+        <div data-delay="5" data-duration="10" data-zoom="in" data-thumb="/app/homeslider/5w.jpg">
+          <img src="/app/homeslider/5w.jpg" alt=""/>
+        </div>
+        
+        <div data-delay="5" data-duration="10" data-zoom="in" data-thumb="/app/homeslider/2w.jpg">
+          <img src="/images/estroslider/blank.png" data-src="/app/homeslider/2w.jpg" alt=""/>
+        </div>
+        
+        <div data-delay="5" data-duration="10" data-zoom="in" data-thumb="/app/homeslider/6w.jpg">
+          <img src="/images/estroslider/blank.png" data-src="/app/homeslider/6w.jpg" alt=""/>
+        </div>
+        
+        <div data-delay="5" data-duration="10" data-zoom="in" data-thumb="/app/homeslider/8w.jpg">
+          <img src="/images/estroslider/blank.png" data-src="/app/homeslider/8w.jpg" alt=""/>
+        </div>
+
+      </div>
 
 
-<!-- ***************** - Homepage Content Area - ***************** -->
-<div class="callout-wrap"><span>Karma doesn't lock you down to a specific homepage layout. All homepage layouts are completely customizable. The various built-in code snippets make it amazingly easy to create gorgeous layouts.</span>
- </div><!-- end callout-wrap --><br class="clear" />
+    
+    <div class="divider line"></div> 
+
+    <div id="recent-work" class="home-section"> 
+      <h3>Recent Work</h3>  
+      <ul class="fourcolumns">
+        <li> 
+          <a href="http://rta.zxy.me/purity_wp/?portfolio=grand-central-2" class="over">
+            <span>Lightbox Gallery</span>
+            <p>This is a project description....</p>
+          </a> 
+          <a href="http://rta.zxy.me/purity_wp/?portfolio=grand-central-2"><img src="http://rta.zxy.me/purity_wp/wp-content/themes/purity/includes/timthumb.php?src=http://rta.zxy.me/purity_wp/wp-content/uploads/2011/10/1.jpg&amp;h=130&amp;w=198&amp;zc=1" alt>   </a> 
+        </li>
+
+        <li> 
+          <a href="http://rta.zxy.me/purity_wp/?portfolio=direct-lightbox" class="over">
+            <span>Direct lightbox gallery</span>
+            <p>And here goes the description....</p>
+          </a> 
+          <a href="http://rta.zxy.me/purity_wp/?portfolio=direct-lightbox"><img src="http://rta.zxy.me/purity_wp/wp-content/themes/purity/includes/timthumb.php?src=http://rta.zxy.me/purity_wp/wp-content/uploads/2011/10/5.jpg&amp;h=130&amp;w=198&amp;zc=1" alt>   </a> 
+        </li>
+
+        <li> 
+          <a href="http://rta.zxy.me/purity_wp/?portfolio=grand-central" class="over">
+            <span>YouTube video</span>
+            <p>This is an example project description....</p>
+          </a> 
+          <a href="http://rta.zxy.me/purity_wp/?portfolio=grand-central"><img src="http://rta.zxy.me/purity_wp/wp-content/themes/purity/includes/timthumb.php?src=http://rta.zxy.me/purity_wp/wp-content/uploads/2011/10/2.jpg&amp;h=130&amp;w=198&amp;zc=1" alt>   </a> 
+        </li>
+
+        <li> 
+          <a href="http://rta.zxy.me/purity_wp/?portfolio=vimeo-video" class="over">
+            <span>Vimeo video</span>
+            <p>Another project....</p>
+          </a> 
+          <a href="http://rta.zxy.me/purity_wp/?portfolio=vimeo-video"><img src="http://rta.zxy.me/purity_wp/wp-content/themes/purity/includes/timthumb.php?src=http://rta.zxy.me/purity_wp/wp-content/uploads/2011/10/3.jpg&amp;h=130&amp;w=198&amp;zc=1" alt>   </a> 
+        </li>
 
 
-<div class="one_fourth">
-	<div class="modern_img_frame modern_four_col_large">
-<div class="preload_four_col_large">
- 	<div class="attachment-fadeIn"><a href="content-code-snippets.html"><img src="http://files.truethemes.net/themes/karma-html/premium-website-template-2.png" alt="CSS Template" width="190" height="111" /></a></div></div>
-	</div><!-- end modern_img_frame -->
- 
- <h6>100+ Built-in Code Snippets</h6>
- <p>Karma features over 70 built-in code snippets. Mutli-column layouts, interface tabs, animated accordions and stylish image frames are just some of the powerful built-in options.</p>
- <p><a href="content-code-snippets.html"><strong>Check em' out →</strong></a></p>
-</div><!-- end first one_fourth_column -->
+      </ul>
+
+      <div class="clear"></div>
+      <a href="?page_id=" class="goto">View Portfolio </a>
+    </div>    
+    
+
+            <div class="divider line"></div> 
 
 
 
-<div class="one_fourth">
-	<div class="modern_img_frame modern_four_col_large">
-<div class="preload_four_col_large">
- 	<div class="attachment-fadeIn"><a href="content-3d-effects.html"><img src="http://files.truethemes.net/themes/karma-html/premium-website-template-3.png" alt="Website Template" width="190" height="111" /></a></div></div>
-	</div><!-- end modern_img_frame -->
- 
- <h6>Amazing 3D Effects</h6>
- <p>Karma is the only theme on the market to feature the all new CU3ER v1. With an endless array of 3D effects it's never been so easy to add stunning 3D sliders to your website.</p>
- <p><a href="content-3d-effects.html"><strong>Learn More →</strong></a></p>
-</div><!-- end second one_fourth_column -->
+            <!--Begin Homepage Content-->
+
+            <h3>Why choose Marka Designs?</h1>
+              <div class="one_fourth"><div class="icon-image"><img src="http://rta.zxy.me/purity_wp/wp-content/themes/purity/img/icons/eye.png" alt></div><div class="icon-text"><h5>Elegant Design</h5><p>Minimalism has been a popular website design style for years.</p></div></div>
+              <div class="one_fourth"><div class="icon-image"><img src="http://rta.zxy.me/purity_wp/wp-content/themes/purity/img/icons/tags.png" alt></div><div class="icon-text"><h5>Shortcodes</h5><p>Numerous shortcodes will help you build a website that you want.</p></div></div>
+              <div class="one_fourth"><div class="icon-image"><img src="http://rta.zxy.me/purity_wp/wp-content/themes/purity/img/icons/globe.png" alt></div><div class="icon-text"><h5>Compatibility</h5><p>Purity is fully compatible with all modern browsers. </p></div></div>
+              <div class="one_fourth last"><div class="icon-image"><img src="http://rta.zxy.me/purity_wp/wp-content/themes/purity/img/icons/mail.png" alt></div><div class="icon-text"><h5>Ajax Contact Form</h5><p>Template comes with a built-in, easy to customize Ajax Contact Form.</p></div></div>
+              <div class="divider"></div>
+            
+
+              <!--End Homepage Content-->
 
 
-
-<div class="one_fourth">
-	<div class="modern_img_frame modern_four_col_large">
-<div class="preload_four_col_large">
- 	<div class="attachment-fadeIn"><a href="content-20-color-variations.html"><img src="http://files.truethemes.net/themes/karma-html/premium-website-template-4.png" alt="HTML Template" width="190" height="111" /></a></div></div>
-	</div><!-- end modern_img_frame -->
- 
- <h6>20 Color Variations</h6>
- <p>Karma was designed and built by professional web designers. It comes packed with 20 gorgeous color variations. You can also easily mix and match color schemes for a completely custom look.</p>
- <p><a href="content-20-color-variations.html"><strong>Learn More →</strong></a></p>
-</div><!-- end third one_fourth_column -->
-
-
-
-<div class="one_fourth_last">
-	<div class="modern_img_frame modern_four_col_large">
-<div class="preload_four_col_large">
- 	<div class="attachment-fadeIn"><a href="content-20-page-layouts.html"><img src="http://files.truethemes.net/themes/karma-html/premium-website-template-5.png" alt="Premium HTML Template" width="190" height="111" /></a></div></div>
-	</div><!-- end modern_img_frame -->
- 
- <h6>20 Layout Templates</h6>
- <p>Karma has something for everyone with with 20 different page templates. With so many unqiue page layouts you can create multiple unique websites, saving yourself lots of time and money.</p>
- <p><a href="content-20-page-layouts.html"><strong>Learn More →</strong></a></p>
-</div><!-- end fourth one_fourth_column -->
-
-<br class="clear" /> 
-<div class="hr_shadow"></div>
-
-<!-- ***************** - END Homepage Content Area - ***************** --> 
-</div>
+              </div><!-- .inner End --> 
+              </div><!-- #main End --> 
+              <!-- MAIN CONTENT END --> 

@@ -3,16 +3,26 @@
 
 default:
   http_metas:
-    content-type: text/html; charset=UTF-8
-    
+    X-UA-Compatible: IE=edge,chrome=1
+    content-type: text/html   
+
   metas:
     description:  Marka Designs
     author:       Krisztian Veress
     viewport:     initial-scale=1.0; maximum-scale=1.0;
+    #keywords:
+    #robots:       index, follow
 
-  stylesheets:    [main.css, karma-coffee.css]
+  stylesheets:
+    - html5-reset.css:    { media: all }
+    - grid.css:    { media: all }
+    - purity.css
+    - marka.css
 
-  javascripts:    [jquery-1.4.2.min.js, karma.js]
-
+  javascripts:  
+    - libs/jquery-1.7.1.min.js
+    - libs/jquery-ui-1.8.18.min.js
+    - marka.js
+    
   has_layout:     true
   layout:         layout

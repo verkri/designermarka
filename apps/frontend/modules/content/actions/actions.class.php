@@ -13,7 +13,6 @@ class contentActions extends sfActions
   
   public function executeHome(sfWebRequest $request)
   {
-   
   }
   
   public function executeContact(sfWebRequest $request)

@@ -19,8 +19,7 @@ class MarkaCategoryTable extends Doctrine_Table
     
     public function getNotEmptyCategories()
     {
-      $ptablename = Doctrine_Core::getTable('MarkaProduct')->getTableName();
-      return $this->createQuery('c')->innerJoin('c.Products p')->execute();
+      return $this->createQuery('c')->innerJoin('c.Products p')->where('p.is_active = true')->execute();
     }
     
     public function getRandomLimitedCategories($limit)

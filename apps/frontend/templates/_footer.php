@@ -1,21 +1,17 @@
-<!-- /***************** - Bottom Footer - ***************** --> 
+<div class="footer_divider"></div>
 
-<div id="footer_bottom">
- <div class="info">
- <div id="foot_left"><p>Copyright &copy; <?php echo date('Y'); ?> Marka Designs. All rights reserved.</p>
- </div><!-- end foot_left -->
-  
- <div id="foot_right">
- <div class="top-footer"><a href="#" class="link-top">top</a></div>
- 
- <ul>
- <li><a href="../index-jquery-1.html">Home</a></li>
- <li><a href="../template-sitemap.html">Sitemap</a></li>
- <li><a href="../template-contact.html">Contact</a></li>
- <li><a href="#">Marka Store</a></li>
- </ul>
- </div><!-- end foot_right -->
- </div><!-- end info -->
-</div><!-- end footer_bottom -->
+<div id="footer"> 
+  <div class="footer_small footer1">           
 
-<!-- /***************** - END Bottom Footer - ***************** --> 
+    <div class="copyright">© 2011 <a href="#">Marka Designs</a> - All rights reserved.</div>
+
+    <div class="social"> 
+      <a href="#"><img src="http://rta.zxy.me/purity_wp/wp-content/themes/purity/img/social/social_1.png" alt></a>
+      <a href="#"><img src="http://rta.zxy.me/purity_wp/wp-content/themes/purity/img/social/social_2.png" alt></a>
+      <a href="#"><img src="http://rta.zxy.me/purity_wp/wp-content/themes/purity/img/social/social_3.png" alt></a>
+      <a href="#"><img src="http://rta.zxy.me/purity_wp/wp-content/themes/purity/img/social/social_4.png" alt></a>
+      <a href="#"><img src="http://rta.zxy.me/purity_wp/wp-content/themes/purity/img/social/social_5.png" alt></a> 
+    </div> 
+
+  </div> <!-- #footer_small End -->
+</div><!-- #footer End -->

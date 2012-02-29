@@ -1,0 +1,7 @@
+homeSuccess:
+  stylesheets: 
+    - scripts/estro.min.css
+    - scripts/prettyPhoto.css
+  javascripts: 
+    - libs/estro-slider.min.js
+    - plugins/jquery.prettyPhoto.js

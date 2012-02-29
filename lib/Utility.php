@@ -34,4 +34,7 @@ class Utility {
       echo "</pre>";
     }
 
+    static public function markaActiveCategories() {
+      return Doctrine_Core::getTable('MarkaCategory')->getNotEmptyCategories();
+    }
 }
