@@ -1,11 +1,11 @@
 <?php $categories = Utility::markaActiveCategories() ?>
 
-<header> 
+<header class="clearfix"> 
   <div class="inner">
 
     <div class="w25p">
       <div class="logo"> 
-        <a href="http://rta.zxy.me/purity_wp" class="logo_img"><img src="http://rta.zxy.me/purity_wp/wp-content/themes/purity/img/logo.png" alt=""></a>
+        <a href="<?php echo url_for('@home'); ?>" class="logo_img"><img src="/images/logo.png?v=1" alt=""></a>
       </div> 
     </div>
 
@@ -13,10 +13,10 @@
       <div class="clearfix">
         <nav> 
           <ul> 
-            <li class="current-menu-item"><a href="http://rta.zxy.me/purity_wp/">Home</a></li>
-            <li><a href="http://rta.zxy.me/purity_wp/">World of Marka</a></li>
-            <li><a href="http://rta.zxy.me/purity_wp/">Marka Store</a></li>
-            <li><a href="http://rta.zxy.me/purity_wp/">Contact</a></li>
+            <li class="current-menu-item"><a href="<?php echo url_for('@home'); ?>">Home</a></li>
+            <li><a href="<?php echo url_for('@world'); ?>">World of Marka</a></li>
+            <li><a href="<?php echo url_for('@store'); ?>">Marka Store</a></li>
+            <li><a href="<?php echo url_for('@contact'); ?>">Contact</a></li>
           </ul>
         </nav>
       </div>

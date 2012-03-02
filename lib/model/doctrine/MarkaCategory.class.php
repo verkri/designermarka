@@ -12,10 +12,18 @@
  */
 class MarkaCategory extends BaseMarkaCategory
 {
-  public function getCategorySlug() {
-    return Utility::slugify($this->getName());
+  public function save(Doctrine_Connection $conn = null)
+  {
+    if ($this->isNew() && !$this->getSlug() )
+    {
+      $slug = Utility::slugify($this->getName());
+      $this->setExpiresAt(date('Y-m-d H:i:s', $now + 86400 * 30));
+    }
+ 
+    return parent::save($conn);
   }
   
+  /*
   public function countActiveProducts()
   {
     $q = Doctrine_Query::create()
@@ -32,6 +40,6 @@ class MarkaCategory extends BaseMarkaCategory
       ->where('m.category_id = ?', $this->getId());
  
     return Doctrine_Core::getTable('MarkaProduct')->getActiveProducts($q);
-  }
+  }*/
   
 }

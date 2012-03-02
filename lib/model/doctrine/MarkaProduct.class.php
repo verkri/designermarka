@@ -12,12 +12,4 @@
  */
 class MarkaProduct extends BaseMarkaProduct
 {
-
-  public function getCategorySlug() {
-    return $this->getCategory()->getCategorySlug();
-  }
-  
-  public function getNameSlug() {
-    return Utility::slugify($this->getName());
-  }
 }

@@ -3,20 +3,27 @@
 
 # Online Store related routes
 
-product_show:
-  url:     /store/:category_slug/:name_slug/:token
+showcase_product:
+  url:     /:colorscheme_slug/:category_slug/:slug
   class:   sfDoctrineRoute
   options: { model: MarkaProduct, type: object }
-  param:   { module: store, action: showproduct }
+  param:   { module: showcase, action: productView }
   requirements:
     token: ([a-fA-F\d]){32}
     sf_method: [get]
 
-category_show:
-  url:     /store/:category_slug/:id
+showcase_category:
+  url:     /:colorscheme_slug/:category_slug
+  class:   sfRequestRoute
+  param:   { module: showcase, action: categoryView }
+  requirements:
+    sf_method: [get]
+
+showcase_colorscheme:
+  url:     /:slug
   class:   sfDoctrineRoute
-  options: { model: MarkaCategory, type: object }
-  param:   { module: store, action: showcategory }
+  options: { model: MarkaColorScheme, type: object }
+  param:   { module: showcase, action: colorschemeView }
   requirements:
     id: \d+
     sf_method: [get]
@@ -67,8 +74,8 @@ contact:
   url:   /contact
   param: { module: content, action: contact }
   
-concept:
-  url:   /concept
+world:
+  url:   /world-of-marka
   param: { module: concept, action: index }
 
 home:

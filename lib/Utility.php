@@ -10,6 +10,7 @@ class Utility {
      * Transforms any text to contain only a-zA-Z0-9- characters.
      */
     static public function slugify($text) {
+        $text = preg_replace('/&/', '-and-', $text);
         // replace non letter or digits by -
         $text = preg_replace('#[^\\pL\d]+#u', '-', $text);
         // trim

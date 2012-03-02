@@ -22,6 +22,7 @@ class MarkaCategoryTable extends Doctrine_Table
       return $this->createQuery('c')->innerJoin('c.Products p')->where('p.is_active = true')->execute();
     }
     
+    /*
     public function getRandomLimitedCategories($limit)
     {
       return $this->createQuery('c')
@@ -29,6 +30,6 @@ class MarkaCategoryTable extends Doctrine_Table
               ->orderBy('rand')
               ->limit($limit)
               ->execute();
-    }
+    }*/
     
 }

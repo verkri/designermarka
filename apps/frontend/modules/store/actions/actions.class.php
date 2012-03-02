@@ -45,13 +45,12 @@ class storeActions extends sfActions
     }*/   
   }
   
-  public function executeShowcategory(sfWebRequest $request)
+  public function executeShowcolorscheme(sfWebRequest $request)
   {
-    $this->marka_categories = Doctrine_Core::getTable('MarkaCategory')->getNotEmptyCategories();
-    
-    $this->category = $this->getRoute()->getObject();
-    $this->category_products = $this->category->getActiveProducts();
+    $this->colorscheme = $this->getRoute()->getObject();
+    $this->marka_categories = $this->colorscheme->getActiveCategories();
   }
+  
   
   public function executeShowproduct(sfWebRequest $request)
   {

@@ -1,7 +1,17 @@
 MarkaCategory:
   columns:
     name: { type: string(255), notnull: true, unique: true }
+    slug: { type: string(255), notnull: true, unique: true }
     description: { type: string(1000), notnull: true }
+    
+MarkaColorScheme:
+  columns:
+    name: { type: string(255), notnull: true, unique: true }
+    slug: { type: string(255), notnull: true, unique: true }
+    description: { type: string(1000), notnull: true }    
+    hexcolor1: { type: string(7) }
+    hexcolor2: { type: string(7) }
+    hexcolor3: { type: string(7) }
 
 MarkaProduct:
   actAs: 
@@ -13,8 +23,10 @@ MarkaProduct:
         disabled: true
   columns:
     name: { type: string(255), notnull: true, unique: true }
+    slug: { type: string(255), notnull: true, unique: true }
     category_id:  { type: integer, notnull: true }
-    fabricated: { type: date }
+    colorscheme_id:  { type: integer, notnull: true }
+    manufactured: { type: date }
     token:     { type: string(255), notnull: true, unique: true }
     stockqty:  { type: integer, notnull: true, default: 1 }
     cadprice:  { type: integer, notnull: true }
@@ -26,6 +38,12 @@ MarkaProduct:
       class: MarkaCategory
       onDelete: RESTRICT
       local: category_id
+      foreign: id
+      foreignAlias: Products
+    ColorScheme: 
+      class: MarkaColorScheme
+      onDelete: RESTRICT
+      local: colorscheme_id
       foreign: id
       foreignAlias: Products
     
