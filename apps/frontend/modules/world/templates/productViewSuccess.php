@@ -1,5 +1,3 @@
-<?php slot('submenu-colorscheme',$colorscheme->getId()) ?>
-
 <div class="inner">
 <article class="full-width clearfix"> 
   <div class="w50p">

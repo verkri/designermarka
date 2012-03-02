@@ -1,39 +1,34 @@
 # You can find more information about this file on the symfony website:
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
-# Online Store related routes
+# Showcase of structure
 
-showcase_product:
-  url:     /:colorscheme_slug/:category_slug/:slug
+world_product:
+  url:     /world-of-marka/:colorscheme_slug/:category_slug/:slug
   class:   sfDoctrineRoute
   options: { model: MarkaProduct, type: object }
-  param:   { module: showcase, action: productView }
+  param:   { module: world, action: productView }
   requirements:
     token: ([a-fA-F\d]){32}
     sf_method: [get]
 
-showcase_category:
-  url:     /:colorscheme_slug/:category_slug
+world_category:
+  url:     /world-of-marka/:colorscheme_slug/:category_slug
   class:   sfRequestRoute
-  param:   { module: showcase, action: categoryView }
+  param:   { module: world, action: categoryView }
   requirements:
     sf_method: [get]
 
-showcase_colorscheme:
-  url:     /:slug
+world_colorscheme:
+  url:     /world-of-marka/:slug
   class:   sfDoctrineRoute
   options: { model: MarkaColorScheme, type: object }
-  param:   { module: showcase, action: colorschemeView }
+  param:   { module: world, action: colorschemeView }
   requirements:
     id: \d+
     sf_method: [get]
 
-store:
-  url:     /store
-  param:   { module: store, action: display }
-  
 # Shopping Cart related routes
-
 cart_show:
   url:   /cart
   param: { module: cart, action: show }
@@ -59,24 +54,20 @@ cart_clear:
   param: { module: cart, action: clear }
   requirements:
     sf_method: [get]
+    
+
+store:
+  url:     /store
+  param:   { module: store, action: display }
   
-#Other routes  
-  
+
 about:
-  url:   /about
-  param: { module: content, action: about }
-  
-inspiration:
-  url:   /inspiration
-  param: { module: content, action: inspiration }
+  url:     /about-marka
+  param:   { module: content, action: about }
 
 contact:
   url:   /contact
   param: { module: content, action: contact }
-  
-world:
-  url:   /world-of-marka
-  param: { module: concept, action: index }
 
 home:
   url:   /

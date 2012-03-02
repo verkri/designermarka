@@ -8,13 +8,19 @@
  * @author     Your name here
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class showcaseActions extends sfActions
+class worldActions extends sfActions
 {
+  private function setMenus() {
+    sfConfig::set('app_menu','world');
+    sfConfig::set('app_submenu',$this->colorscheme->getId());
+  }
   
   public function executeColorschemeView(sfWebRequest $request)
   {
     $this->colorscheme = $this->getRoute()->getObject();
     $this->categories = $this->colorscheme->getCategories();
+    
+    $this->setMenus();
   }
   
   public function executeCategoryView(sfWebRequest $request)
@@ -27,6 +33,8 @@ class showcaseActions extends sfActions
       
     $this->products = Doctrine_Core::getTable('MarkaProduct')
             ->getProductsFiltered($this->category,$this->colorscheme);
+    
+    $this->setMenus();
   }
  
   public function executeProductView(sfWebRequest $request)
@@ -45,5 +53,7 @@ class showcaseActions extends sfActions
     $validURI = $this->product->getCategoryId() == $this->category->getId();
     $validURI &= $this->product->getColorschemeId() == $this->colorscheme->getId();
     $this->forward404Unless($validURI);
+    
+    $this->setMenus();
   }
 }

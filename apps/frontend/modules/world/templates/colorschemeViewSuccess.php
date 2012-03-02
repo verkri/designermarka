@@ -1,5 +1,3 @@
-<?php slot('submenu-colorscheme',$colorscheme->getId()) ?>
-
 <div class="inner">
 <article class="full-width clearfix"> 
   <div class="w50p">
@@ -10,7 +8,7 @@
     <?php foreach ($categories as $c): ?>
     <h3 class="title">
       <a href="<?php 
-        echo url_for('showcase_category',
+        echo url_for('world_category',
                 array('colorscheme_slug' => $colorscheme->getSlug(),
                       'category_slug' => $c->getSlug())
                 );

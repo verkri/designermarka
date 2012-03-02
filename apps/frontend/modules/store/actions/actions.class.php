@@ -10,43 +10,24 @@
  */
 class storeActions extends sfActions
 {
- 
+  private function setMenus() {
+    sfConfig::set('app_menu','store');
+    sfConfig::set('app_submenu','');
+  }
+  
   public function executeDisplay(sfWebRequest $request)
   {
-    $this->marka_categories = Doctrine_Core::getTable('MarkaCategory')->getRandomLimitedCategories(4);
-    $this->marka_category_count = array();
+    $this->setMenus();
     
-    // All categories are removed from the collection which does not have any 
-    // active product.
-    foreach( $this->marka_categories as $i => $category ) {
-      $count = $category->countActiveProducts();
-      if ( $count != 0 ) {
-        $this->marka_category_count[$i] = $count;
-      } else {        
-        unset($this->marka_categories[$i]);
-      }      
-    }
-    /*
-    $this->marka_categories = Doctrine_Core::getTable('MarkaCategory')->getCategories();
-    $this->marka_products = array();
-    $this->marka_category_count = array();
-    
-    // Fetch the categories & the active products of the categories.
-    // All categories are removed from the collection which does not have any 
-    // active product.
-    foreach( $this->marka_categories as $i => $category ) {
-      $count = $category->countActiveProducts();
-      if ( $count != 0 ) {
-        $this->marka_category_count[$i] = $count;
-        $this->marka_products[$i] = $category->getActiveProducts();
-      } else {        
-        unset($this->marka_categories[$i]);
-      }      
-    }*/   
+    $this->marka_categories = Doctrine_Core::getTable('MarkaCategory')->getNotEmptyCategories();
+    $this->marka_colorschemes = Doctrine_Core::getTable('MarkaColorScheme')->getNotEmptyColorSchemes();
+    $this->marka_products = Doctrine_Core::getTable('MarkaProduct')->getActiveProducts();
   }
   
   public function executeShowcolorscheme(sfWebRequest $request)
   {
+    $this->setMenus();
+    
     $this->colorscheme = $this->getRoute()->getObject();
     $this->marka_categories = $this->colorscheme->getActiveCategories();
   }
@@ -54,8 +35,9 @@ class storeActions extends sfActions
   
   public function executeShowproduct(sfWebRequest $request)
   {
+    $this->setMenus();
+    
     $this->marka_categories = Doctrine_Core::getTable('MarkaCategory')->getNotEmptyCategories();
-       
     $this->product = $this->getRoute()->getObject();
     $this->category = $this->product->getCategory();
   }

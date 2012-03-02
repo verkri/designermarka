@@ -13,14 +13,16 @@ class MarkaProductTable extends Doctrine_Table {
     return $this->filterActiveProducts($q)->execute();
   }
   
+  public function getActiveProducts(Doctrine_Query $q = null) {
+    return $this->filterActiveProducts($q)->execute();
+  }
+  
 /*
   public function retrieveActiveProduct(Doctrine_Query $q) {
     return $this->filterActiveProducts($q)->fetchOne();
   }
 
-  public function getActiveProducts(Doctrine_Query $q = null) {
-    return $this->filterActiveProducts($q)->execute();
-  }
+  
 
   public function countActiveProducts(Doctrine_Query $q = null) {
     return $this->filterActiveProducts($q)->count();

@@ -13,20 +13,14 @@ class contentActions extends sfActions
   
   public function executeHome(sfWebRequest $request)
   {
+    sfConfig::set('app_menu','world');
+    sfConfig::set('app_submenu','');
   }
   
   public function executeContact(sfWebRequest $request)
   {
-   
+    sfConfig::set('app_menu','contact');
+    sfConfig::set('app_submenu','');
   }
   
-  public function executeConcept(sfWebRequest $request)
-  {
-   
-  }
-  
-  public function executeInspiration(sfWebRequest $request)
-  {
-   
-  }
 }

@@ -1,7 +1,7 @@
 <?php $categories = Utility::markaActiveCategories() ?>
 
 <header class="clearfix"> 
-  <div class="inner">
+  <div class="inner clearfix">
 
     <div class="w25p">
       <div class="logo"> 
@@ -13,10 +13,17 @@
       <div class="clearfix">
         <nav> 
           <ul> 
-            <li class="current-menu-item"><a href="<?php echo url_for('@home'); ?>">Home</a></li>
-            <li><a href="<?php echo url_for('@world'); ?>">World of Marka</a></li>
-            <li><a href="<?php echo url_for('@store'); ?>">Marka Store</a></li>
-            <li><a href="<?php echo url_for('@contact'); ?>">Contact</a></li>
+            <li <?php echo (sfConfig::get('app_menu') == 'world' ? 'class="current-menu-item"' : '') ?>>
+              <a href="<?php echo url_for('@home'); ?>">World of Marka</a></li>
+            
+            <li <?php echo (sfConfig::get('app_menu') == 'about' ? 'class="current-menu-item"' : '') ?>>
+              <a href="<?php echo url_for('@about'); ?>">About Marka</a></li>
+            
+            <li <?php echo (sfConfig::get('app_menu') == 'store' ? 'class="current-menu-item"' : '') ?>>
+              <a href="<?php echo url_for('@store'); ?>">Marka Store</a></li>
+            
+            <li <?php echo (sfConfig::get('app_menu') == 'contact' ? 'class="current-menu-item"' : '') ?>>
+              <a href="<?php echo url_for('@contact'); ?>">Contact</a></li>
           </ul>
         </nav>
       </div>

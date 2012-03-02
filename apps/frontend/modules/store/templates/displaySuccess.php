@@ -1,78 +1,62 @@
 <?php slot('page-heading', 'Marka Store') ?>
 
-<div class="content_full_width">
 
+<div class="inner">
   
-<!-- ***************** - Homepage jQuery Slider - ***************** -->
-<div class="home-bnr-jquery">
-<ul>
-<li class="jqslider">
- <div class="home-banner-main">
- <h2>Premium Website Template</h2>
- <p>Karma is an amazingly powerful Website Template. Karma comes with 20 page templates and 20 professionally designed color variations. Combine that with the over 70 built in styled elements, easy multi columns and a super cool PHP+AJAX contact form, and this will be the only template you'll need to purchase for a long time to come.</p>
- </div><!-- end home-banner-main -->
-
- <div class="home-banner-sub">
- <div class="home-banner-sub-content">
- <a href="#"><img src="/images/store/01.jpg" alt="Premium Website Template" width="404" height="256" /></a><div class="home-banner-bottom">&nbsp;</div>
- </div><!-- end home-banner-sub-content -->
- </div><!-- end home-banner-sub -->
-</li>
-
-
-
-
-<li class="jqslider">
- <div class="home-banner-main">
- <h2>20 Gorgeous Color Variations</h2>
- <p>Karma was designed and built by professional web designers. It comes packed with 20 gorgeous color variations. You can also easily mix and match color schemes for a completely custom look.</p>
- </div><!-- end home-banner-main -->
-
- <div class="home-banner-sub">
- <div class="home-banner-sub-content">
- <a href="#"><img src="/images/store/02.jpg" alt="Premium Website Template" width="404" height="256" /></a><div class="home-banner-bottom">&nbsp;</div>
- </div><!-- end home-banner-sub-content -->
- </div><!-- end home-banner-sub -->
-</li>
-
-
-
- 
- 
-<li class="jqslider">
-<div class="home-banner-sub-full">
-<img title="Premium Website Template" src="http://files.truethemes.net/themes/karma-html/jquery-1-fullwidth.png" alt="" width="940" height="283" />
-</div><!-- end home-banner-sub-full -->
-</li>
-
-
-
-</ul></div><!-- end home-bnr-jquery -->
-
-<!-- ***************** - END Homepage jQuery Slider - ***************** -->
+  <div class="tagline">
+  <h1> Blog left 3</h1>
+</div>
   
+<div class="content content_right blog3">
 
-<!-- ***************** - END Homepage jQuery Slider - ***************** -->
-<br/>
-<br/>
-<div class="hr_shadow"></div>
+  <div class="post">  
+    <div class="post-image"> 
+      <a href="http://rta.zxy.me/purity_wp/?p=549"><img src="http://rta.zxy.me/purity_wp/wp-content/themes/purity/includes/timthumb.php?src=http://rta.zxy.me/purity_wp/wp-content/uploads/2011/10/3w.jpg&amp;h=120&amp;w=214&amp;zc=1" alt></a> 
+    </div>
+    
+    <div class="post-entry"> 
+      <h1 class="title"><a href="http://rta.zxy.me/purity_wp/?p=549">This is an example post</a></h1> 
+      <span class="post-meta">Posted by <strong><a href="http://rta.zxy.me/purity_wp/?author=1" title="Posts by Tauris" rel="author">Tauris</a></strong> in <strong><a href="http://rta.zxy.me/purity_wp/?cat=1" title="View all posts in Uncategorized" rel="category">Uncategorized</a></strong></span>
+      <p>Velit vel porta elementum, magna diam molestie sapien.Proin tincidunt, velit vel porta elementum, magna diam molestie sapien, non aliquet massa pede eu diam. Aliquam iaculis. Proin tincidunt, velit vel porta elementum, magna diam molestie sapien, non aliquet massa pede eu diam.<img title="More..." src="http://rta.zxy.me/purity_wp/wp-includes/js/tinymce/plugins/wordpress/img/trans.gif" alt="" /></p>
+    </div> 
+  </div>
 
-<?php foreach ($marka_categories as $i => $category): ?>
-<?php if (($i+1)%4 == 0 && $i != 0 ): ?>
-<div class="one_fourth_last">
-<?php else: ?>
-<div class="one_fourth">
-<?php endif ?>
-  
-  <h6><?php echo $category->getName() ?></h6> 
-  <div class="modern_img_frame modern_four_col_large">
-    <div class="preload_four_col_large">
-    <div class="attachment-fadeIn"><a href="<?php echo url_for('category_show',$category) ?>"><img src="/images/store/category/<?php echo $category->getCategorySlug() ?>.png" alt="CSS Template" width="190" height="111" /></a></div></div>
-  </div><!-- end modern_img_frame -->
-  
-  <p><?php echo $category->getDescription() ?></p>
-</div><!-- end first one_fourth_column -->
+  <div class="post">  
+    <div class="post-image"> 
+      <a href="http://rta.zxy.me/purity_wp/?p=549"><img src="http://rta.zxy.me/purity_wp/wp-content/themes/purity/includes/timthumb.php?src=http://rta.zxy.me/purity_wp/wp-content/uploads/2011/10/3w.jpg&amp;h=120&amp;w=214&amp;zc=1" alt></a> 
+    </div>
+    
+    <div class="post-entry"> 
+      <h1 class="title"><a href="http://rta.zxy.me/purity_wp/?p=549">This is an example post</a></h1> 
+      <span class="post-meta">Posted by <strong><a href="http://rta.zxy.me/purity_wp/?author=1" title="Posts by Tauris" rel="author">Tauris</a></strong> in <strong><a href="http://rta.zxy.me/purity_wp/?cat=1" title="View all posts in Uncategorized" rel="category">Uncategorized</a></strong></span>
+      <p>Velit vel porta elementum, magna diam molestie sapien.Proin tincidunt, velit vel porta elementum, magna diam molestie sapien, non aliquet massa pede eu diam. Aliquam iaculis. Proin tincidunt, velit vel porta elementum, magna diam molestie sapien, non aliquet massa pede eu diam.<img title="More..." src="http://rta.zxy.me/purity_wp/wp-includes/js/tinymce/plugins/wordpress/img/trans.gif" alt="" /></p>
+    </div> 
+  </div>
 
-<?php endforeach ?>
+</div>
 
+
+  <div class="sidebar sidebar_left"> 
+
+    <div class="sidebar_item"><h5>Category</h5>		<ul>
+        <li class="cat-item cat-item-3"><a href="http://rta.zxy.me/purity_wp/?cat=3" title="View all posts filed under Articles">Articles</a>
+        </li>
+        <li class="cat-item cat-item-15"><a href="http://rta.zxy.me/purity_wp/?cat=15" title="View all posts filed under Random">Random</a>
+        </li>
+        <li class="cat-item cat-item-1"><a href="http://rta.zxy.me/purity_wp/?cat=1" title="View all posts filed under Uncategorized">Uncategorized</a>
+        </li>
+      </ul>
+    </div>                  
+
+    <div class="sidebar_item"><h5>Category</h5>		<ul>
+        <li class="cat-item cat-item-3"><a href="http://rta.zxy.me/purity_wp/?cat=3" title="View all posts filed under Articles">Articles</a>
+        </li>
+        <li class="cat-item cat-item-15"><a href="http://rta.zxy.me/purity_wp/?cat=15" title="View all posts filed under Random">Random</a>
+        </li>
+        <li class="cat-item cat-item-1"><a href="http://rta.zxy.me/purity_wp/?cat=1" title="View all posts filed under Uncategorized">Uncategorized</a>
+        </li>
+      </ul>
+    </div>                  
+
+  </div>
 </div>
