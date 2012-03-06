@@ -55,15 +55,21 @@ cart_clear:
   requirements:
     sf_method: [get]
     
+    
+# Static routes
 
-store:
-  url:     /store
-  param:   { module: store, action: display }
+about_designer:
+  url:     /about
+  param:   { module: content, action: aboutDesigner }
   
+about_press:
+  url:     /press
+  param:   { module: content, action: aboutPress }
+  
+about_blog:
+  url:     /blog
+  param:   { module: content, action: aboutBlog }
 
-about:
-  url:     /about-marka
-  param:   { module: content, action: about }
 
 contact:
   url:   /contact

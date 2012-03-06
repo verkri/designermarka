@@ -4,6 +4,14 @@
 	width: 960px;
         min-width: 960px;
 }
+
+._900wide {
+	margin-left: auto;
+	margin-right: auto;
+	width: 900px;
+        min-width: 900px;
+}
+
 ._fullwide { width: 100%; }
 
 .w25p, .w33p, .w50p, .w66p, .w75p, .w100p

@@ -15,24 +15,21 @@
 
 <div id="main"> 
   
+      
       <div class="peKenBurns peNoJs" data-autopause="image" data-mode="kb" data-controls="disabled" data-shadow="enabled" data-logo="disabled">
-        
-        <div data-delay="5" data-duration="10" data-zoom="in" data-thumb="/app/homeslider/5w.jpg">
-          <img src="/app/homeslider/5w.jpg" alt=""/>
-        </div>
-        
-        <div data-delay="5" data-duration="10" data-zoom="in" data-thumb="/app/homeslider/2w.jpg">
-          <img src="/images/estroslider/blank.png" data-src="/app/homeslider/2w.jpg" alt=""/>
-        </div>
-        
-        <div data-delay="5" data-duration="10" data-zoom="in" data-thumb="/app/homeslider/6w.jpg">
-          <img src="/images/estroslider/blank.png" data-src="/app/homeslider/6w.jpg" alt=""/>
-        </div>
-        
-        <div data-delay="5" data-duration="10" data-zoom="in" data-thumb="/app/homeslider/8w.jpg">
-          <img src="/images/estroslider/blank.png" data-src="/app/homeslider/8w.jpg" alt=""/>
-        </div>
-
+      
+        <?php for($i=0; $i< count($slides); ++$i) : ?>
+        <?php if ($i == 0): ?>
+          <div data-delay="5" data-duration="10" data-zoom="in" data-thumb="/<?php echo $slides[$i] ?>">
+            <img src="/<?php echo $slides[$i] ?>" alt=""/>
+          </div>
+        <?php else: ?>
+          <div data-delay="5" data-duration="10" data-zoom="in" data-thumb="/<?php echo $slides[$i] ?>">
+            <img src="/images/estroslider/blank.png" data-src="/<?php echo $slides[$i] ?>" alt=""/>
+          </div>
+        <?php endif ?>
+        <?php endfor ?>
+      
       </div>
 
 </div>

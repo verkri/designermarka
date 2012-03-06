@@ -25,4 +25,21 @@ class MarkaColorScheme extends BaseMarkaColorScheme
     return $q->execute();
   }
   
+  public function save(Doctrine_Connection $conn = null)
+  {
+    if ($this->isNew())
+    {
+      $this->setSlug( Utility::slugify($this->getName()) );
+    }
+ 
+    return parent::save($conn);
+  }
+  
+  public function getImage() {
+    $image = sfConfig::get('app_colorscheme_image_dir').$this->getSlug().'.'.sfConfig::get('app_image_ext');
+    return ( file_exists( $image ) )
+      ? DIRECTORY_SEPARATOR.$image
+      : "http://dummyimage.com/440x500/46475c/dadbe3.png&text=Not Found";
+  }
+  
 }

@@ -53,8 +53,10 @@
     <script>DD_belatedPNG.fix("img, .png_bg");</script>
   <![endif]-->
   <?php include_javascripts() ?>
+  
   <script type="text/javascript">
   <?php echo JavascriptRegister::get_functional() ?>
+  
   $(function() {
     <?php echo JavascriptRegister::get_content() ?>
   });

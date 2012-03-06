@@ -13,11 +13,15 @@ abstract class BaseMarkaCategoryFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'name' => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'name'        => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'slug'        => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'description' => new sfWidgetFormFilterInput(array('with_empty' => false)),
     ));
 
     $this->setValidators(array(
-      'name' => new sfValidatorPass(array('required' => false)),
+      'name'        => new sfValidatorPass(array('required' => false)),
+      'slug'        => new sfValidatorPass(array('required' => false)),
+      'description' => new sfValidatorPass(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('marka_category_filters[%s]');
@@ -37,8 +41,10 @@ abstract class BaseMarkaCategoryFormFilter extends BaseFormFilterDoctrine
   public function getFields()
   {
     return array(
-      'id'   => 'Number',
-      'name' => 'Text',
+      'id'          => 'Number',
+      'name'        => 'Text',
+      'slug'        => 'Text',
+      'description' => 'Text',
     );
   }
 }

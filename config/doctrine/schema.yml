@@ -46,6 +46,19 @@ MarkaProduct:
       local: colorscheme_id
       foreign: id
       foreignAlias: Products
+
+MarkaProductImage:
+  columns:
+    path: { type: string(255), notnull: true, unique: true }
+    product_id: { type: integer, notnull: true }
+    is_primary: { type: boolean, notnull: true, default: 0 }
+  relations:
+    Product: 
+      class: MarkaProduct
+      onDelete: CASCADE
+      local: product_id
+      foreign: id
+      foreignAlias: Images
     
 MarkaCustomer:
   actAs: 

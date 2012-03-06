@@ -14,15 +14,14 @@ class MarkaCategory extends BaseMarkaCategory
 {
   public function save(Doctrine_Connection $conn = null)
   {
-    if ($this->isNew() && !$this->getSlug() )
+    if ($this->isNew())
     {
-      $slug = Utility::slugify($this->getName());
-      $this->setExpiresAt(date('Y-m-d H:i:s', $now + 86400 * 30));
+      $this->setSlug( Utility::slugify($this->getName()) );
     }
  
     return parent::save($conn);
   }
-  
+    
   /*
   public function countActiveProducts()
   {

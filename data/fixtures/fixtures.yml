@@ -48,22 +48,22 @@ MarkaColorScheme:
     name: 'Reds & Pinks'
     slug: reds-and-pinks
     description: These products are made with redish and pinkish colors.
-    hexcolor1: '#ff0000'
-    hexcolor2: '#f50000'
+    hexcolor1: '#ff6464'
+    hexcolor2: '#ffe7e7'
     hexcolor3: '#f00000'
   cs_1:
     name: 'Blues & Greens'
     slug: blues-and-greens
     description: These products are made with blueish and greenish colors.
-    hexcolor1: '#00ff00'
-    hexcolor2: '#0000ff'
+    hexcolor1: '#6476ff'
+    hexcolor2: '#dbffd6'
     hexcolor3: '#00f8f8'
   cs_2:
     name: 'Metallic'
     slug: metallic
     description: These products are made of chains and steel.
-    hexcolor1: '#333333'
-    hexcolor2: '#777777'
+    hexcolor1: '#a2a2a2'
+    hexcolor2: '#e7e7e7'
     hexcolor3: '#aaaaaa'
     
 MarkaCustomer:

@@ -12,5 +12,17 @@ class MarkaCategoryForm extends BaseMarkaCategoryForm
 {
   public function configure()
   {
+    unset( $this['created_at'], $this['slug'] );
+    
+    $this->widgetSchema['image'] = new sfWidgetFormInputFile(array(
+      'label' => 'Category Image',
+    ));
+    
+    $this->validatorSchema['image'] = new sfValidatorFile(array(
+      'required'   => false,
+      'path'       => sfConfig::get('sf_upload_dir').'/category',
+      'mime_types' => 'web_images',
+    ));
+    
   }
 }

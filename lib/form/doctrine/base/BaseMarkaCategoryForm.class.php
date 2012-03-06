@@ -15,17 +15,24 @@ abstract class BaseMarkaCategoryForm extends BaseFormDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'id'   => new sfWidgetFormInputHidden(),
-      'name' => new sfWidgetFormInputText(),
+      'id'          => new sfWidgetFormInputHidden(),
+      'name'        => new sfWidgetFormInputText(),
+      'slug'        => new sfWidgetFormInputText(),
+      'description' => new sfWidgetFormTextarea(),
     ));
 
     $this->setValidators(array(
-      'id'   => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'name' => new sfValidatorString(array('max_length' => 255)),
+      'id'          => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
+      'name'        => new sfValidatorString(array('max_length' => 255)),
+      'slug'        => new sfValidatorString(array('max_length' => 255)),
+      'description' => new sfValidatorString(array('max_length' => 1000)),
     ));
 
     $this->validatorSchema->setPostValidator(
-      new sfValidatorDoctrineUnique(array('model' => 'MarkaCategory', 'column' => array('name')))
+      new sfValidatorAnd(array(
+        new sfValidatorDoctrineUnique(array('model' => 'MarkaCategory', 'column' => array('name'))),
+        new sfValidatorDoctrineUnique(array('model' => 'MarkaCategory', 'column' => array('slug'))),
+      ))
     );
 
     $this->widgetSchema->setNameFormat('marka_category[%s]');

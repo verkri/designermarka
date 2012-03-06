@@ -22,6 +22,16 @@ class MarkaCategoryTable extends Doctrine_Table
       return $this->createQuery('c')->innerJoin('c.Products p')->where('p.is_active = true')->execute();
     }
     
+    public function getChoices()
+    {
+      $categories = $this->getNotEmptyCategories();
+      $ret = array();
+      foreach ($categories as $cat) {
+        $ret[$cat->getSlug()] = $cat->getName();
+      }
+      return $ret;
+    }
+    
     /*
     public function getRandomLimitedCategories($limit)
     {

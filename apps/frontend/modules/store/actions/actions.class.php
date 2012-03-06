@@ -18,6 +18,18 @@ class storeActions extends sfActions
   public function executeDisplay(sfWebRequest $request)
   {
     $this->setMenus();
+    $this->form = new StoreFilterForm();
+    
+    $submitted = $request->getParameter($this->form->getName());
+    if ( $submitted ) {
+      $this->form->bind( $request->getParameter($this->form->getName()) );
+      if ( $this->form->isValid() ) {
+        echo "Form is valid!";
+      } else
+        echo "Form is invalid!";
+    }
+    
+    
     
     $this->marka_categories = Doctrine_Core::getTable('MarkaCategory')->getNotEmptyCategories();
     $this->marka_colorschemes = Doctrine_Core::getTable('MarkaColorScheme')->getNotEmptyColorSchemes();
@@ -27,7 +39,8 @@ class storeActions extends sfActions
   public function executeShowcolorscheme(sfWebRequest $request)
   {
     $this->setMenus();
-    
+    $this->form = new StoreFilterForm();
+
     $this->colorscheme = $this->getRoute()->getObject();
     $this->marka_categories = $this->colorscheme->getActiveCategories();
   }
@@ -36,9 +49,11 @@ class storeActions extends sfActions
   public function executeShowproduct(sfWebRequest $request)
   {
     $this->setMenus();
-    
+    $this->form = new StoreFilterForm();
+
     $this->marka_categories = Doctrine_Core::getTable('MarkaCategory')->getNotEmptyCategories();
     $this->product = $this->getRoute()->getObject();
     $this->category = $this->product->getCategory();
   }
+  
 }

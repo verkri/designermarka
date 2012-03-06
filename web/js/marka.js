@@ -6,11 +6,11 @@
  * ----------------------------------------------------------------  
  */
 
-
+/*
 function prettyPhoto() {
     $(".gallery a[rel^='gallery']").prettyPhoto({animation_speed:'normal',theme:'pp_default',deeplinking:false,slideshow:3000,opacity: 1,social_tools:true});
 }
-
+*/
 jQuery(document).ready(function(){	
 	
  
@@ -21,7 +21,7 @@ jQuery(document).ready(function(){
  */
 	
 	function mainmenu(){
-	$('.nav li').hover(function(){
+	$('nav li').hover(function(){
 		$(this).find('ul:first').css({visibility: "visible",display: "none"}).show(300);
 	},function(){
 		$(this).find('ul:first').css({visibility: "hidden"});
@@ -226,11 +226,11 @@ jQuery(document).ready(function(){
  * ----------------------------------------------------------------  
  */
 	
-	function prettyPhoto() {
+	/*function prettyPhoto() {
 		$(".gallery a[rel^='gallery']").prettyPhoto({animation_speed:'normal',theme:'pp_default',deeplinking:false,slideshow:3000});
 	}
 	
 	prettyPhoto();
-	
+	*/
 	
 });

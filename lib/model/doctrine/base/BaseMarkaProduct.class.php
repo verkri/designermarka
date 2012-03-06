@@ -18,6 +18,7 @@
  * @property string $short
  * @property MarkaCategory $Category
  * @property MarkaColorScheme $ColorScheme
+ * @property Doctrine_Collection $Images
  * @property Doctrine_Collection $MarkaOrderDetails
  * 
  * @method string              getName()              Returns the current record's "name" value
@@ -33,6 +34,7 @@
  * @method string              getShort()             Returns the current record's "short" value
  * @method MarkaCategory       getCategory()          Returns the current record's "Category" value
  * @method MarkaColorScheme    getColorScheme()       Returns the current record's "ColorScheme" value
+ * @method Doctrine_Collection getImages()            Returns the current record's "Images" collection
  * @method Doctrine_Collection getMarkaOrderDetails() Returns the current record's "MarkaOrderDetails" collection
  * @method MarkaProduct        setName()              Sets the current record's "name" value
  * @method MarkaProduct        setSlug()              Sets the current record's "slug" value
@@ -47,6 +49,7 @@
  * @method MarkaProduct        setShort()             Sets the current record's "short" value
  * @method MarkaProduct        setCategory()          Sets the current record's "Category" value
  * @method MarkaProduct        setColorScheme()       Sets the current record's "ColorScheme" value
+ * @method MarkaProduct        setImages()            Sets the current record's "Images" collection
  * @method MarkaProduct        setMarkaOrderDetails() Sets the current record's "MarkaOrderDetails" collection
  * 
  * @package    sf_sandbox
@@ -124,6 +127,10 @@ abstract class BaseMarkaProduct extends sfDoctrineRecord
              'local' => 'colorscheme_id',
              'foreign' => 'id',
              'onDelete' => 'RESTRICT'));
+
+        $this->hasMany('MarkaProductImage as Images', array(
+             'local' => 'id',
+             'foreign' => 'product_id'));
 
         $this->hasMany('MarkaOrderDetails', array(
              'local' => 'id',

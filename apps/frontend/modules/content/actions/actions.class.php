@@ -15,12 +15,39 @@ class contentActions extends sfActions
   {
     sfConfig::set('app_menu','world');
     sfConfig::set('app_submenu','');
+    
+    // search for slides
+    $dir_pattern = sfConfig::get('app_slider_image_dir').'*.'.sfConfig::get('app_image_ext');
+    $this->slides=glob($dir_pattern);
   }
-  
+    
   public function executeContact(sfWebRequest $request)
   {
     sfConfig::set('app_menu','contact');
     sfConfig::set('app_submenu','');
   }
   
+  public function executeAboutDesigner(sfWebRequest $request)
+  {
+    sfConfig::set('app_menu','about');
+    sfConfig::set('app_submenu','designer');
+    
+    $this->setTemplate('about');
+  }
+  
+  public function executeAboutPress(sfWebRequest $request)
+  {
+    sfConfig::set('app_menu','about');
+    sfConfig::set('app_submenu','press');
+    
+    $this->setTemplate('about');
+  }
+  
+  public function executeAboutBlog(sfWebRequest $request)
+  {
+    sfConfig::set('app_menu','about');
+    sfConfig::set('app_submenu','blog');
+    
+    $this->setTemplate('about');
+  }
 }

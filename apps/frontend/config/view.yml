@@ -22,6 +22,7 @@ default:
   javascripts:  
     - libs/jquery-1.7.1.min.js
     - libs/jquery-ui-1.8.18.min.js
+    - libs/jquery.tools.min.js
     - marka.js
     
   has_layout:     true
