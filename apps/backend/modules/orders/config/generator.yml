@@ -1,0 +1,27 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           MarkaOrder
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          marka_order
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        pending: { help: Whether the customer has paid this order, or not }
+        shipped: { help: Whether you have started to ship the products, or not }
+      list:
+        title: Order Management
+      filter:
+        display: [pending, shipped, customer_id, created_at]
+      form:    ~
+      edit:    
+        title: Editing Order "%%id%%"
+      new:
+        title: Create new Order

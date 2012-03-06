@@ -1,0 +1,25 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           MarkaProduct
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          marka_product
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        stockqty: {label: Stock Quantity }
+        cadprice: {label: Price }
+      list:
+        display: [=name, category_id, colorscheme_id, stockqty, cadprice, is_active]
+      filter:
+        display: [category_id, colorscheme_id, is_active]
+      form:    ~
+      edit:    ~
+      new:     ~

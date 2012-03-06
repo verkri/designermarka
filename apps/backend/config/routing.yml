@@ -1,0 +1,61 @@
+marka_customer:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                MarkaCustomer
+    module:               customers
+    prefix_path:          /customers
+    column:               id
+    with_wildcard_routes: true
+
+marka_order:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                MarkaOrder
+    module:               orders
+    prefix_path:          /orders
+    column:               id
+    with_wildcard_routes: true
+
+marka_product:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                MarkaProduct
+    module:               product
+    prefix_path:          /product
+    column:               id
+    with_wildcard_routes: true
+
+marka_category:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                MarkaCategory
+    module:               category
+    prefix_path:          /category
+    column:               id
+    with_wildcard_routes: true
+
+marka_color_scheme:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                MarkaColorScheme
+    module:               colorscheme
+    prefix_path:          /colorscheme
+    column:               id
+    with_wildcard_routes: true
+
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+# default rules
+home:
+  url:   /
+  param: { module: orders, action: index }
+
+# generic rules
+# please, remove them by adding more specific rules
+#default_index:
+#  url:   /:module
+#  param: { action: index }
+
+#default:
+#  url:   /:module/:action/*

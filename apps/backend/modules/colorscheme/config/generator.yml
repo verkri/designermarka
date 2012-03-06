@@ -1,0 +1,28 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           MarkaColorScheme
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          marka_color_scheme
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        products: {label: Product count}
+        hexcolor1: {label: C1 }
+        hexcolor2: {label: C2 }
+        hexcolor3: {label: C3 }
+      list:
+        display: [=name, description, products, hexcolor1, hexcolor2, hexcolor3]
+        batch_actions: {}
+      filter:
+        class: false
+      form:    ~
+      edit:    ~
+      new:     ~

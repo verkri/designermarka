@@ -1,0 +1,27 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           MarkaCustomer
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          marka_customer
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        created_at: {label: Registered}
+      list:
+        batch_actions: {}
+        actions: { }
+        object_actions: 
+          _delete: ~
+      filter:
+        class: false
+      form:    ~
+      edit:    ~
+      new:     ~
