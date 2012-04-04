@@ -14,15 +14,30 @@ generator:
     config:
       actions: ~
       fields:
+        name: 
+          attributes: { size: 70, maxlength: 100 } 
+          help: Should be no longer than 20 characters (maximum is 100 characters)
+        description:
+          attributes: { size: 70, maxlength: 100 }
+          help: Should be no longer than 60 characters (maximum is 100 characters)
+        image:
+          label: Descriptive Image
+          type: admin_input_file_tag
+          attributes: { height: 50%, width: 50% }
+          help: Image size should be at least 400x500 in PNG format (optimum is exactly 400x500 and keep the aspect ratio!)
+        has_image: 
+          label: Status
         products: {label: Product count}
         hexcolor1: {label: C1 }
         hexcolor2: {label: C2 }
         hexcolor3: {label: C3 }
       list:
-        display: [=name, description, products, hexcolor1, hexcolor2, hexcolor3]
+        display: [=name, description, products, has_image]
         batch_actions: {}
       filter:
         class: false
       form:    ~
-      edit:    ~
-      new:     ~
+      edit:
+        display: [name,description, image]
+      new:
+        display: [name,description, image]

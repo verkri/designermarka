@@ -13,4 +13,18 @@ require_once dirname(__FILE__).'/../lib/colorschemeGeneratorHelper.class.php';
  */
 class colorschemeActions extends autoColorschemeActions
 {
+  
+  public function executeDelete(sfWebRequest $request)
+  {
+    $object = $this->getRoute()->getObject();
+    $product_count = $object->getProductCount();
+    
+    if ( $product_count > 0 ) {
+      $this->getUser()->setFlash('error', "There are $product_count product(s) associated with this colorscheme (".$object->getName()."). Deletion is denied.");
+      $this->redirect('@marka_color_scheme');
+    } else {
+      parent::executeDelete($request);
+    }
+  } 
+  
 }

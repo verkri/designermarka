@@ -1,14 +1,17 @@
 MarkaCategory:
   columns:
-    name: { type: string(255), notnull: true, unique: true }
-    slug: { type: string(255), notnull: true, unique: true }
-    description: { type: string(1000), notnull: true }
+    name: { type: string(100), notnull: true, unique: true }
+    slug: { type: string(100), notnull: true, unique: true }
+    icon: { type: string(255) }
+    description: { type: string(100) }
     
 MarkaColorScheme:
   columns:
-    name: { type: string(255), notnull: true, unique: true }
-    slug: { type: string(255), notnull: true, unique: true }
-    description: { type: string(1000), notnull: true }    
+    name: { type: string(100), notnull: true, unique: true }
+    slug: { type: string(100), notnull: true, unique: true }
+    image: { type: string(255) }
+    description: { type: string(100) }
+    
     hexcolor1: { type: string(7) }
     hexcolor2: { type: string(7) }
     hexcolor3: { type: string(7) }
@@ -49,7 +52,7 @@ MarkaProduct:
 
 MarkaProductImage:
   columns:
-    path: { type: string(255), notnull: true, unique: true }
+    filename: { type: string(255), notnull: true, unique: true }
     product_id: { type: integer, notnull: true }
     is_primary: { type: boolean, notnull: true, default: 0 }
   relations:
@@ -59,7 +62,13 @@ MarkaProductImage:
       local: product_id
       foreign: id
       foreignAlias: Images
+
     
+    
+    
+    
+    
+
 MarkaCustomer:
   actAs: 
     Timestampable:

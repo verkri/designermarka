@@ -1,3 +1,4 @@
+<?php use_helper('JavascriptRegister'); ?>
 <!doctype html>
 <!--[if lt IE 7 ]> <html class="no-js ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]>    <html class="no-js ie7" lang="en"> <![endif]-->
@@ -16,15 +17,15 @@
     <?php include_metas() ?>
     <link rel="shortcut icon" href="/images/favicon.ico" />
     <?php include_stylesheets() ?>
-
+    
     <script type="text/javascript" src="/js/libs/modernizr-1.7.min.js"></script>
     <meta charset="UTF-8"/>
 </head>
 
-<!--[if lt IE 7 ]> <body class="ie6"> <![endif]-->
-<!--[if IE 7 ]>    <body class="ie7"> <![endif]-->
-<!--[if IE 8 ]>    <body class="ie8"> <![endif]-->
-<!--[if IE 9 ]>    <body class="ie9"> <![endif]-->
+<!--[if lt IE 7 ]> <body class="ie6 _960wide"> <![endif]-->
+<!--[if IE 7 ]>    <body class="ie7 _960wide"> <![endif]-->
+<!--[if IE 8 ]>    <body class="ie8 _960wide"> <![endif]-->
+<!--[if IE 9 ]>    <body class="ie9 _960wide"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!-->
 <body class="_960wide">
 <!--<![endif]-->
@@ -45,7 +46,9 @@
       </p>
     <?php endif; ?>
 
+  <article class="clearfix">
   <?php echo $sf_content; ?>
+  </article>
   <?php include_partial('global/footer') ?>
 
   <!--[if lt IE 7 ]>

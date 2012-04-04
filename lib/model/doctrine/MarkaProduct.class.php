@@ -20,6 +20,14 @@ class MarkaProduct extends BaseMarkaProduct
     return $this->getCategory()->getSlug();
   }
   
+  public function getPrimaryImage() {
+    return Doctrine_Core::getTable('MarkaProductImage')->getPrimaryImageOf($this->getId());
+  }
+  
+  public function getAdditionalImages() {
+    return Doctrine_Core::getTable('MarkaProductImage')->getAdditionalImagesOf($this->getId());
+  }
+  
   public function getImage() {
     $image = sfConfig::get('app_product_image_dir').$this->getToken().'.'.sfConfig::get('app_image_ext');
     return ( file_exists( $image ) )

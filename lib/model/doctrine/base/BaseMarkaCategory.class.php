@@ -7,15 +7,18 @@
  * 
  * @property string $name
  * @property string $slug
+ * @property string $icon
  * @property string $description
  * @property Doctrine_Collection $Products
  * 
  * @method string              getName()        Returns the current record's "name" value
  * @method string              getSlug()        Returns the current record's "slug" value
+ * @method string              getIcon()        Returns the current record's "icon" value
  * @method string              getDescription() Returns the current record's "description" value
  * @method Doctrine_Collection getProducts()    Returns the current record's "Products" collection
  * @method MarkaCategory       setName()        Sets the current record's "name" value
  * @method MarkaCategory       setSlug()        Sets the current record's "slug" value
+ * @method MarkaCategory       setIcon()        Sets the current record's "icon" value
  * @method MarkaCategory       setDescription() Sets the current record's "description" value
  * @method MarkaCategory       setProducts()    Sets the current record's "Products" collection
  * 
@@ -29,22 +32,25 @@ abstract class BaseMarkaCategory extends sfDoctrineRecord
     public function setTableDefinition()
     {
         $this->setTableName('marka_category');
-        $this->hasColumn('name', 'string', 255, array(
+        $this->hasColumn('name', 'string', 100, array(
              'type' => 'string',
              'notnull' => true,
              'unique' => true,
-             'length' => 255,
+             'length' => 100,
              ));
-        $this->hasColumn('slug', 'string', 255, array(
+        $this->hasColumn('slug', 'string', 100, array(
              'type' => 'string',
              'notnull' => true,
              'unique' => true,
+             'length' => 100,
+             ));
+        $this->hasColumn('icon', 'string', 255, array(
+             'type' => 'string',
              'length' => 255,
              ));
-        $this->hasColumn('description', 'string', 1000, array(
+        $this->hasColumn('description', 'string', 100, array(
              'type' => 'string',
-             'notnull' => true,
-             'length' => 1000,
+             'length' => 100,
              ));
     }
 

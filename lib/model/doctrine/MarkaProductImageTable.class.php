@@ -16,4 +16,13 @@ class MarkaProductImageTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('MarkaProductImage');
     }
+    
+    public function getPrimaryImageOf($product_id) {
+      $coll = $this->createQuery('c')->where("c.product_id = $product_id")->andWhere('is_primary = true')->limit(1)->execute();
+      return $coll->getFirst();
+    }
+    
+    public function getAdditionalImagesOf($product_id) {
+      return $this->createQuery('c')->where("c.product_id = $product_id")->andWhere('is_primary = false')->limit(1)->execute();
+    }
 }

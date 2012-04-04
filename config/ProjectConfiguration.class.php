@@ -8,6 +8,8 @@ class ProjectConfiguration extends sfProjectConfiguration
   public function setup()
   {
     $this->enablePlugins('sfDoctrinePlugin');
+    $this->enablePlugins('sfThumbnailPlugin');
+    $this->enablePlugins('sfImageTransformPlugin');
   }
   
   public function configureDoctrine(Doctrine_Manager $manager) 

@@ -7,6 +7,7 @@
  * 
  * @property string $name
  * @property string $slug
+ * @property string $image
  * @property string $description
  * @property string $hexcolor1
  * @property string $hexcolor2
@@ -15,6 +16,7 @@
  * 
  * @method string              getName()        Returns the current record's "name" value
  * @method string              getSlug()        Returns the current record's "slug" value
+ * @method string              getImage()       Returns the current record's "image" value
  * @method string              getDescription() Returns the current record's "description" value
  * @method string              getHexcolor1()   Returns the current record's "hexcolor1" value
  * @method string              getHexcolor2()   Returns the current record's "hexcolor2" value
@@ -22,6 +24,7 @@
  * @method Doctrine_Collection getProducts()    Returns the current record's "Products" collection
  * @method MarkaColorScheme    setName()        Sets the current record's "name" value
  * @method MarkaColorScheme    setSlug()        Sets the current record's "slug" value
+ * @method MarkaColorScheme    setImage()       Sets the current record's "image" value
  * @method MarkaColorScheme    setDescription() Sets the current record's "description" value
  * @method MarkaColorScheme    setHexcolor1()   Sets the current record's "hexcolor1" value
  * @method MarkaColorScheme    setHexcolor2()   Sets the current record's "hexcolor2" value
@@ -38,22 +41,25 @@ abstract class BaseMarkaColorScheme extends sfDoctrineRecord
     public function setTableDefinition()
     {
         $this->setTableName('marka_color_scheme');
-        $this->hasColumn('name', 'string', 255, array(
+        $this->hasColumn('name', 'string', 100, array(
              'type' => 'string',
              'notnull' => true,
              'unique' => true,
-             'length' => 255,
+             'length' => 100,
              ));
-        $this->hasColumn('slug', 'string', 255, array(
+        $this->hasColumn('slug', 'string', 100, array(
              'type' => 'string',
              'notnull' => true,
              'unique' => true,
+             'length' => 100,
+             ));
+        $this->hasColumn('image', 'string', 255, array(
+             'type' => 'string',
              'length' => 255,
              ));
-        $this->hasColumn('description', 'string', 1000, array(
+        $this->hasColumn('description', 'string', 100, array(
              'type' => 'string',
-             'notnull' => true,
-             'length' => 1000,
+             'length' => 100,
              ));
         $this->hasColumn('hexcolor1', 'string', 7, array(
              'type' => 'string',

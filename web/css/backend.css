@@ -1,0 +1,6 @@
+a, a:link, a:visited, a:hover, a:focus { 
+  border-bottom: 0px;
+}
+a:hover { border-bottom: 0px; }
+
+input[type=submit] {  padding: 2px 5px; }

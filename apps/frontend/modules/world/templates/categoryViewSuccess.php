@@ -1,43 +1,73 @@
 <style type="text/css">
-  body > hr {
-    border-color: <?php echo $colorscheme->getHexcolor1() ?>
-  }
-  
   .product {
-    border: 2px solid <?php echo $colorscheme->getHexcolor1() ?>;
+    
+    /*border: 2px solid #FF6464;
     border-radius: 5px;
-    background-color: <?php echo $colorscheme->getHexcolor2() ?>;
-    margin-bottom: 10px;
-    padding: 10px;
+    background-color: #FFE7E7;*/
+    /*padding: 0px 10px 10px 10px;*/
   }
   
   .product h3 {
-    text-align: center;
-    margin: 10px auto;
+    margin: 5px auto;
+    font-size: 2em;
+    color: #FF6464;
   }
+  
+  .product h4 {
+    margin: 5px;
+    text-align: right;
+    font-size: 1.8em;
+    color: black;
+  }
+  
+  #productlist li div{
+    border: 1px solid transparent;
+    padding: 10px;
+  }
+  
+  #productlist li:hover div{
+    border: 1px solid #FF6464;
+    border-radius: 5px;
+    background-color: #FFEAEA;
+  }
+  
+  hgroup.tagline {
+    padding-left: 10px;
+  }
+  
 </style>
 
-<article class="_900wide clearfix">
-  
-  <header class="tagline clearfix">
-    <h1 style="display: inline-block;"><?php echo $colorscheme->getName() ?> - <?php echo $category->getName() ?></h1>
-    <span><?php echo $category->getDescription() ?></span> 
-  </header>
+<header>
+  <hgroup class="tagline clearfix">
+    <h1><?php echo $colorscheme->getName() ?> - <?php echo $category->getName() ?></h1>
+    <h2><?php echo $category->getDescription() ?></h2>
+  </hgroup>
+</header>
 
-    <?php foreach ($products as $p): ?>
-      <div class="w25p">
-        <div class="product">
-        <h3><a href="<?php 
-              echo url_for('world_product',
-                            array('sf_subject' => $p,
-                                  'colorscheme_slug' => $colorscheme->getSlug(),
-                                  'category_slug' => $category->getSlug()
-                                )) ?>"><?php echo $p->getName() ?></a></h3>
+<section id="holder">
+
+<ul id="productlist">
+<?php foreach ($products as $p): ?>
+  <li class="w25p clearfix">
+    <a href="<?php
+  echo url_for('world_product', array('sf_subject' => $p,
+      'colorscheme_slug' => $colorscheme->getSlug(),
+      'category_slug' => $category->getSlug()
+  ))
+  ?>">
+    <div class="product">
+ 
+      <?php if ( $p->getPrimaryImage() == null ) : ?>
+        <img src="http://dummyimage.com/200x120/46475c/dadbe3.png&text=No Image" height="150" width="100%"/>
+      <?php else : ?>
+        <img src="<?php echo $p->getPrimaryImage()->getPath() ?>" height="150" width="100%"/>  
+      <?php endif; ?>
         
-        <img src="<?php echo $p->getImage() ?>" height="150" width="100%"/>
-        </div>        
-      </div>
-    <?php endforeach ?>
-      
-
-</article>
+      <h3><?php echo $p->getName() ?></h3>
+      <h4>$<?php echo $p->getCadprice() ?>.0 CAD</h4>
+    </div></a>
+  </li>
+<?php endforeach ?>
+</ul>
+  
+</section>

@@ -13,4 +13,16 @@ require_once dirname(__FILE__).'/../lib/categoryGeneratorHelper.class.php';
  */
 class categoryActions extends autoCategoryActions
 {
+  public function executeDelete(sfWebRequest $request)
+  {
+    $object = $this->getRoute()->getObject();
+    $product_count = $object->getProductCount();
+    
+    if ( $product_count > 0 ) {
+      $this->getUser()->setFlash('error', "There are $product_count product(s) associated with this category (".$object->getName()."). Deletion is denied.");
+      $this->redirect('@marka_category');
+    } else {
+      parent::executeDelete($request);
+    }
+  } 
 }

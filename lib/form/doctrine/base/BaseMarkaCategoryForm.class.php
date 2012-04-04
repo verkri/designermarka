@@ -18,14 +18,16 @@ abstract class BaseMarkaCategoryForm extends BaseFormDoctrine
       'id'          => new sfWidgetFormInputHidden(),
       'name'        => new sfWidgetFormInputText(),
       'slug'        => new sfWidgetFormInputText(),
-      'description' => new sfWidgetFormTextarea(),
+      'icon'        => new sfWidgetFormInputText(),
+      'description' => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
       'id'          => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'name'        => new sfValidatorString(array('max_length' => 255)),
-      'slug'        => new sfValidatorString(array('max_length' => 255)),
-      'description' => new sfValidatorString(array('max_length' => 1000)),
+      'name'        => new sfValidatorString(array('max_length' => 100)),
+      'slug'        => new sfValidatorString(array('max_length' => 100)),
+      'icon'        => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'description' => new sfValidatorString(array('max_length' => 100, 'required' => false)),
     ));
 
     $this->validatorSchema->setPostValidator(

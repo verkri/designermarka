@@ -14,14 +14,34 @@ class MarkaCategory extends BaseMarkaCategory
 {
   public function save(Doctrine_Connection $conn = null)
   {
-    if ($this->isNew())
-    {
-      $this->setSlug( Utility::slugify($this->getName()) );
-    }
- 
-    return parent::save($conn);
-  }
+    $this->setSlug( Utility::slugify($this->getName()) );
+    $ret = parent::save($conn);
     
+    if ( $this->hasIcon() ) {
+      $image_file = sfConfig::get('sf_web_dir').$this->getIconPath();
+      $img = new sfImage($image_file);
+      $sizes = explode('x',sfConfig::get('app_category_icon_size'));
+      $img->resize($sizes[0],$sizes[1])->save();
+    } else {
+      $this->setIcon("");
+    }    
+    return $ret;
+  }
+  
+  public function getIconpath() {
+    return sfConfig::get('app_category_icon_dir') . $this->getIcon();
+  }
+  
+  public function hasIcon() {
+    $image_file = sfConfig::get('sf_web_dir').$this->getIconPath();
+    return is_file($image_file);
+  }
+  
+  public function getProductCount() {
+    return $this->getProducts()->count();
+  }
+  
+  
   /*
   public function countActiveProducts()
   {

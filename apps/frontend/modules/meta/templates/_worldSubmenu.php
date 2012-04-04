@@ -2,7 +2,7 @@
   <ul>
     <?php foreach ($marka_colorschemes as $c): ?>
       <?php if ( sfConfig::get('app_submenu') == $c->getId() ): ?>
-        <li class="current-menu-item">
+        <li class="active">
       <?php else: ?>
         <li>
       <?php endif ?>

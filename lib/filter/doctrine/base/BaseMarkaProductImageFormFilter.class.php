@@ -13,13 +13,13 @@ abstract class BaseMarkaProductImageFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'path'       => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'filename'   => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'product_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Product'), 'add_empty' => true)),
       'is_primary' => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
     ));
 
     $this->setValidators(array(
-      'path'       => new sfValidatorPass(array('required' => false)),
+      'filename'   => new sfValidatorPass(array('required' => false)),
       'product_id' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Product'), 'column' => 'id')),
       'is_primary' => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
     ));
@@ -42,7 +42,7 @@ abstract class BaseMarkaProductImageFormFilter extends BaseFormFilterDoctrine
   {
     return array(
       'id'         => 'Number',
-      'path'       => 'Text',
+      'filename'   => 'Text',
       'product_id' => 'ForeignKey',
       'is_primary' => 'Boolean',
     );

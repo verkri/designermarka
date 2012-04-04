@@ -47,6 +47,10 @@ class worldActions extends sfActions
     $this->category = Doctrine_Core::getTable('MarkaCategory')->findBy('slug',$cat_slug)->getFirst();
     $this->colorscheme = Doctrine_Core::getTable('MarkaColorScheme')->findBy('slug',$cs_slug)->getFirst();
     
+    $this->primary_image = $this->product->getPrimaryImage();
+    $date = new DateTime($this->product->getManufactured());
+    $this->manufactured_timestamp = $date->format('U');
+    
     $this->forward404Unless( $this->category && $this->colorscheme );
     
     // extra check for URL forgery

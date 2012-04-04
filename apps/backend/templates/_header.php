@@ -2,13 +2,13 @@
 
     <div class="w25p">
       <div class="logo"> 
-        <a href="http://dev.designermarka.com" class="logo_img"><img src="/images/logo.png?v=1" alt="Marka Designs"></a>
+        <a href="http://dev.designermarka.com" class="logo_img"><img src="/images/marka-logo.png" alt="Marka Designs"></a>
       </div> 
     </div>
 
     <div class="w75p">
       <div class="clearfix">
-        <nav> 
+        <nav>
           <ul> 
             <li><?php echo link_to('Colorschemes','marka_color_scheme') ?></li>
             <li><?php echo link_to('Categories','marka_category') ?></li>
@@ -21,4 +21,3 @@
 
     </div>
 </header>
-<hr/>

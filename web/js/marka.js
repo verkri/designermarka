@@ -13,13 +13,8 @@ function prettyPhoto() {
 */
 jQuery(document).ready(function(){	
 	
- 
-/*
- * ---------------------------------------------------------------- 
- *  Dropdown menu
- * ----------------------------------------------------------------  
- */
 	
+        /*
 	function mainmenu(){
 	$('nav li').hover(function(){
 		$(this).find('ul:first').css({visibility: "visible",display: "none"}).show(300);
@@ -31,11 +26,6 @@ jQuery(document).ready(function(){
 	mainmenu();
 	
 
-/*
- * ---------------------------------------------------------------- 
- *  Image hover effect
- * ----------------------------------------------------------------  
- */
  	
 	// Over field
 	
@@ -80,11 +70,6 @@ jQuery(document).ready(function(){
     });
 	
 	
-/*
- * ---------------------------------------------------------------- 
- *  Simple codes
- * ----------------------------------------------------------------  
- */
 	
 	// Tabs
 	
@@ -106,11 +91,6 @@ jQuery(document).ready(function(){
 	});
 	
 	
-/*
- * ---------------------------------------------------------------- 
- *  Quicksand (Sortable Portfolio)
- * ----------------------------------------------------------------  
- */
  
 	if (jQuery().quicksand) {
 
@@ -220,13 +200,8 @@ jQuery(document).ready(function(){
     
     }
 	
-/*
- * ---------------------------------------------------------------- 
- *  PrettyPhoto
- * ----------------------------------------------------------------  
- */
 	
-	/*function prettyPhoto() {
+	function prettyPhoto() {
 		$(".gallery a[rel^='gallery']").prettyPhoto({animation_speed:'normal',theme:'pp_default',deeplinking:false,slideshow:3000});
 	}
 	

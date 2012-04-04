@@ -31,7 +31,7 @@ marka_category:
     model:                MarkaCategory
     module:               category
     prefix_path:          /category
-    column:               id
+    column:               slug
     with_wildcard_routes: true
 
 marka_color_scheme:
@@ -40,7 +40,7 @@ marka_color_scheme:
     model:                MarkaColorScheme
     module:               colorscheme
     prefix_path:          /colorscheme
-    column:               id
+    column:               slug
     with_wildcard_routes: true
 
 # You can find more information about this file on the symfony website:
@@ -49,7 +49,7 @@ marka_color_scheme:
 # default rules
 home:
   url:   /
-  param: { module: orders, action: index }
+  param: { module: product, action: index }
 
 # generic rules
 # please, remove them by adding more specific rules

@@ -14,12 +14,16 @@ generator:
     config:
       actions: ~
       fields:
-        stockqty: {label: Stock Quantity }
+        stockqty: {label: Qty }
         cadprice: {label: Price }
+        is_active:
+          label: Active
       list:
         display: [=name, category_id, colorscheme_id, stockqty, cadprice, is_active]
       filter:
         display: [category_id, colorscheme_id, is_active]
       form:    ~
-      edit:    ~
-      new:     ~
+      edit:
+        display: [name, category_id, colorscheme_id, is_active, manufactured, stockqty, cadprice, is_active, description, short]
+      new:
+        display: [name, category_id, colorscheme_id, is_active, manufactured, stockqty, cadprice, is_active, description, short]

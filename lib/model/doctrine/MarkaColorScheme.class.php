@@ -27,19 +27,32 @@ class MarkaColorScheme extends BaseMarkaColorScheme
   
   public function save(Doctrine_Connection $conn = null)
   {
-    if ($this->isNew())
-    {
-      $this->setSlug( Utility::slugify($this->getName()) );
+    $this->setSlug( Utility::slugify($this->getName()) );
+    $ret = parent::save($conn);
+    
+    if ( $this->hasImage() ) {
+      $image_file = sfConfig::get('sf_web_dir').$this->getImagePath();
+      $img = new sfImage($image_file);
+      $sizes = explode('x',sfConfig::get('app_colorscheme_image_size'));
+      $img->resize($sizes[0],$sizes[1])->save();
+    } else {
+      $this->setImage("");
     }
- 
-    return parent::save($conn);
+    
+    return $ret;
   }
   
-  public function getImage() {
-    $image = sfConfig::get('app_colorscheme_image_dir').$this->getSlug().'.'.sfConfig::get('app_image_ext');
-    return ( file_exists( $image ) )
-      ? DIRECTORY_SEPARATOR.$image
-      : "http://dummyimage.com/440x500/46475c/dadbe3.png&text=Not Found";
+  public function getImagepath() {
+    return sfConfig::get('app_colorscheme_image_dir') . $this->getImage();
   }
   
+  public function hasImage() {
+    $image_file = sfConfig::get('sf_web_dir').$this->getImagePath();
+    return is_file($image_file);
+  }
+  
+  public function getProductCount() {
+    return $this->getProducts()->count();
+  }
+   
 }
