@@ -20,6 +20,7 @@ class MarkaColorSchemeForm extends BaseMarkaColorSchemeForm
       'edit_mode' => true,
       'template'  => '<div>%input%</div><br/>',
     );
+    
     if ( $this->getObject()->hasImage() ) {
       $image_options['is_image'] = true;
       $image_options['template'] .= '<div class="clearfix">%delete_label% %delete%</div><br/><div>%file%</div><br/>';

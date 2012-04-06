@@ -13,4 +13,43 @@ require_once dirname(__FILE__).'/../lib/productGeneratorHelper.class.php';
  */
 class productActions extends autoProductActions
 {
+  
+  public function executeBatchActivate(sfWebRequest $request)
+  {
+    $ids = $request->getParameter('ids');
+
+    $records = Doctrine_Query::create()
+      ->from('MarkaProduct')
+      ->whereIn('id', $ids)
+      ->execute();
+
+    foreach ($records as $record)
+    {
+      $this->dispatcher->notify(new sfEvent($this, 'admin.publish_object', array('object' => $record)));
+      $record->activate();
+    }
+
+    $this->getUser()->setFlash('notice', 'The selected items have been activated successfully.');
+    $this->redirect('@marka_product');
+  }
+  
+  public function executeBatchDeactivate(sfWebRequest $request)
+  {
+    $ids = $request->getParameter('ids');
+
+    $records = Doctrine_Query::create()
+      ->from('MarkaProduct')
+      ->whereIn('id', $ids)
+      ->execute();
+
+    foreach ($records as $record)
+    {
+      $this->dispatcher->notify(new sfEvent($this, 'admin.publish_object', array('object' => $record)));
+      $record->deactivate();
+    }
+
+    $this->getUser()->setFlash('notice', 'The selected items have been deactivated successfully.');
+    $this->redirect('@marka_product');
+  }
+    
 }

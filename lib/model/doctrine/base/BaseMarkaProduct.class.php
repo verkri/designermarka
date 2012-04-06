@@ -12,7 +12,7 @@
  * @property date $manufactured
  * @property string $token
  * @property integer $stockqty
- * @property integer $cadprice
+ * @property double $cadprice
  * @property boolean $is_active
  * @property string $description
  * @property string $short
@@ -28,7 +28,7 @@
  * @method date                getManufactured()      Returns the current record's "manufactured" value
  * @method string              getToken()             Returns the current record's "token" value
  * @method integer             getStockqty()          Returns the current record's "stockqty" value
- * @method integer             getCadprice()          Returns the current record's "cadprice" value
+ * @method double              getCadprice()          Returns the current record's "cadprice" value
  * @method boolean             getIsActive()          Returns the current record's "is_active" value
  * @method string              getDescription()       Returns the current record's "description" value
  * @method string              getShort()             Returns the current record's "short" value
@@ -62,17 +62,17 @@ abstract class BaseMarkaProduct extends sfDoctrineRecord
     public function setTableDefinition()
     {
         $this->setTableName('marka_product');
-        $this->hasColumn('name', 'string', 255, array(
+        $this->hasColumn('name', 'string', 50, array(
              'type' => 'string',
              'notnull' => true,
              'unique' => true,
-             'length' => 255,
+             'length' => 50,
              ));
-        $this->hasColumn('slug', 'string', 255, array(
+        $this->hasColumn('slug', 'string', 50, array(
              'type' => 'string',
              'notnull' => true,
              'unique' => true,
-             'length' => 255,
+             'length' => 50,
              ));
         $this->hasColumn('category_id', 'integer', null, array(
              'type' => 'integer',
@@ -96,8 +96,8 @@ abstract class BaseMarkaProduct extends sfDoctrineRecord
              'notnull' => true,
              'default' => 1,
              ));
-        $this->hasColumn('cadprice', 'integer', null, array(
-             'type' => 'integer',
+        $this->hasColumn('cadprice', 'double', null, array(
+             'type' => 'double',
              'notnull' => true,
              ));
         $this->hasColumn('is_active', 'boolean', null, array(
@@ -105,13 +105,13 @@ abstract class BaseMarkaProduct extends sfDoctrineRecord
              'notnull' => true,
              'default' => 0,
              ));
-        $this->hasColumn('description', 'string', 3000, array(
+        $this->hasColumn('description', 'string', 2000, array(
              'type' => 'string',
-             'length' => 3000,
+             'length' => 2000,
              ));
-        $this->hasColumn('short', 'string', 200, array(
+        $this->hasColumn('short', 'string', 100, array(
              'type' => 'string',
-             'length' => 200,
+             'length' => 100,
              ));
     }
 

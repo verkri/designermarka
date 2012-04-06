@@ -57,10 +57,11 @@
   ?>">
     <div class="product">
  
-      <?php if ( $p->getPrimaryImage() == null ) : ?>
+      <?php $image = $p->getImages()->getFirst() ?>
+      <?php if ( $image == null ) : ?>
         <img src="http://dummyimage.com/200x120/46475c/dadbe3.png&text=No Image" height="150" width="100%"/>
       <?php else : ?>
-        <img src="<?php echo $p->getPrimaryImage()->getPath() ?>" height="150" width="100%"/>  
+        <img src="<?php echo $image->getImagepath() ?>" height="150" width="100%"/>  
       <?php endif; ?>
         
       <h3><?php echo $p->getName() ?></h3>

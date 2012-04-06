@@ -7,6 +7,25 @@
 .txtc { text-align: center; }
 .txtr { text-align: right; }
 .txtl { text-align: left; }
+
+.left { float:left; }
+.right { float:right; }
+
+.back {
+  background-color: #dddddd;
+  padding: 5px;
+  border: 0px;
+  text-align: right;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  border-radius: 7px;
+  line-height: 2em;
+}
+
+a.back:hover {
+  border: 0px;
+}
+
 /*
 @font-face {
     font-family: 'LeagueGothicRegular';

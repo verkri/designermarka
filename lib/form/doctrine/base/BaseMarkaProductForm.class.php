@@ -32,17 +32,17 @@ abstract class BaseMarkaProductForm extends BaseFormDoctrine
 
     $this->setValidators(array(
       'id'             => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'name'           => new sfValidatorString(array('max_length' => 255)),
-      'slug'           => new sfValidatorString(array('max_length' => 255)),
+      'name'           => new sfValidatorString(array('max_length' => 50)),
+      'slug'           => new sfValidatorString(array('max_length' => 50)),
       'category_id'    => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Category'))),
       'colorscheme_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('ColorScheme'))),
       'manufactured'   => new sfValidatorDate(array('required' => false)),
       'token'          => new sfValidatorString(array('max_length' => 255)),
       'stockqty'       => new sfValidatorInteger(array('required' => false)),
-      'cadprice'       => new sfValidatorInteger(),
+      'cadprice'       => new sfValidatorPass(),
       'is_active'      => new sfValidatorBoolean(array('required' => false)),
-      'description'    => new sfValidatorString(array('max_length' => 3000, 'required' => false)),
-      'short'          => new sfValidatorString(array('max_length' => 200, 'required' => false)),
+      'description'    => new sfValidatorString(array('max_length' => 2000, 'required' => false)),
+      'short'          => new sfValidatorString(array('max_length' => 100, 'required' => false)),
       'created_at'     => new sfValidatorDateTime(),
     ));
 

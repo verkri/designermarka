@@ -13,6 +13,25 @@
 <td class="sf_admin_text sf_admin_list_td_cadprice">
   $ <?php echo $marka_product->getCadprice() ?>.0 CAD
 </td>
+<td class="sf_admin_boolean sf_admin_list_td_imagecount">
+  <?php 
+    $options = null;
+    if ( $marka_product->getImagecount() != 0 ) {
+      $options = array ( 'value' => true, 'desc' => 'Product has images uploaded.');
+    } else {
+      $options = array ( 'value' => false, 'desc' => 'No images found!');
+    }
+    echo get_partial('product/list_field_status', $options) 
+  ?>
+</td>
 <td class="sf_admin_boolean sf_admin_list_td_is_active">
-  <?php echo get_partial('product/list_field_boolean', array('value' => $marka_product->getIsActive())) ?>
+  <?php 
+    $options = null;
+    if ( $marka_product->getIsActive() != 0 ) {
+      $options = array ( 'value' => true, 'desc' => 'Activated');
+    } else {
+      $options = array ( 'value' => false, 'desc' => 'Inactive!');
+    }
+    echo get_partial('product/list_field_status', $options) 
+  ?>
 </td>

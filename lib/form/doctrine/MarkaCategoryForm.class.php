@@ -19,14 +19,13 @@ class MarkaCategoryForm extends BaseMarkaCategoryForm
       'file_src' => $this->getObject()->getIconpath(),
       'edit_mode' => true,
       'template'  => '<div>%input%</div><br/>',
-      'with_delete' => true,
-      'delete_label' => 'Remove icon',
     );
     
     if ( $this->getObject()->hasIcon() ) {
       $icon_options['is_image'] = true;
       $icon_options['template'] .= '<div class="clearfix">%delete_label% %delete%</div><br/><div>%file%</div><br/>';
       $icon_options['with_delete'] = true;
+      $icon_options['delete_label'] = 'Remove icon';
     }
     
     $this->widgetSchema['icon'] = new sfWidgetFormInputFileEditable($icon_options);

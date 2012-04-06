@@ -1,30 +1,28 @@
 <?php
 
-/**
- * MarkaProductImage form.
- *
- * @package    sf_sandbox
- * @subpackage form
- * @author     Your name here
- * @version    SVN: $Id: sfDoctrineFormTemplate.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
- */
-class MarkaProductImageForm extends BaseMarkaProductImageForm
-{
+class MarkaProductCurrentImageForm extends sfForm {
 
-  public function configureForUpload()
-  {
-    $this->useFields(array('filename'));
-    
-    $this->setWidget('filename', new sfWidgetFormInputFile(array('label' => false)));
-    
-    $this->setValidator('filename', new sfValidatorFile(array(
-      'required' => false,
-      'mime_types' => 'web_images',
-      'path' => sfConfig::get('sf_web_dir') . sfConfig::get('app_product_image_dir'),
-    )));
+  public function configure() {
+    if (!$product = $this->getOption('product')) {
+      throw new InvalidArgumentException('You must provide a product object.');
+    }
+
+    $i = 0;
+    foreach ( $product->getImages() as $image ) {
+      $form = new MarkaProductImageForm($image);
+      $form->configureForDisplayAndRemove();
+      
+      $this->embedForm($i++, $form);
+    }
+    //$this->mergePostValidator(new MarkaProductImageValidatorSchema());
   }
   
-  public function configureForDisplayAndRemove()
+}
+
+/*
+class MarkaProductCurrentImageForm extends BaseMarkaProductImageForm {
+  
+  public function configure()
   {
     $this->useFields(array('filename'));
     
@@ -47,6 +45,6 @@ class MarkaProductImageForm extends BaseMarkaProductImageForm
     
     $this->validatorSchema['filename_delete'] = new sfValidatorPass();
   }
-  
+}*/
 
-}
+?>

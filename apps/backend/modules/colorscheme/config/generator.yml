@@ -23,7 +23,6 @@ generator:
         image:
           label: Descriptive Image
           type: admin_input_file_tag
-          attributes: { height: 50%, width: 50% }
           help: Image size should be at least 400x500 in PNG format (optimum is exactly 400x500 and keep the aspect ratio!)
         has_image: 
           label: Status

@@ -4,7 +4,7 @@ generator:
     model_class:           MarkaProduct
     theme:                 admin
     non_verbose_templates: true
-    with_show:             false
+    with_show:             true
     singular:              ~
     plural:                ~
     route_prefix:          marka_product
@@ -14,16 +14,45 @@ generator:
     config:
       actions: ~
       fields:
-        stockqty: {label: Qty }
-        cadprice: {label: Price }
-        is_active:
-          label: Active
+        name:
+          help: Should pick a unique, short name (maximum length is 50).
+          attributes: { maxlength: 50, size: 50 }
+        stockqty:
+          label: Quantity
+          help: How many you have in stock
+          attributes: { size: 2 }
+        cadprice:
+          label: Price (CAD)
+          attributes: { size: 4 }
+        short:
+          label: Short description
+          attributes: { maxlength: 100, size: 100 }
+          help: Physical sizes, materials, etc.
+        description:
+          attributes: { rows: 13, cols: 80 }
+          help: Should fill the whole textare (maximum length is 2000 characters)!
+        imagecount:
+          label: Images
       list:
-        display: [=name, category_id, colorscheme_id, stockqty, cadprice, is_active]
+        display: [=name, category_id, colorscheme_id, stockqty, cadprice, imagecount, is_active]
+        fields:
+          is_active:
+            label: Active
+          stockqty: {label: Qty }
+          cadprice: {label: Price }
+        batch_actions: { _delete: ~, _activate: ~, _deactivate: ~ }
       filter:
         display: [category_id, colorscheme_id, is_active]
       form:    ~
       edit:
-        display: [name, category_id, colorscheme_id, is_active, manufactured, stockqty, cadprice, is_active, description, short]
+        display: [name, category_id, colorscheme_id, is_active, manufactured, stockqty, cadprice, is_active, short, description]
+        fields:
+          is_active:
+            label: Publish?
+            help: If checked, the product will go online, otherwise customers won't see it until activated.
       new:
         display: [name, category_id, colorscheme_id, is_active, manufactured, stockqty, cadprice, is_active, description, short]
+        fields:
+          is_active:
+            label: Publish?
+            help: If checked, the product will go online, otherwise customers won't see it until activated.

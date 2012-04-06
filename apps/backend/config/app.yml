@@ -2,5 +2,5 @@
 # http://www.symfony-project.org/reference/1_4/en/11-App
 
 # default values
-#all:
-  
+all:
+  product_upload_image_count: 4

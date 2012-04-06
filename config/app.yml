@@ -4,9 +4,8 @@
 # default values
 all:
   
-  slider_image_dir: app/homeslider/
-  product_image_dir: app/product/
-
+  slider_image_dir: /app/homeslider/
+  product_image_dir: /app/product/
   
   colorscheme_image_dir: /app/colorscheme/
   colorscheme_image_size: 400x500
@@ -24,5 +23,4 @@ all:
     mime_type:
       auto_detect: true
       library: gd_mime_type #  gd_mime_type (GD), Fileinfo (PECL), MIME_Type (PEAR)
-  
   

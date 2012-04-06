@@ -12,4 +12,7 @@
  */
 class MarkaProductImage extends BaseMarkaProductImage
 {
+  public function getImagepath() {
+    return sfConfig::get('app_product_image_dir') . $this->getFilename();
+  }  
 }

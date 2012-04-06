@@ -17,20 +17,14 @@ abstract class BaseMarkaProductImageForm extends BaseFormDoctrine
     $this->setWidgets(array(
       'id'         => new sfWidgetFormInputHidden(),
       'filename'   => new sfWidgetFormInputText(),
-      'product_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Product'), 'add_empty' => false)),
-      'is_primary' => new sfWidgetFormInputCheckbox(),
+      'product_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Product'), 'add_empty' => true)),
     ));
 
     $this->setValidators(array(
       'id'         => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'filename'   => new sfValidatorString(array('max_length' => 255)),
-      'product_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Product'))),
-      'is_primary' => new sfValidatorBoolean(array('required' => false)),
+      'filename'   => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'product_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Product'), 'required' => false)),
     ));
-
-    $this->validatorSchema->setPostValidator(
-      new sfValidatorDoctrineUnique(array('model' => 'MarkaProductImage', 'column' => array('filename')))
-    );
 
     $this->widgetSchema->setNameFormat('marka_product_image[%s]');
 

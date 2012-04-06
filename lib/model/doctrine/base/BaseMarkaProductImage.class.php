@@ -7,16 +7,13 @@
  * 
  * @property string $filename
  * @property integer $product_id
- * @property boolean $is_primary
  * @property MarkaProduct $Product
  * 
  * @method string            getFilename()   Returns the current record's "filename" value
  * @method integer           getProductId()  Returns the current record's "product_id" value
- * @method boolean           getIsPrimary()  Returns the current record's "is_primary" value
  * @method MarkaProduct      getProduct()    Returns the current record's "Product" value
  * @method MarkaProductImage setFilename()   Sets the current record's "filename" value
  * @method MarkaProductImage setProductId()  Sets the current record's "product_id" value
- * @method MarkaProductImage setIsPrimary()  Sets the current record's "is_primary" value
  * @method MarkaProductImage setProduct()    Sets the current record's "Product" value
  * 
  * @package    sf_sandbox
@@ -31,18 +28,10 @@ abstract class BaseMarkaProductImage extends sfDoctrineRecord
         $this->setTableName('marka_product_image');
         $this->hasColumn('filename', 'string', 255, array(
              'type' => 'string',
-             'notnull' => true,
-             'unique' => true,
              'length' => 255,
              ));
         $this->hasColumn('product_id', 'integer', null, array(
              'type' => 'integer',
-             'notnull' => true,
-             ));
-        $this->hasColumn('is_primary', 'boolean', null, array(
-             'type' => 'boolean',
-             'notnull' => true,
-             'default' => 0,
              ));
     }
 

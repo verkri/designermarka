@@ -22,7 +22,7 @@ marka_product:
     model:                MarkaProduct
     module:               product
     prefix_path:          /product
-    column:               id
+    column:               slug
     with_wildcard_routes: true
 
 marka_category:
@@ -50,6 +50,9 @@ marka_color_scheme:
 home:
   url:   /
   param: { module: product, action: index }
+
+default:
+  url:   /:module/:action/*
 
 # generic rules
 # please, remove them by adding more specific rules
