@@ -12,7 +12,58 @@
  */
 class MarkaProductImage extends BaseMarkaProductImage
 {
+  
+  public function save(Doctrine_Connection $conn = null)
+  {
+    if ( $this->hasImage() ) {
+      $image_file = sfConfig::get('sf_web_dir').$this->getImagePath();
+      $img = new sfImage($image_file);
+      $sizes = explode('x',sfConfig::get('app_product_image_size'));
+      $img->resize($sizes[0],$sizes[1])->save();
+    
+      $sizes = explode('x',sfConfig::get('app_product_image_medium_size'));
+      $img->resize($sizes[0],$sizes[1])->saveAs(sfConfig::get('sf_web_dir').$this->getMediumPath());
+      
+      $sizes = explode('x',sfConfig::get('app_product_image_thumbnail_size'));
+      $img->resize($sizes[0],$sizes[1])->saveAs(sfConfig::get('sf_web_dir').$this->getThumbnailPath());
+      
+    } else {
+      $this->setFilename("");
+    }
+      
+    $ret = parent::save($conn);
+  }
+  
+  public function postDelete($event)
+  {
+    $a = $event->getInvoker()->getModified(true,true);
+    $filename = $a['filename'];
+      
+    $path = sfConfig::get('sf_web_dir').sfConfig::get('app_product_image_thumbnail_dir').$filename;
+    if ( is_file($path) )
+      unlink($path);
+    
+    $path = sfConfig::get('sf_web_dir').sfConfig::get('app_product_image_medium_dir').$filename;
+    if ( is_file($path) )
+      unlink($path);
+  }
+    
+  public function hasImage() {
+    $image_file = sfConfig::get('sf_web_dir').$this->getImagePath();
+    return is_file($image_file);
+  }
+  
   public function getImagepath() {
     return sfConfig::get('app_product_image_dir') . $this->getFilename();
-  }  
+  }
+  
+  public function getThumbnailpath() {
+    return sfConfig::get('app_product_image_thumbnail_dir') . $this->getFilename();
+  }
+  
+  public function getMediumpath() {
+    return sfConfig::get('app_product_image_medium_dir') . $this->getFilename();
+  }
+  
+  
 }

@@ -17,8 +17,11 @@ class contentActions extends sfActions
     sfConfig::set('app_submenu','');
     
     // search for slides
-    $dir_pattern = sfConfig::get('app_slider_image_dir').'*.'.sfConfig::get('app_image_ext');
+    $dir_pattern = sfConfig::get('sf_web_dir').sfConfig::get('app_slider_image_dir').'*.'.sfConfig::get('app_slider_image_ext');
     $this->slides=glob($dir_pattern);
+    for ( $i= 0; $i < count($this->slides); ++$i ) {
+      $this->slides[$i] = sfConfig::get('app_slider_image_dir') . basename($this->slides[$i]);
+    }
   }
     
   public function executeContact(sfWebRequest $request)

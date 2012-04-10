@@ -14,7 +14,7 @@
 
 ._fullwide { width: 100%; }
 
-.w20p, .w25p, .w33p, .w50p, .w66p, .w75p, .w100p
+.w20p, .w25p, .w33p, .w40p, .w50p, .w60p, .w66p, .w75p, .w80p, .w100p
 {
 	display:inline;
 	float: left;
@@ -29,10 +29,14 @@
 
 .w20p {width:19.0%;}
 .w25p {width:24.0%;}
-.w50p {width:49.0%;}
-.w75p {width:74.0%;}
 .w33p {width:32.3%;}
+.w40p {width:39.0%;}
+.w50p {width:49.0%;}
+.w60p {width:59.0%;}
 .w66p {width:65.6%;}
+.w75p {width:74.0%;}
+.w80p {width:79.0%;}
+
 .w100p {width: 100.0%; margin-left: 0; margin-right: 0;}
 
 .clear {

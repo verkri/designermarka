@@ -5,10 +5,19 @@
 all:
   
   slider_image_dir: /app/homeslider/
-  product_image_dir: /app/product/
+  slider_image_ext: png
   
+  product_image_dir: /app/product/
+  product_image_size: 440x440
+  
+  product_image_thumbnail_dir: /app/product/thumbs/
+  product_image_thumbnail_size: 100x100
+  
+  product_image_medium_dir: /app/product/medium/
+  product_image_medium_size: 200x200
+    
   colorscheme_image_dir: /app/colorscheme/
-  colorscheme_image_size: 400x500
+  colorscheme_image_size: 480x580
   colorscheme_default_image: /app/default/colorscheme.png
   
   category_icon_dir: /app/category/

@@ -1,6 +1,6 @@
 <style type="text/css">
 .categorylist {
-  margin-top: 150px;
+  margin-top: 200px;
 }
 
 .categorylist h1, .categorylist h2 {
@@ -18,13 +18,11 @@
 }
 
 .categorylist h3 a {
-  color: #666;
-  border-bottom: 2px transparent ridge;
+  color: #888;
 }
 
 .categorylist h3 a:hover {
-  color: black;
-  border-bottom: 2px red ridge;
+  color: red;
 }
 
 .categorylist h3 {
@@ -35,11 +33,15 @@
   padding: 2px 0;
 }
 
+.categorylist hgroup {
+  margin-bottom: 40px;
+}
+
 </style>
 
 <section class="w50p">
   <?php if ( $colorscheme->hasImage() ) : ?>
-    <?php echo image_tag($colorscheme->getImagepath(), array('size' => sfConfig::get('app_colorscheme_image_size')) ); ?>
+    <?php echo image_tag($colorscheme->getImagepath(), array('size' => /*sfConfig::get('app_colorscheme_image_size')*/ "460x580") ); ?>
   <?php else : ?>
     <?php echo image_tag(sfConfig::get('app_colorscheme_default_image'), array('size' => sfConfig::get('app_colorscheme_image_size')) ); ?>
   <?php endif; ?>
@@ -55,7 +57,7 @@
   
   <ul>
   <?php foreach ($categories as $c): ?>
-    <li class="w50p clearfix">
+    <li class="w100p clearfix">
       <?php if ( $c->hasIcon() ) : ?>
         <?php echo image_tag($c->getIconpath(), array('size' => sfConfig::get('app_category_icon_size'), 'class' => 'category-icon')); ?>
       <?php else : ?>

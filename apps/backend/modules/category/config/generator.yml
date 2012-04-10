@@ -19,7 +19,7 @@ generator:
           help: Should be no longer than 20 characters (maximum is 100 characters)
         description:
           attributes: { size: 70, maxlength: 100 }
-          help: Should be no longer than 100 characters (maximum is 100 characters)
+          help: Should be no longer than 60 characters (maximum is 100 characters)
         icon:
           label: Icon
           type: admin_input_file_tag

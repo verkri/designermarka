@@ -21,12 +21,12 @@
         
     <?php for ($i = 0; $i < count($slides); ++$i) : ?>
       <?php if ($i == 0): ?>
-      <div data-delay="5" data-duration="10" data-zoom="in" data-thumb="/<?php echo $slides[$i] ?>">
-        <img src="/<?php echo $slides[$i] ?>" alt=""/>
+      <div data-delay="5" data-duration="10" data-zoom="in" data-thumb="<?php echo $slides[$i] ?>">
+        <img src="<?php echo $slides[$i] ?>" alt=""/>
       </div>
     <?php else: ?>
-      <div data-delay="5" data-duration="10" data-zoom="in" data-thumb="/<?php echo $slides[$i] ?>">
-        <img src="/images/estroslider/blank.png" data-src="/<?php echo $slides[$i] ?>" alt=""/>
+      <div data-delay="5" data-duration="10" data-zoom="in" data-thumb="<?php echo $slides[$i] ?>">
+        <img src="/images/estroslider/blank.png" data-src="<?php echo $slides[$i] ?>" alt=""/>
       </div>
     <?php endif ?>
   <?php endfor ?>

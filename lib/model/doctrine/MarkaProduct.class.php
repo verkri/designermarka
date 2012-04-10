@@ -12,19 +12,22 @@
  */
 class MarkaProduct extends BaseMarkaProduct
 {
+  
+  public function save(Doctrine_Connection $conn = null)
+  {
+    if ( $this->isNew() ) {
+      $this->setSlug( Utility::slugify($this->getName()) );
+      $this->setToken(sha1($this->getSlug()));
+    }
+    $ret = parent::save($conn);
+  }
+  
   public function getColorSchemeSlug() {
     return $this->getColorScheme()->getSlug();
   }
   
   public function getCategorySlug() {
     return $this->getCategory()->getSlug();
-  }
-  
-  public function getImage() {
-    $image = sfConfig::get('app_product_image_dir').$this->getToken().'.'.sfConfig::get('app_image_ext');
-    return ( file_exists( $image ) )
-      ? DIRECTORY_SEPARATOR.$image
-      : "http://dummyimage.com/200x120/46475c/dadbe3.png&text=No Image";
   }
   
   public function getImagecount() {

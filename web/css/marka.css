@@ -11,21 +11,6 @@
 .left { float:left; }
 .right { float:right; }
 
-.back {
-  background-color: #dddddd;
-  padding: 5px;
-  border: 0px;
-  text-align: right;
-  -moz-border-radius: 7px;
-  -webkit-border-radius: 7px;
-  border-radius: 7px;
-  line-height: 2em;
-}
-
-a.back:hover {
-  border: 0px;
-}
-
 /*
 @font-face {
     font-family: 'LeagueGothicRegular';
@@ -53,11 +38,8 @@ html, body {
 }
 
 a, a:link, a:visited, a:hover, a:focus { 
-  
   color:#666; 
-  text-decoration:none; 
-  border-bottom: 1px transparent ridge;
-  
+  text-decoration:none;   
   transition: color 0.2s linear;
   -moz-transition: color 0.2s linear; 
   -webkit-transition: color 0.2s linear;
@@ -66,12 +48,16 @@ a, a:link, a:visited, a:hover, a:focus {
 
 a:hover {
   color: #333333; 
+}
+
+a.a, a.a:link, a.a:visited, a.a:hover, a.a:focus {
+  border-bottom: 1px transparent ridge;
+}
+a.a:hover {
+  color: #333333; 
   border-bottom: 1px red ridge;
 }
 
-a.back {
-  font-size: 1.2em;
-}
 
 ul { list-style:none; list-style-position:outside; }
 
@@ -125,23 +111,18 @@ body > header nav.subnav ul li {
 }
 
 body > header nav ul li > a { 
-  color:#666; 
+  color:#888; 
   text-decoration:none; 
   display:block;  
-  border-bottom: 2px transparent ridge;
+  
 }
 
-body > header nav ul li > a:visited { color: #666; }
-body > header nav ul li > a:link { color: #666; }
-body > header nav ul li > a:hover { color: #333333; }
-
-body > header nav ul li:hover > a { 
-  border-bottom: 2px red ridge;
-}
+body > header nav ul li > a:visited { color: #888; }
+body > header nav ul li > a:link { color: #888; }
+body > header nav ul li > a:hover { color: black; }
 
 body > header nav ul li.active > a { 
-  color: #333333;
-  border-bottom: 2px red ridge;
+  color: crimson;
 }
 
 body > header .logo {
@@ -149,18 +130,24 @@ body > header .logo {
 }
 
 body > article {
-  margin: 8px 0;
+  margin: 0px 0px;
 }
 
 hgroup.tagline {
-  background-color: rgba(256,256,256,0.5);
+  background: url('/images/header.png') no-repeat;
+  height: 80px;
+}
+
+hgroup.tagline h1 {
+  float: left;
 }
 
 hgroup.tagline h2 {
   font-size: 1.3em;
   font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
   font-style: italic;
-  margin: 10px 0px;
+  margin: 15px 20px 10px 0px;
+  float:right;
 }
 
 
@@ -203,3 +190,23 @@ box-shadow: 0px 0px 6px #999;
     clear: both;
     visibility: hidden;
 }*/
+
+
+
+.button, .big_button { border:1px solid #ccc; line-height:20px; -webkit-border-radius:3px; -moz-border-radius:3px; border-radius:3px; cursor:pointer; margin:0px 5px 18px 0px; display: -moz-inline-stack; display: inline-block; font-weight:bold; overflow:hidden; }
+.button { padding:5px 12px; margin-bottom:18px; opacity: 0.7;}
+.big_button { padding:7px 20px; font-size:13px; margin-bottom:14px; opacity: 0.7; }
+
+.button:hover, .big_button:hover { text-decoration:none; opacity: 1;}	
+
+.light, .light:link, .light:visited, .light:focus { color:#333; background-color: #e1e1e1; border-color: #bbb; }
+.light:hover { color: black; }
+
+.salmon, .salmon:link, .salmon:visited, .salmon:focus { color:firebrick; background-color: salmon; border-color: firebrick; }
+.salmon:hover { color: black; }
+
+.gold, .gold:link, .gold:visited, .gold:focus { color:goldenrod; background-color: gold; border-color: goldenrod; }
+.gold:hover { color: black; }
+
+.green, .green:link, .green:visited, .green:focus { color:green; background-color: yellowgreen; border-color: green; }
+.green:hover { color: black; }

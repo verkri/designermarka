@@ -30,7 +30,7 @@ generator:
           help: Physical sizes, materials, etc.
         description:
           attributes: { rows: 13, cols: 80 }
-          help: Should fill the whole textare (maximum length is 2000 characters)!
+          help: Should fill the whole textarea (maximum length is 2000 characters)!
         imagecount:
           label: Images
       list:

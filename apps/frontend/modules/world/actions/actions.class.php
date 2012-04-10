@@ -47,9 +47,8 @@ class worldActions extends sfActions
     $this->category = Doctrine_Core::getTable('MarkaCategory')->findBy('slug',$cat_slug)->getFirst();
     $this->colorscheme = Doctrine_Core::getTable('MarkaColorScheme')->findBy('slug',$cs_slug)->getFirst();
         
-    $this->other_images = $this->product->getImages();
-    $this->first_image = $this->other_images->count() > 0 ? $this->other_images->remove(0) : null;
-    
+    $this->images = $this->product->getImages();
+        
     $date = new DateTime($this->product->getManufactured());
     $this->manufactured_timestamp = $date->format('U');
     
