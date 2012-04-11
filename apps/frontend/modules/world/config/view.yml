@@ -1,3 +1,0 @@
-productViewSuccess:
-  stylesheets: [prettyPhoto.css]
-  javascripts: [libs/jquery.prettyPhoto.js, plugins/jquery.galleriffic.js, plugins/jquery.opacityrollover.js] 

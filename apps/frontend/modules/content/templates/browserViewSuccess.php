@@ -1,0 +1,98 @@
+<?php use_helper('JavascriptRegister'); ?>
+
+<?php register_js() ?><script>
+  $('.toggle-container h4').click(function () {
+    var text = $(this).parent().children('.toggle-content');
+    
+    if (text.is(':hidden')) {
+      text.slideDown('fast');
+      $(this).addClass('active');		
+    } else {
+      text.slideUp('fast');
+      $(this).removeClass('active');		
+    }		
+  });
+   
+  $('.category a').click(function() {
+    $('#product-list').html('<p class="loader"><img src="/images/ajax-loader.gif" width="220" height="19"/><br/>Loading content ...</p>');
+    $('#product-list').load($(this).attr('href'));
+    return false;
+  });
+  
+  // prefetch the featured products
+  $('#product-list').html('<p class="loader"><img src="/images/ajax-loader.gif" width="220" height="19"/><br/>Loading content ...</p>');
+  <?php if ( $cs_slug.$cat_slug == "" ) : ?>
+    $('#product-list').load("/fetch");
+    $('#featured').click();
+  <?php else : ?>
+    $('#product-list').load("/fetch/<?php echo $cs_slug.'/'.$cat_slug ?>");
+    $('#<?php echo $cs_slug ?>').click();
+  <?php endif; ?>
+  
+</script><?php end_register_js() ?>
+
+<style type="text/css">
+
+  p.loader { margin-top: 250px; text-align: center; }
+  p.loader > img { margin-bottom: 10px;}
+  
+  #product-nav { margin-top: 20px; }
+  
+  .toggle-container { width:100%; }
+
+  .toggle-container { margin-bottom:4px; position:relative; cursor:pointer; overflow:hidden; }
+  .toggle-container h4 { 
+    color: #f14343;
+    text-shadow: #888 1px 1px 2px;
+    -moz-text-shadow:  #888 1px 1px 2px;
+    -webkit-text-shadow:  #888 1px 1px 2px;
+    
+    text-decoration: none; 
+    text-transform: 
+    uppercase; 
+    padding: 5px 5px 5px 40px; 
+    font-size:2em;  
+    margin:0; 
+  }
+
+  .toggle { background: url('/images/toggle.png') no-repeat 10px 6px; }
+  h4.active { background: url('/images/toggle.png') no-repeat 10px -46px;}
+
+  .toggle-container p, .toggle-container div { padding:10px 10px 10px 32px; margin:0px; } 
+  .toggle-content { display:none; }
+  
+  .category {
+    font-size: 1.5em;
+  }
+
+
+</style>
+
+<nav class="w25p" id="product-nav">
+  
+  <div class="toggle-container">
+    <h4 id="featured" class="toggle">Featured</h4>
+    <div class="toggle-content">
+      <ul>
+        <li class="category"><a href="/fetch">Featured products</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <?php foreach ($colorschemes as $cs): ?>
+  <div class="toggle-container">
+    <h4 id="<?php echo $cs->getSlug() ?>" class="toggle"><?php echo $cs->getName() ?></h4>
+    <div class="toggle-content">
+      <ul>
+        <?php foreach ($cs->getActiveCategories() as $cat): ?>
+          <li class="category"><a href="/fetch/<?php echo $cs->getSlug().'/'.$cat->getSlug() ?>"><?php echo $cat->getName() ?></a></li>
+        <?php endforeach; ?>  
+      </ul>
+    </div>
+  </div>
+  <?php endforeach ?>
+</nav>
+
+<section id="product-list" class="w75p">
+    
+</section>

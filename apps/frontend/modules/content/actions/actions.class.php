@@ -13,8 +13,7 @@ class contentActions extends sfActions
   
   public function executeHome(sfWebRequest $request)
   {
-    sfConfig::set('app_menu','world');
-    sfConfig::set('app_submenu','');
+    sfConfig::set('app_menu','home');
     
     // search for slides
     $dir_pattern = sfConfig::get('sf_web_dir').sfConfig::get('app_slider_image_dir').'*.'.sfConfig::get('app_slider_image_ext');
@@ -27,30 +26,64 @@ class contentActions extends sfActions
   public function executeContact(sfWebRequest $request)
   {
     sfConfig::set('app_menu','contact');
-    sfConfig::set('app_submenu','');
   }
   
-  public function executeAboutDesigner(sfWebRequest $request)
+  public function executeAbout(sfWebRequest $request)
   {
     sfConfig::set('app_menu','about');
-    sfConfig::set('app_submenu','designer');
-    
-    $this->setTemplate('about');
   }
   
-  public function executeAboutPress(sfWebRequest $request)
+  public function executeBrowserView(sfWebRequest $request)
   {
-    sfConfig::set('app_menu','about');
-    sfConfig::set('app_submenu','press');
+    $this->cs_slug = $request->getParameter('colorscheme');
+    $this->cat_slug = $request->getParameter('category');
+  
+    $this->colorschemes = Doctrine_Core::getTable('MarkaColorScheme')->getActiveColorSchemes();
     
-    $this->setTemplate('about');
+    sfConfig::set('app_menu','world');
+  }  
+  
+  public function executeProductView(sfWebRequest $request)
+  {
+    $this->product = $this->getRoute()->getObject();
+    
+    $cat_slug = $request->getParameter('category_slug');
+    $cs_slug = $request->getParameter('colorscheme_slug');
+    
+    $this->category = Doctrine_Core::getTable('MarkaCategory')->findBy('slug',$cat_slug)->getFirst();
+    $this->colorscheme = Doctrine_Core::getTable('MarkaColorScheme')->findBy('slug',$cs_slug)->getFirst();
+        
+    $this->images = $this->product->getImages();
+        
+    $date = new DateTime($this->product->getManufactured());
+    $this->manufactured_timestamp = $date->format('U');
+    
+    $this->forward404Unless( $this->category && $this->colorscheme );
+    
+    // extra check for URL forgery
+    $validURI = $this->product->getCategoryId() == $this->category->getId();
+    $validURI &= $this->product->getColorschemeId() == $this->colorscheme->getId();
+    $this->forward404Unless($validURI);
+    
+    sfConfig::set('app_menu','world');
   }
   
-  public function executeAboutBlog(sfWebRequest $request)
+  public function executeFetch(sfWebRequest $request)
   {
-    sfConfig::set('app_menu','about');
-    sfConfig::set('app_submenu','blog');
+    $cat_slug = $request->getParameter('category_slug');
+    $cs_slug = $request->getParameter('colorscheme_slug');
     
-    $this->setTemplate('about');
+    $this->category = Doctrine_Core::getTable('MarkaCategory')->findBy('slug',$cat_slug)->getFirst();
+    $this->colorscheme = Doctrine_Core::getTable('MarkaColorScheme')->findBy('slug',$cs_slug)->getFirst();
+      
+    $this->products = Doctrine_Core::getTable('MarkaProduct')
+            ->getProductsFiltered($this->category,$this->colorscheme);
   }
+  
+  public function executeFetchFeatured(sfWebRequest $request)
+  {
+    $this->products = Doctrine_Core::getTable('MarkaProduct')->getFeatured(sfConfig::get('app_featured_display_count'));
+    $this->setTemplate('fetch');
+  }
+  
 }

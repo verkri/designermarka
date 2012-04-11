@@ -15,7 +15,7 @@
     
     <title><?php include_slot('title','Marka Designs'); ?></title>
     <?php include_metas() ?>
-    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <link rel="shortcut icon" href="/favicon.ico" />
     <?php include_stylesheets() ?>
     
     <script type="text/javascript" src="/js/libs/modernizr-1.7.min.js"></script>
@@ -29,26 +29,13 @@
 <!--[if (gt IE 9)|!(IE)]><!-->
 <body class="_960wide">
 <!--<![endif]-->
+
   <?php include_partial('global/header') ?>
 
-    <?php if ($sf_user->hasFlash('flash_ok')): ?>
-      <p class="message_green">
-        <?php echo $sf_user->getFlash('flash_ok') ?>
-      </p>
-      <p class="message_yellow">
-        <?php echo Utility::debug($sf_user->cartContent()) ?>
-      </p>
-    <?php endif; ?>
-    
-    <?php if ($sf_user->hasFlash('flash_error')): ?>
-      <p class="message_red">
-        <?php echo $sf_user->getFlash('flash_error') ?>
-      </p>
-    <?php endif; ?>
-
-  <article class="clearfix">
-  <?php echo $sf_content; ?>
+  <article class="clearfix" id="maincontent">
+    <?php echo $sf_content; ?>
   </article>
+
   <?php include_partial('global/footer') ?>
 
   <!--[if lt IE 7 ]>
@@ -58,12 +45,10 @@
   <?php include_javascripts() ?>
   
   <script type="text/javascript">
-  <?php echo JavascriptRegister::get_functional() ?>
-  
-  $(function() {
-    <?php echo JavascriptRegister::get_content() ?>
-  });
+    <?php echo JavascriptRegister::get_functional() ?>
+    $(function() {
+      <?php echo JavascriptRegister::get_content() ?>
+    });
   </script>
-  
 </body>
 </html>

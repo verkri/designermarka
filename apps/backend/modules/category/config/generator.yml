@@ -17,22 +17,13 @@ generator:
         name: 
           attributes: { size: 70, maxlength: 100 } 
           help: Should be no longer than 20 characters (maximum is 100 characters)
-        description:
-          attributes: { size: 70, maxlength: 100 }
-          help: Should be no longer than 60 characters (maximum is 100 characters)
-        icon:
-          label: Icon
-          type: admin_input_file_tag
-          help: Icon size should be at least 32x32 in PNG format (optimum is exactly 32x32 and keep the aspect ratio!)
-        has_icon:
-          label: Status
       list:
-        display: [=name, description, products, icon, has_icon]
+        display: [=name, products]
         batch_actions: {}
       filter:
         class: false
       form:    ~
       edit:
-        display: [name, description, icon]
+        display: [name]
       new:
-        display: [name, description, icon]
+        display: [name]

@@ -17,14 +17,14 @@ class MarkaColorSchemeTable extends Doctrine_Table
         return Doctrine_Core::getTable('MarkaColorScheme');
     }
     
-    public function getNotEmptyColorSchemes()
+    public function getActiveColorSchemes()
     {
       return $this->createQuery('c')->innerJoin('c.Products p')->where('p.is_active = true')->execute();
     }
     
     public function getChoices()
     {
-      $colorschemes = $this->getNotEmptyColorSchemes();
+      $colorschemes = $this->getActiveColorSchemes();
       $ret = array();
       foreach ($colorschemes as $cs) {
         $ret[$cs->getSlug()] = $cs->getName();

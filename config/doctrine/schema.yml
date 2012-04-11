@@ -2,19 +2,11 @@ MarkaCategory:
   columns:
     name: { type: string(100), notnull: true, unique: true }
     slug: { type: string(100), notnull: true, unique: true }
-    icon: { type: string(255) }
-    description: { type: string(100) }
     
 MarkaColorScheme:
   columns:
     name: { type: string(100), notnull: true, unique: true }
     slug: { type: string(100), notnull: true, unique: true }
-    image: { type: string(255) }
-    description: { type: string(100) }
-    
-    hexcolor1: { type: string(7) }
-    hexcolor2: { type: string(7) }
-    hexcolor3: { type: string(7) }
 
 MarkaProduct:
   actAs: 
@@ -34,6 +26,7 @@ MarkaProduct:
     stockqty:  { type: integer, notnull: true, default: 1 }
     cadprice:  { type: double, notnull: true }
     is_active: { type: boolean, notnull: true, default: 0 }
+    featured:  { type: boolean, notnull: true, default: 0 }
     description: { type: string(2000) }
     short: { type: string(100) }
   relations:

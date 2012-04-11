@@ -14,6 +14,7 @@
  * @property integer $stockqty
  * @property double $cadprice
  * @property boolean $is_active
+ * @property boolean $featured
  * @property string $description
  * @property string $short
  * @property MarkaCategory $Category
@@ -30,6 +31,7 @@
  * @method integer             getStockqty()          Returns the current record's "stockqty" value
  * @method double              getCadprice()          Returns the current record's "cadprice" value
  * @method boolean             getIsActive()          Returns the current record's "is_active" value
+ * @method boolean             getFeatured()          Returns the current record's "featured" value
  * @method string              getDescription()       Returns the current record's "description" value
  * @method string              getShort()             Returns the current record's "short" value
  * @method MarkaCategory       getCategory()          Returns the current record's "Category" value
@@ -45,6 +47,7 @@
  * @method MarkaProduct        setStockqty()          Sets the current record's "stockqty" value
  * @method MarkaProduct        setCadprice()          Sets the current record's "cadprice" value
  * @method MarkaProduct        setIsActive()          Sets the current record's "is_active" value
+ * @method MarkaProduct        setFeatured()          Sets the current record's "featured" value
  * @method MarkaProduct        setDescription()       Sets the current record's "description" value
  * @method MarkaProduct        setShort()             Sets the current record's "short" value
  * @method MarkaProduct        setCategory()          Sets the current record's "Category" value
@@ -101,6 +104,11 @@ abstract class BaseMarkaProduct extends sfDoctrineRecord
              'notnull' => true,
              ));
         $this->hasColumn('is_active', 'boolean', null, array(
+             'type' => 'boolean',
+             'notnull' => true,
+             'default' => 0,
+             ));
+        $this->hasColumn('featured', 'boolean', null, array(
              'type' => 'boolean',
              'notnull' => true,
              'default' => 0,

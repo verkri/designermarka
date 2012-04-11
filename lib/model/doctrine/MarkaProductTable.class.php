@@ -9,8 +9,16 @@ class MarkaProductTable extends Doctrine_Table {
   public function getProductsFiltered(MarkaCategory $category, MarkaColorScheme $cs) {
     $q = $this->createQuery('p')
             ->where('category_id = ?',$category->getId())
-            ->andWhere('colorscheme_id = ?',$cs->getId());
+            ->andWhere('colorscheme_id = ?',$cs->getId())
+            ->orderBy('cadprice DESC');
     return $this->filterActiveProducts($q)->execute();
+  }
+  
+  public function getFeatured($count = 8) {
+    $q = $this->createQuery('p')
+            ->where('featured = true')
+            ->orderBy('random()');            
+    return $this->filterActiveProducts($q)->limit($count)->execute();
   }
   
   public function getActiveProducts(Doctrine_Query $q = null) {

@@ -34,7 +34,7 @@ generator:
         imagecount:
           label: Images
       list:
-        display: [=name, category_id, colorscheme_id, stockqty, cadprice, imagecount, is_active]
+        display: [=name, category_id, colorscheme_id, stockqty, cadprice, featured, is_active, imagecount]
         fields:
           is_active:
             label: Active
@@ -42,7 +42,7 @@ generator:
           cadprice: {label: Price }
         batch_actions: { _delete: ~, _activate: ~, _deactivate: ~ }
       filter:
-        display: [category_id, colorscheme_id, is_active]
+        display: [category_id, colorscheme_id, is_active, featured]
       form:    ~
       edit:
         display: [name, category_id, colorscheme_id, is_active, manufactured, stockqty, cadprice, is_active, short, description]

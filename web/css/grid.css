@@ -1,27 +1,14 @@
-._960wide {
-	margin-left: auto;
-	margin-right: auto;
-	width: 960px;
-        min-width: 960px;
-}
-
-._900wide {
-	margin-left: auto;
-	margin-right: auto;
-	width: 900px;
-        min-width: 900px;
-}
-
+._960wide { margin-left: auto; margin-right: auto; width: 960px; min-width: 960px; }
+._900wide { margin-left: auto; margin-right: auto; width: 900px; min-width: 900px; }
 ._fullwide { width: 100%; }
 
-.w20p, .w25p, .w33p, .w40p, .w50p, .w60p, .w66p, .w75p, .w80p, .w100p
-{
-	display:inline;
-	float: left;
-	position: relative;
-	margin-left: 0.5%;
-	margin-right: 0.5%;
-        overflow: hidden;
+.w20p, .w25p, .w33p, .w40p, .w50p, .w60p, .w66p, .w75p, .w80p, .w100p {
+  display:inline;
+  float: left;
+  position: relative;
+  margin-left: 0.5%;
+  margin-right: 0.5%;
+  overflow: hidden;
 }
 
 .A {margin-left: 0;}
@@ -40,27 +27,10 @@
 .w100p {width: 100.0%; margin-left: 0; margin-right: 0;}
 
 .clear {
-	clear: both;
-	display: block;
-	overflow: hidden;
-	visibility: hidden;
-	width: 0;
-	height: 0;
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
 }
-
-/*
-.clearfix:after {
-	clear: both;
-	content: ' ';
-	display: block;
-	font-size: 0;
-	line-height: 0;
-	visibility: hidden;
-	width: 0;
-	height: 0;
-}
-
-.clearfix { display: inline-block; }
-* html .clearfix { height: 1%; }
-.clearfix { display: block; }
-*/

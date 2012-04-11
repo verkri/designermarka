@@ -13,6 +13,13 @@ require_once dirname(__FILE__).'/../lib/categoryGeneratorHelper.class.php';
  */
 class categoryActions extends autoCategoryActions
 {
+  
+  public function preExecute()
+  {
+    parent::preExecute();
+    sfConfig::set('app_menu','category');
+  }
+  
   public function executeDelete(sfWebRequest $request)
   {
     $object = $this->getRoute()->getObject();

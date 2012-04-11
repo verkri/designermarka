@@ -13,23 +13,13 @@ abstract class BaseMarkaColorSchemeFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'name'        => new sfWidgetFormFilterInput(array('with_empty' => false)),
-      'slug'        => new sfWidgetFormFilterInput(array('with_empty' => false)),
-      'image'       => new sfWidgetFormFilterInput(),
-      'description' => new sfWidgetFormFilterInput(),
-      'hexcolor1'   => new sfWidgetFormFilterInput(),
-      'hexcolor2'   => new sfWidgetFormFilterInput(),
-      'hexcolor3'   => new sfWidgetFormFilterInput(),
+      'name' => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'slug' => new sfWidgetFormFilterInput(array('with_empty' => false)),
     ));
 
     $this->setValidators(array(
-      'name'        => new sfValidatorPass(array('required' => false)),
-      'slug'        => new sfValidatorPass(array('required' => false)),
-      'image'       => new sfValidatorPass(array('required' => false)),
-      'description' => new sfValidatorPass(array('required' => false)),
-      'hexcolor1'   => new sfValidatorPass(array('required' => false)),
-      'hexcolor2'   => new sfValidatorPass(array('required' => false)),
-      'hexcolor3'   => new sfValidatorPass(array('required' => false)),
+      'name' => new sfValidatorPass(array('required' => false)),
+      'slug' => new sfValidatorPass(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('marka_color_scheme_filters[%s]');
@@ -49,14 +39,9 @@ abstract class BaseMarkaColorSchemeFormFilter extends BaseFormFilterDoctrine
   public function getFields()
   {
     return array(
-      'id'          => 'Number',
-      'name'        => 'Text',
-      'slug'        => 'Text',
-      'image'       => 'Text',
-      'description' => 'Text',
-      'hexcolor1'   => 'Text',
-      'hexcolor2'   => 'Text',
-      'hexcolor3'   => 'Text',
+      'id'   => 'Number',
+      'name' => 'Text',
+      'slug' => 'Text',
     );
   }
 }

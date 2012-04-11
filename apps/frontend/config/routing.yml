@@ -2,31 +2,32 @@
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
 # Showcase of structure
-
 world_product:
   url:     /world-of-marka/:colorscheme_slug/:category_slug/:slug
   class:   sfDoctrineRoute
   options: { model: MarkaProduct, type: object }
-  param:   { module: world, action: productView }
+  param:   { module: content, action: productView }
   requirements:
     token: ([a-fA-F\d]){32}
     sf_method: [get]
 
-world_category:
-  url:     /world-of-marka/:colorscheme_slug/:category_slug
-  class:   sfRequestRoute
-  param:   { module: world, action: categoryView }
+world:
+  url:     /world-of-marka
+  param:   { module: content, action: browserView }
   requirements:
     sf_method: [get]
+    
+world_fetch:
+  url:    /fetch/:colorscheme_slug/:category_slug
+  class:  sfRequestRoute
+  param:  { module: content, action: fetch }
 
-world_colorscheme:
-  url:     /world-of-marka/:slug
-  class:   sfDoctrineRoute
-  options: { model: MarkaColorScheme, type: object }
-  param:   { module: world, action: colorschemeView }
-  requirements:
-    id: \d+
-    sf_method: [get]
+world_fetch_featured:
+  url:    /fetch
+  class:  sfRequestRoute
+  param:  { module: content, action: fetchFeatured }
+  
+
 
 # Shopping Cart related routes
 cart_show:
@@ -58,18 +59,9 @@ cart_clear:
     
 # Static routes
 
-about_designer:
+about:
   url:     /about
-  param:   { module: content, action: aboutDesigner }
-  
-about_press:
-  url:     /press
-  param:   { module: content, action: aboutPress }
-  
-about_blog:
-  url:     /blog
-  param:   { module: content, action: aboutBlog }
-
+  param:   { module: content, action: about }
 
 contact:
   url:   /contact

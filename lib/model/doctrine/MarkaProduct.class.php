@@ -44,4 +44,13 @@ class MarkaProduct extends BaseMarkaProduct
     $this->save();
   }
  
+  public function featurize() {
+    $this->setFeatured(true);
+    $this->save();
+  }
+  
+  public function unfeaturize() {
+    $this->setFeatured(false);
+    $this->save();
+  }
 }

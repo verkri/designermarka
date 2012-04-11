@@ -14,16 +14,10 @@ all:
   product_image_thumbnail_size: 100x100
   
   product_image_medium_dir: /app/product/medium/
-  product_image_medium_size: 200x200
+  product_image_medium_size: 143x143
+  
+  featured_display_count: 8
     
-  colorscheme_image_dir: /app/colorscheme/
-  colorscheme_image_size: 480x580
-  colorscheme_default_image: /app/default/colorscheme.png
-  
-  category_icon_dir: /app/category/
-  category_icon_size: 32x32
-  category_default_icon: /app/default/category.png
-  
   sfImageTransformPlugin:
     default_adapter: GD # GD or ImageMagick
     default_image:

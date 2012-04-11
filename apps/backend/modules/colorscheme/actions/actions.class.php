@@ -13,6 +13,11 @@ require_once dirname(__FILE__).'/../lib/colorschemeGeneratorHelper.class.php';
  */
 class colorschemeActions extends autoColorschemeActions
 {
+  public function preExecute()
+  {
+    parent::preExecute();
+    sfConfig::set('app_menu','colorscheme');
+  }
   
   public function executeDelete(sfWebRequest $request)
   {

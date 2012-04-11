@@ -19,6 +19,17 @@ class MarkaColorScheme extends BaseMarkaColorScheme
       ->select('c.*')
       ->from('MarkaCategory c')
       ->innerJoin('c.Products p')
+      ->where('p.colorscheme_id = ?', $this->getId());
+ 
+    return $q->execute();
+  }
+  
+  public function getActiveCategories()
+  {
+    $q = Doctrine_Query::create()
+      ->select('c.*')
+      ->from('MarkaCategory c')
+      ->innerJoin('c.Products p')
       ->where('p.colorscheme_id = ?', $this->getId())
       ->andWhere('p.is_active = true');
  
@@ -28,27 +39,7 @@ class MarkaColorScheme extends BaseMarkaColorScheme
   public function save(Doctrine_Connection $conn = null)
   {
     $this->setSlug( Utility::slugify($this->getName()) );
-    $ret = parent::save($conn);
-    
-    if ( $this->hasImage() ) {
-      $image_file = sfConfig::get('sf_web_dir').$this->getImagePath();
-      $img = new sfImage($image_file);
-      $sizes = explode('x',sfConfig::get('app_colorscheme_image_size'));
-      $img->resize($sizes[0],$sizes[1])->save();
-    } else {
-      $this->setImage("");
-    }
-    
-    return $ret;
-  }
-  
-  public function getImagepath() {
-    return sfConfig::get('app_colorscheme_image_dir') . $this->getImage();
-  }
-  
-  public function hasImage() {
-    $image_file = sfConfig::get('sf_web_dir').$this->getImagePath();
-    return is_file($image_file);
+    return parent::save($conn);
   }
   
   public function getProductCount() {

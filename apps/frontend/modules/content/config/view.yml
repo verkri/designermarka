@@ -1,7 +1,11 @@
 homeSuccess:
   stylesheets: 
-    - scripts/estro.min.css
-    - scripts/prettyPhoto.css
+    - estro.min.css
   javascripts: 
     - libs/estro-slider.min.js
-    - plugins/jquery.prettyPhoto.js
+    
+productViewSuccess:
+  javascripts: [plugins/jquery.galleriffic.js, plugins/jquery.opacityrollover.js]
+  
+fetchSuccess:
+  has_layout: false

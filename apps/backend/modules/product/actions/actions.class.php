@@ -14,6 +14,12 @@ require_once dirname(__FILE__).'/../lib/productGeneratorHelper.class.php';
 class productActions extends autoProductActions
 {
   
+  public function preExecute()
+  {
+    parent::preExecute();
+    sfConfig::set('app_menu','product');
+  }
+  
   public function executeBatchActivate(sfWebRequest $request)
   {
     $ids = $request->getParameter('ids');
@@ -44,7 +50,7 @@ class productActions extends autoProductActions
 
     foreach ($records as $record)
     {
-      $this->dispatcher->notify(new sfEvent($this, 'admin.publish_object', array('object' => $record)));
+      $this->dispatcher->notify(new sfEvent($this, 'admin.unpublish_object', array('object' => $record)));
       $record->deactivate();
     }
 
@@ -52,4 +58,42 @@ class productActions extends autoProductActions
     $this->redirect('@marka_product');
   }
     
+  public function executeBatchFeaturize(sfWebRequest $request)
+  {
+    $ids = $request->getParameter('ids');
+
+    $records = Doctrine_Query::create()
+      ->from('MarkaProduct')
+      ->whereIn('id', $ids)
+      ->execute();
+
+    foreach ($records as $record)
+    {
+      $this->dispatcher->notify(new sfEvent($this, 'admin.featuring_object', array('object' => $record)));
+      $record->featurize();
+    }
+
+    $this->getUser()->setFlash('notice', 'The selected items have been set featured.');
+    $this->redirect('@marka_product');
+  }
+  
+  public function executeBatchUnfeaturize(sfWebRequest $request)
+  {
+    $ids = $request->getParameter('ids');
+
+    $records = Doctrine_Query::create()
+      ->from('MarkaProduct')
+      ->whereIn('id', $ids)
+      ->execute();
+
+    foreach ($records as $record)
+    {
+      $this->dispatcher->notify(new sfEvent($this, 'admin.featuring_object', array('object' => $record)));
+      $record->unfeaturize();
+    }
+
+    $this->getUser()->setFlash('notice', 'The selected items have been removed from the featured set.');
+    $this->redirect('@marka_product');
+  }
+  
 }
