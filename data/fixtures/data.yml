@@ -1,0 +1,162 @@
+MarkaCategory:
+  MarkaCategory_1:
+    name: Necklace
+    slug: necklace
+MarkaColorScheme:
+  MarkaColorScheme_1:
+    name: 'Reds & Pinks'
+    slug: reds-and-pinks
+  MarkaColorScheme_2:
+    name: 'Metalics & Yellows'
+    slug: metalics-and-yellows
+MarkaProduct:
+  MarkaProduct_2:
+    name: Rakel
+    slug: rakel
+    Category: MarkaCategory_1
+    ColorScheme: MarkaColorScheme_1
+    manufactured: '2012-01-01'
+    token: f6366544ca6ff6583817ad5181e49b8bc80bbef6
+    stockqty: '1'
+    cadprice: '75'
+    is_active: true
+    featured: true
+    description: 'This stunning wood necklace was created by Marka with handpicked, cured and polished wood components. The necklace contains two sizes of spheres, the bigger ones are intended to lie on your chest, while the smaller ones give you a smooth and nice feeling at the neck.'
+    short: 'Fabricated by wood components. Length: 16" to 20"'
+    created_at: '2012-04-12 11:18:58'
+  MarkaProduct_1:
+    name: Pilar
+    slug: pilar
+    Category: MarkaCategory_1
+    ColorScheme: MarkaColorScheme_1
+    manufactured: '2012-01-01'
+    token: d36f34bddffa7523b4f5dcd9cdda6d12f0072571
+    stockqty: '1'
+    cadprice: '40'
+    is_active: true
+    featured: true
+    description: 'Pilar is one of Marka''s new necklace collection for 2012. The necklace is made of a unique selection of high quality red-colored corals. The necklace contains five cube elements - the pilars. The pilars are embraced by the red corals to form a unique and one-time necklace.'
+    short: 'Fabricated by red corals and wood. Length: 16"'
+    created_at: '2012-04-12 11:10:47'
+  MarkaProduct_3:
+    name: Roki
+    slug: roki
+    Category: MarkaCategory_1
+    ColorScheme: MarkaColorScheme_1
+    manufactured: '2012-01-01'
+    token: b3701e7c184b0bbf7119752603314c49a690cb26
+    stockqty: '1'
+    cadprice: '125'
+    is_active: true
+    featured: true
+    description: 'This  stunning  red and black necklace was created by MarKa with handpicked elements such as: Red and black glass pearls, Swarovski crystals, Chezh glass, black agate tear drops, semi precious cross piece  on aluminum chains. '
+    short: 'Fabricated by glass, and Swarovsky crystals. Length: 17" to 22".'
+    created_at: '2012-04-12 11:23:01'
+  MarkaProduct_4:
+    name: Rosie
+    slug: rosie
+    Category: MarkaCategory_1
+    ColorScheme: MarkaColorScheme_1
+    manufactured: '2012-01-01'
+    token: 71e99fe88cb8b48526df11cab53f36d3f38d6f80
+    stockqty: '1'
+    cadprice: '60'
+    is_active: true
+    featured: false
+    description: 'This light weight stunning pink necklace was created by MarKa with handpicked elements such as: cultured fresh water pearls, Pink glass pearls, Swarovski crystals, on aluminum chain.'
+    short: 'Fabricated by glass, and Swarovsky crystals. Length: 16" to 17".'
+    created_at: '2012-04-12 11:25:11'
+  MarkaProduct_5:
+    name: Macalla
+    slug: macalla
+    Category: MarkaCategory_1
+    ColorScheme: MarkaColorScheme_2
+    manufactured: '2012-01-01'
+    token: d6e0eaf2e7286a4a8d421cd71f5553581438aaab
+    stockqty: '1'
+    cadprice: '65'
+    is_active: true
+    featured: false
+    description: 'This amazing necklace was created by MarKa with finest glass pearls.'
+    short: 'Fabricated by glass. Length: 16" to 17"'
+    created_at: '2012-04-12 11:37:57'
+  MarkaProduct_6:
+    name: Macy
+    slug: macy
+    Category: MarkaCategory_1
+    ColorScheme: MarkaColorScheme_2
+    manufactured: '2012-12-17'
+    token: 5bb079b2cc12e7006744f1ad2260fdbd23feec2a
+    stockqty: '1'
+    cadprice: '45'
+    is_active: true
+    featured: false
+    description: 'This stunning was created by MarKa with semi precious brown gold stone on gold aluminum chain.'
+    short: 'The perfect combination of the pearl and metal. Length: 24" to 26"'
+    created_at: '2012-04-12 11:41:01'
+  MarkaProduct_7:
+    name: Madison
+    slug: madison
+    Category: MarkaCategory_1
+    ColorScheme: MarkaColorScheme_2
+    manufactured: '2012-05-12'
+    token: 96773332455a5770cba61b43b62383e896c09c39
+    stockqty: '1'
+    cadprice: '75'
+    is_active: true
+    featured: false
+    description: 'This spectacular silver wood necklace was created by MarKa with handpicked cured wood components. '
+    short: 'Wood necklace. Length: 18" to 20"'
+    created_at: '2012-04-12 11:42:54'
+MarkaProductImage:
+  MarkaProductImage_1:
+    filename: 7cdcc4771219fc5be8979e7bf5a279ae67f443a1.jpg
+    Product: MarkaProduct_1
+  MarkaProductImage_2:
+    filename: 42da4c3a1e042e88bbc92d0d253df6b052c83d1d.jpg
+    Product: MarkaProduct_1
+  MarkaProductImage_3:
+    filename: 26dd25195e29ae3dda88479a1a4a8de60858800a.jpg
+    Product: MarkaProduct_2
+  MarkaProductImage_4:
+    filename: 0b46965b4efe1392b9ed9b20fdd3713c5cf77d7c.jpg
+    Product: MarkaProduct_2
+  MarkaProductImage_5:
+    filename: 3e5c179a3360cb93d39ba58777e980e97115b471.jpg
+    Product: MarkaProduct_3
+  MarkaProductImage_6:
+    filename: 5e64ce9a4ac32b389d347a544b62c72c4e724bf5.jpg
+    Product: MarkaProduct_3
+  MarkaProductImage_7:
+    filename: 445d7a4a74f02e9f6db63e7fadc2bce9425d05cc.jpg
+    Product: MarkaProduct_4
+  MarkaProductImage_8:
+    filename: 2101c80200b3a8fb08ed889af61ba8752c92de15.jpg
+    Product: MarkaProduct_4
+  MarkaProductImage_9:
+    filename: fc442ebc616bb0919a49238af79e38279827d1dc.jpg
+    Product: MarkaProduct_5
+  MarkaProductImage_11:
+    filename: eb60fd1acfc0f7003779dc4bbe9b53a86cc5fa51.jpg
+    Product: MarkaProduct_5
+  MarkaProductImage_12:
+    filename: 114790f4296707f758828add8d062e6525da0984.jpg
+    Product: MarkaProduct_5
+  MarkaProductImage_13:
+    filename: 4cf868665b69ad76c019c55b721367ae77eac697.jpg
+    Product: MarkaProduct_5
+  MarkaProductImage_14:
+    filename: 77bd8cb1e27f9bb787bd5ce4eeb76c09196f3f1e.jpg
+    Product: MarkaProduct_6
+  MarkaProductImage_15:
+    filename: f82c0bbac77e7adaf90af11cc276a30d756003f1.jpg
+    Product: MarkaProduct_6
+  MarkaProductImage_16:
+    filename: 8edadc5bcaa10fa6a1e65dcc01648177d6255df1.jpg
+    Product: MarkaProduct_6
+  MarkaProductImage_17:
+    filename: 0d0a396ec151c2f686a8893552f2f1389f978c33.jpg
+    Product: MarkaProduct_7
+  MarkaProductImage_18:
+    filename: ec19f71dbcf866e2e7e035e6f893e61beab21714.jpg
+    Product: MarkaProduct_7

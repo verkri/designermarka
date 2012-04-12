@@ -1,50 +1,36 @@
 <?php
 
-require_once dirname(__FILE__).'/../lib/categoryGeneratorConfiguration.class.php';
-require_once dirname(__FILE__).'/../lib/categoryGeneratorHelper.class.php';
+require_once dirname(__FILE__).'/../lib/homesliderGeneratorConfiguration.class.php';
+require_once dirname(__FILE__).'/../lib/homesliderGeneratorHelper.class.php';
 
 /**
- * category actions.
+ * homeslider actions.
  *
  * @package    sf_sandbox
- * @subpackage category
+ * @subpackage homeslider
  * @author     Your name here
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class categoryActions extends autoCategoryActions
+class homesliderActions extends autoHomesliderActions
 {
-  
   public function preExecute()
   {
     parent::preExecute();
-    sfConfig::set('app_menu','category');
+    sfConfig::set('app_menu','home_slider');
   }
-  
-  public function executeDelete(sfWebRequest $request)
-  {
-    $object = $this->getRoute()->getObject();
-    $product_count = $object->getProductCount();
-    
-    if ( $product_count > 0 ) {
-      $this->getUser()->setFlash('error', "There are $product_count product(s) associated with this category (".$object->getName()."). Deletion is denied.");
-      $this->redirect('@marka_category');
-    } else {
-      parent::executeDelete($request);
-    }
-  } 
-  
+
   public function executeCreate(sfWebRequest $request)
   {
     $this->form = $this->configuration->getForm();
-    $this->marka_category = $this->form->getObject();
+    $this->marka_home_slider = $this->form->getObject();
 
     if ( $this->processForm($request, $this->form) ) {
-      $this->redirect('@marka_category');
+      $this->redirect('@marka_home_slider');
     } else {
       $this->setTemplate('new'); 
     }    
   }
-    
+  
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));

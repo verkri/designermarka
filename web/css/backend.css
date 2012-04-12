@@ -18,3 +18,7 @@ input[type=submit]:hover {
   text-decoration:none; opacity: 1;
   color: black;
 }
+
+h1 {
+  font-size: 3em;
+}

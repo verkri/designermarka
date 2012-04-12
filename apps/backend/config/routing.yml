@@ -1,3 +1,12 @@
+marka_home_slider:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                MarkaHomeSlider
+    module:               homeslider
+    prefix_path:          /homeslider
+    column:               id
+    with_wildcard_routes: true
+
 marka_customer:
   class: sfDoctrineRouteCollection
   options:

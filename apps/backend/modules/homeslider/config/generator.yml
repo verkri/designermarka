@@ -1,0 +1,31 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           MarkaHomeSlider
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          marka_home_slider
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        caption:
+          help: The text that is shown during the effect
+        priority:
+          help: The priority of this image. Lower the priority to move this image towards the beginning of the slideshow.
+          attributes: { size: 2 }
+      list:
+        display: [=filename, caption, priority]
+        batch_actions: {}
+      filter:
+        class: false
+      form:    ~
+      edit:
+        display: [filename, caption, priority]
+      new:
+        display: [filename, caption, priority]

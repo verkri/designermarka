@@ -10,6 +10,10 @@
       <div class="clearfix">
         <nav>
           <ul> 
+            
+            <li <?php echo (sfConfig::get('app_menu') == 'home_slider' ? 'class="active"' : '') ?>>
+              <?php echo link_to('Home Slider','marka_home_slider') ?></li>
+            
             <li <?php echo (sfConfig::get('app_menu') == 'colorscheme' ? 'class="active"' : '') ?>>
               <?php echo link_to('Colorschemes','marka_color_scheme') ?></li>
             
@@ -18,6 +22,7 @@
             
             <li <?php echo (sfConfig::get('app_menu') == 'product' ? 'class="active"' : '') ?>>
               <?php echo link_to('Products','marka_product') ?></li>
+            
 
           </ul>
         </nav>

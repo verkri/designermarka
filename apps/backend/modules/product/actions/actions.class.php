@@ -20,6 +20,52 @@ class productActions extends autoProductActions
     sfConfig::set('app_menu','product');
   }
   
+  public function executeCreate(sfWebRequest $request)
+  {
+    $this->form = $this->configuration->getForm();
+    $this->marka_product = $this->form->getObject();
+
+    if ( $this->processForm($request, $this->form) ) {
+      $this->redirect('@marka_product');
+    } else {
+      $this->setTemplate('new'); 
+    }    
+  }
+  
+  protected function processForm(sfWebRequest $request, sfForm $form)
+  {
+    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+    if ($form->isValid())
+    {
+      $notice = $form->getObject()->isNew() ? 'The item was created successfully.' : 'The item was updated successfully.';
+
+      try {
+        $object = $form->save();
+      } catch (Doctrine_Validator_Exception $e) {
+
+        $errorStack = $form->getObject()->getErrorStack();
+
+        $message = get_class($form->getObject()) . ' has ' . count($errorStack) . " field" . (count($errorStack) > 1 ?  's' : null) . " with validation errors: ";
+        foreach ($errorStack as $field => $errors) {
+            $message .= "$field (" . implode(", ", $errors) . "), ";
+        }
+        $message = trim($message, ', ');
+
+        $this->getUser()->setFlash('error', $message);
+        return false;
+      }
+
+      $this->dispatcher->notify(new sfEvent($this, 'admin.save_object', array('object' => $object)));
+      $this->getUser()->setFlash('notice', $notice);
+    }
+    else
+    {
+      $this->getUser()->setFlash('error', 'The item has not been saved due to some errors.', false);
+      return false;
+    }
+    return true;
+  }
+    
   public function executeBatchActivate(sfWebRequest $request)
   {
     $ids = $request->getParameter('ids');
