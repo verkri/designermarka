@@ -82,19 +82,23 @@
     </div>
   </div>
   
-  <?php /*include_partial('colorschemeByCategory', 
+  <?php 
+    if ( sfConfig::get('app_browser_type') == 'colorschemeByCategory' ) {
+      include_partial('colorschemeByCategory', 
           array(
               'cat_slug' => $cat_slug,
               'cs_slug' => $cs_slug,
               'colorschemes' => $colorschemes
-          ))*/ ?> 
-  
-  <?php include_partial('categoryByColorscheme', 
+          ));
+    } else {
+      include_partial('categoryByColorscheme', 
           array(
               'cat_slug' => $cat_slug,
               'cs_slug' => $cs_slug,
               'categories' => $categories
-          )) ?>
+          ));
+    }
+  ?>
   
 </nav>
 

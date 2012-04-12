@@ -38,9 +38,11 @@ class contentActions extends sfActions
     $this->cs_slug = $request->getParameter('colorscheme');
     $this->cat_slug = $request->getParameter('category');
   
-    $this->colorschemes = Doctrine_Core::getTable('MarkaColorScheme')->getActiveColorSchemes();
-    
-    $this->categories = Doctrine_Core::getTable('MarkaCategory')->getActiveCategories();
+    if ( sfConfig::get('app_browser_type') == 'colorschemeByCategory' ) {
+      $this->colorschemes = Doctrine_Core::getTable('MarkaColorScheme')->getActiveColorSchemes();
+    } else {
+      $this->categories = Doctrine_Core::getTable('MarkaCategory')->getActiveCategories();
+    }
     
     sfConfig::set('app_menu','world');
   }  
