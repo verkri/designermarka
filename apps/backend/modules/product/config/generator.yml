@@ -45,14 +45,20 @@ generator:
         display: [category_id, colorscheme_id, is_active, featured]
       form:    ~
       edit:
-        display: [name, category_id, colorscheme_id, is_active, manufactured, stockqty, cadprice, is_active, short, description]
+        display: [name, category_id, colorscheme_id, is_active, featured, manufactured, stockqty, cadprice, short, description]
         fields:
           is_active:
             label: Publish?
             help: If checked, the product will go online, otherwise customers won't see it until activated.
+          featured:
+            label: Featured
+            help: If checked, the product will be added to the featured products set.
       new:
-        display: [name, category_id, colorscheme_id, is_active, manufactured, stockqty, cadprice, is_active, description, short]
+        display: [name, category_id, colorscheme_id, is_active, featured, manufactured, stockqty, cadprice, is_active, short, description]
         fields:
           is_active:
             label: Publish?
             help: If checked, the product will go online, otherwise customers won't see it until activated.
+          featured:
+            label: Featured
+            help: If checked, the product will be added to the featured products set.

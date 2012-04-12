@@ -17,7 +17,7 @@ class MarkaCategoryTable extends Doctrine_Table
         return Doctrine_Core::getTable('MarkaCategory');
     }
     
-    public function getNotEmptyCategories()
+    public function getActiveCategories()
     {
       return $this->createQuery('c')->innerJoin('c.Products p')->where('p.is_active = true')->execute();
     }

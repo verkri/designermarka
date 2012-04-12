@@ -122,6 +122,10 @@ body > header nav ul li {
   font-size:1.5em; 
 }
 
+.logo {
+  margin-top: 20px;
+}
+
 body > article {
   padding: 10px 0px;
 }

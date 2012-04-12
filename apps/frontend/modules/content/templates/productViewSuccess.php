@@ -36,9 +36,8 @@
 <style type="text/css">
 
   .thumb img {
-    
     padding: 2px;
-    margin-bottom: 8px;
+    margin-bottom: 9px;
     border: 1px solid #aaa;
   }
     

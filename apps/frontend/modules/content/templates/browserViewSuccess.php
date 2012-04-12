@@ -14,26 +14,29 @@
   });
    
   $('.category a').click(function() {
+    $('li.category').removeClass('active');
+    $(this).parent('li').addClass('active');
+    
     $('#product-list').html('<p class="loader"><img src="/images/ajax-loader.gif" width="220" height="19"/><br/>Loading content ...</p>');
     $('#product-list').load($(this).attr('href'));
     return false;
   });
   
   // prefetch the featured products
-  $('#product-list').html('<p class="loader"><img src="/images/ajax-loader.gif" width="220" height="19"/><br/>Loading content ...</p>');
+  //$('#product-list').html('<p class="loader"><img src="/images/ajax-loader.gif" width="220" height="19"/><br/>Loading content ...</p>');
   <?php if ( $cs_slug.$cat_slug == "" ) : ?>
-    $('#product-list').load("/fetch");
     $('#featured').click();
+    $('#li-featured > a').click();
   <?php else : ?>
-    $('#product-list').load("/fetch/<?php echo $cs_slug.'/'.$cat_slug ?>");
     $('#<?php echo $cs_slug ?>').click();
+    $('#li-<?php echo $cs_slug.'_'.$cat_slug ?> > a').click();
   <?php endif; ?>
-  
+    
 </script><?php end_register_js() ?>
 
 <style type="text/css">
 
-  p.loader { margin-top: 250px; text-align: center; }
+  p.loader, p.notfound { margin-top: 250px; text-align: center; font-size: 1.3em; }
   p.loader > img { margin-bottom: 10px;}
   
   #product-nav { margin-top: 20px; }
@@ -63,8 +66,8 @@
   
   .category {
     font-size: 1.5em;
+    margin: 5px auto;
   }
-
 
 </style>
 
@@ -74,23 +77,25 @@
     <h4 id="featured" class="toggle">Featured</h4>
     <div class="toggle-content">
       <ul>
-        <li class="category"><a href="/fetch">Featured products</a></li>
+        <li id="li-featured" class="category active"><a href="/fetch">Featured products</a></li>
       </ul>
     </div>
   </div>
   
-  <?php foreach ($colorschemes as $cs): ?>
-  <div class="toggle-container">
-    <h4 id="<?php echo $cs->getSlug() ?>" class="toggle"><?php echo $cs->getName() ?></h4>
-    <div class="toggle-content">
-      <ul>
-        <?php foreach ($cs->getActiveCategories() as $cat): ?>
-          <li class="category"><a href="/fetch/<?php echo $cs->getSlug().'/'.$cat->getSlug() ?>"><?php echo $cat->getName() ?></a></li>
-        <?php endforeach; ?>  
-      </ul>
-    </div>
-  </div>
-  <?php endforeach ?>
+  <?php /*include_partial('colorschemeByCategory', 
+          array(
+              'cat_slug' => $cat_slug,
+              'cs_slug' => $cs_slug,
+              'colorschemes' => $colorschemes
+          ))*/ ?> 
+  
+  <?php include_partial('categoryByColorscheme', 
+          array(
+              'cat_slug' => $cat_slug,
+              'cs_slug' => $cs_slug,
+              'categories' => $categories
+          )) ?>
+  
 </nav>
 
 <section id="product-list" class="w75p">

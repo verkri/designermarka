@@ -57,8 +57,13 @@
   */
 </style>
 
+<?php if ( $products->count() == 0 ) : ?>
+
+<p class="notfound">No such Marka products found.</p>
+
+<?php else : ?>
+
 <ul id="plist" class="clearfix">
-  
 <?php foreach ($products as $p): ?>
   <li class="w25p clearfix">
     <a href="<?php
@@ -89,3 +94,5 @@
   
 <?php endforeach ?>
 </ul>
+
+<?php endif; ?>

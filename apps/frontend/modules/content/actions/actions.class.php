@@ -40,6 +40,8 @@ class contentActions extends sfActions
   
     $this->colorschemes = Doctrine_Core::getTable('MarkaColorScheme')->getActiveColorSchemes();
     
+    $this->categories = Doctrine_Core::getTable('MarkaCategory')->getActiveCategories();
+    
     sfConfig::set('app_menu','world');
   }  
   
