@@ -5,7 +5,7 @@
 all:
   
   slider_image_dir: /app/homeslider/
-  slider_image_ext: png
+  slider_image_size: 1024x768
   
   product_image_dir: /app/product/
   product_image_size: 440x440

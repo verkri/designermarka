@@ -14,13 +14,7 @@ class contentActions extends sfActions
   public function executeHome(sfWebRequest $request)
   {
     sfConfig::set('app_menu','home');
-    
-    // search for slides
-    $dir_pattern = sfConfig::get('sf_web_dir').sfConfig::get('app_slider_image_dir').'*.'.sfConfig::get('app_slider_image_ext');
-    $this->slides=glob($dir_pattern);
-    for ( $i= 0; $i < count($this->slides); ++$i ) {
-      $this->slides[$i] = sfConfig::get('app_slider_image_dir') . basename($this->slides[$i]);
-    }
+    $this->slides = Doctrine_Core::getTable('MarkaHomeSlider')->getSlides();
   }
     
   public function executeContact(sfWebRequest $request)

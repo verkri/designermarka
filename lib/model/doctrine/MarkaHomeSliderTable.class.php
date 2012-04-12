@@ -16,4 +16,9 @@ class MarkaHomeSliderTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('MarkaHomeSlider');
     }
+    
+    public function getSlides()
+    {
+      return $this->createQuery('h')->orderBy('priority ASC')->execute();
+    }
 }

@@ -12,5 +12,5 @@ class MarkaHomeSliderFormFilter extends BaseMarkaHomeSliderFormFilter
 {
   public function configure()
   {
-  }
+  }  
 }

@@ -12,4 +12,41 @@
  */
 class MarkaHomeSlider extends BaseMarkaHomeSlider
 {
+  
+  private $filename_predelete = "";
+  
+  public function save(Doctrine_Connection $conn = null)
+  {
+    if ( $this->hasImage() ) {
+      $image_file = sfConfig::get('sf_web_dir').$this->getImagePath();
+      $img = new sfImage($image_file);
+      $sizes = explode('x',sfConfig::get('app_slider_image_size'));
+      $img->resize($sizes[0],$sizes[1])->save();
+      
+    } else {
+      $this->setFilename("");
+    }
+    $ret = parent::save($conn);
+  }
+  
+  public function getImagepath() {
+    return sfConfig::get('app_slider_image_dir') . $this->getFilename();
+  }
+  
+  public function hasImage() {
+    $image_file = sfConfig::get('sf_web_dir').$this->getImagePath();
+    return is_file($image_file);
+  }
+  
+  public function preDelete($event)
+  {
+    $this->filename_predelete = $this->getFilename();
+  }
+  
+  public function postDelete($event)
+  {
+    $path = sfConfig::get('sf_web_dir').sfConfig::get('app_slider_image_dir').$this->filename_predelete;
+    if ( is_file($path) )
+      unlink($path);
+  }
 }

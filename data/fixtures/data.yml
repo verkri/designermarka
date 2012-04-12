@@ -9,22 +9,21 @@ MarkaColorScheme:
   MarkaColorScheme_2:
     name: 'Metalics & Yellows'
     slug: metalics-and-yellows
+MarkaHomeSlider:
+  MarkaHomeSlider_17:
+    filename: 3f4077e4d05bed66519bedcb1cc9a2e1b4345e8b.png
+    caption: 'High-quality bracelets. That is Marka.'
+    priority: '1'
+  MarkaHomeSlider_18:
+    filename: 2dacbff4d594646145d6da618d6d6be61262cede.png
+    caption: 'Marka gives you unique and colorful accessories.'
+    priority: '2'
+  MarkaHomeSlider_19:
+    filename: 222cb5a2b5e24e67a9de6218bdd27802e3bc5696.png
+    caption: 'High quality fabrics, glasses, crystals and Swarovski. That''s what you get with Marka.'
+    priority: '0'
 MarkaProduct:
   MarkaProduct_2:
-    name: Rakel
-    slug: rakel
-    Category: MarkaCategory_1
-    ColorScheme: MarkaColorScheme_1
-    manufactured: '2012-01-01'
-    token: f6366544ca6ff6583817ad5181e49b8bc80bbef6
-    stockqty: '1'
-    cadprice: '75'
-    is_active: true
-    featured: true
-    description: 'This stunning wood necklace was created by Marka with handpicked, cured and polished wood components. The necklace contains two sizes of spheres, the bigger ones are intended to lie on your chest, while the smaller ones give you a smooth and nice feeling at the neck.'
-    short: 'Fabricated by wood components. Length: 16" to 20"'
-    created_at: '2012-04-12 11:18:58'
-  MarkaProduct_1:
     name: Pilar
     slug: pilar
     Category: MarkaCategory_1
@@ -108,19 +107,33 @@ MarkaProduct:
     description: 'This spectacular silver wood necklace was created by MarKa with handpicked cured wood components. '
     short: 'Wood necklace. Length: 18" to 20"'
     created_at: '2012-04-12 11:42:54'
+  MarkaProduct_1:
+    name: Rakel
+    slug: rakel
+    Category: MarkaCategory_1
+    ColorScheme: MarkaColorScheme_1
+    manufactured: '2012-01-01'
+    token: f6366544ca6ff6583817ad5181e49b8bc80bbef6
+    stockqty: '3'
+    cadprice: '75'
+    is_active: true
+    featured: true
+    description: 'This stunning wood necklace was created by Marka with handpicked, cured and polished wood components. The necklace contains two sizes of spheres, the bigger ones are intended to lie on your chest, while the smaller ones give you a smooth and nice feeling at the neck.'
+    short: 'Fabricated by wood components. Length: 16" to 20"'
+    created_at: '2012-04-12 11:18:58'
 MarkaProductImage:
   MarkaProductImage_1:
     filename: 7cdcc4771219fc5be8979e7bf5a279ae67f443a1.jpg
-    Product: MarkaProduct_1
+    Product: MarkaProduct_2
   MarkaProductImage_2:
     filename: 42da4c3a1e042e88bbc92d0d253df6b052c83d1d.jpg
-    Product: MarkaProduct_1
+    Product: MarkaProduct_2
   MarkaProductImage_3:
     filename: 26dd25195e29ae3dda88479a1a4a8de60858800a.jpg
-    Product: MarkaProduct_2
+    Product: MarkaProduct_1
   MarkaProductImage_4:
     filename: 0b46965b4efe1392b9ed9b20fdd3713c5cf77d7c.jpg
-    Product: MarkaProduct_2
+    Product: MarkaProduct_1
   MarkaProductImage_5:
     filename: 3e5c179a3360cb93d39ba58777e980e97115b471.jpg
     Product: MarkaProduct_3
@@ -136,27 +149,27 @@ MarkaProductImage:
   MarkaProductImage_9:
     filename: fc442ebc616bb0919a49238af79e38279827d1dc.jpg
     Product: MarkaProduct_5
-  MarkaProductImage_11:
+  MarkaProductImage_10:
     filename: eb60fd1acfc0f7003779dc4bbe9b53a86cc5fa51.jpg
     Product: MarkaProduct_5
-  MarkaProductImage_12:
+  MarkaProductImage_11:
     filename: 114790f4296707f758828add8d062e6525da0984.jpg
     Product: MarkaProduct_5
-  MarkaProductImage_13:
+  MarkaProductImage_12:
     filename: 4cf868665b69ad76c019c55b721367ae77eac697.jpg
     Product: MarkaProduct_5
-  MarkaProductImage_14:
+  MarkaProductImage_13:
     filename: 77bd8cb1e27f9bb787bd5ce4eeb76c09196f3f1e.jpg
     Product: MarkaProduct_6
-  MarkaProductImage_15:
+  MarkaProductImage_14:
     filename: f82c0bbac77e7adaf90af11cc276a30d756003f1.jpg
     Product: MarkaProduct_6
-  MarkaProductImage_16:
+  MarkaProductImage_15:
     filename: 8edadc5bcaa10fa6a1e65dcc01648177d6255df1.jpg
     Product: MarkaProduct_6
-  MarkaProductImage_17:
+  MarkaProductImage_16:
     filename: 0d0a396ec151c2f686a8893552f2f1389f978c33.jpg
     Product: MarkaProduct_7
-  MarkaProductImage_18:
+  MarkaProductImage_17:
     filename: ec19f71dbcf866e2e7e035e6f893e61beab21714.jpg
     Product: MarkaProduct_7

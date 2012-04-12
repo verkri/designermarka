@@ -14,13 +14,17 @@ generator:
     config:
       actions: ~
       fields:
+        filename:
+          label: Slide
         caption:
           help: The text that is shown during the effect
+          attributes: { size: 70, maxlength: 100 }
         priority:
           help: The priority of this image. Lower the priority to move this image towards the beginning of the slideshow.
           attributes: { size: 2 }
       list:
         display: [=filename, caption, priority]
+        sort: priority
         batch_actions: {}
       filter:
         class: false
