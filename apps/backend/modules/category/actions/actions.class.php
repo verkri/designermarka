@@ -44,6 +44,17 @@ class categoryActions extends autoCategoryActions
       $this->setTemplate('new'); 
     }    
   }
+  
+  public function executeUpdate(sfWebRequest $request)
+  {
+    $this->marka_category = $this->getRoute()->getObject();
+    $this->form = $this->configuration->getForm($this->marka_category);
+
+    if ( $this->processForm($request, $this->form) )
+      $this->redirect(array('sf_route' => 'marka_category_edit', 'sf_subject' => $this->marka_category));
+    else
+      $this->setTemplate('edit');
+  }
     
   protected function processForm(sfWebRequest $request, sfForm $form)
   {

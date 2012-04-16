@@ -9,6 +9,7 @@
     <div class="w75p">
       <div class="clearfix">
         <nav>
+          <?php if ($sf_user->isAuthenticated()) : ?>
           <ul> 
             
             <li <?php echo (sfConfig::get('app_menu') == 'home_slider' ? 'class="active"' : '') ?>>
@@ -23,8 +24,10 @@
             <li <?php echo (sfConfig::get('app_menu') == 'product' ? 'class="active"' : '') ?>>
               <?php echo link_to('Products','marka_product') ?></li>
             
-
+            <li><?php echo link_to('Logout','sf_guard_signout') ?></li>
+            
           </ul>
+          <?php endif; ?>
         </nav>
       </div>
 

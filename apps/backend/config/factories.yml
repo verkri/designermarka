@@ -30,7 +30,7 @@ dev:
 
 all:
   routing:
-    class: sfPatternRouting
+    class: slashIndependentPatternRouting
     param:
       generate_shortest_url:            true
       extra_parameters_as_query_string: true

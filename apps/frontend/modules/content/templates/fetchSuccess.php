@@ -30,31 +30,6 @@
     border: 1px solid #888;
     padding: 2px;    
   }
-  
-  /*
-  .product h3 {
-    margin: 0px;
-    font-size: 2em;
-    color: crimson;
-    float:left;
-  }
-  
-  .product h4 {
-    margin: 0px;
-    text-align: right;
-    line-height: 1.7em;
-    font-size: 1.5em;
-    color: black;
-    float:right;
-  }
-  
-  .product img { margin-bottom: 5px; }
-  #productlist { margin: 0px; }
-  
-  #productlist li:hover div.product {
-    border: 1px solid #aaa;
-  }
-  */
 </style>
 
 <?php if ( $products->count() == 0 ) : ?>
@@ -77,9 +52,11 @@
 
       <?php $image = $p->getImages()->getFirst() ?>
       <?php if ( $image == null ) : ?>
-        <img src="http://dummyimage.com/198x198/46475c/dadbe3.png&text=No Image" height="143" width="143"/>
+        <?php echo image_tag("http://dummyimage.com/".sfConfig::get('app_product_image_medium_size')."/e0e0e0/666666.png&text=No Image",
+                array('size' => sfConfig::get('app_product_image_medium_size'), 'alt' => "No image", 'title' => "No image") ); ?>
       <?php else : ?>
-        <?php echo image_tag($image->getMediumpath(),array('size' => sfConfig::get('app_product_image_medium_size'))); ?> 
+        <?php echo image_tag($image->getMediumpath(),
+                array('size' => sfConfig::get('app_product_image_medium_size'), 'alt' => $p->getName(), 'title' => $p->getName() )); ?> 
       <?php endif; ?>
       
         <hgroup>

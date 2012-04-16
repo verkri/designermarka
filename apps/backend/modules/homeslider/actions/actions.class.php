@@ -31,6 +31,17 @@ class homesliderActions extends autoHomesliderActions
     }    
   }
   
+  public function executeUpdate(sfWebRequest $request)
+  {
+    $this->marka_home_slider = $this->getRoute()->getObject();
+    $this->form = $this->configuration->getForm($this->marka_home_slider);
+
+    if ( $this->processForm($request, $this->form) )
+      $this->redirect(array('sf_route' => 'marka_home_slider_edit', 'sf_subject' => $this->marka_home_slider));
+    else
+      $this->setTemplate('edit');
+  }
+  
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));

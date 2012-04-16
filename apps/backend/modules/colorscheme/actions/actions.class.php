@@ -44,6 +44,17 @@ class colorschemeActions extends autoColorschemeActions
     }    
   } 
   
+  public function executeUpdate(sfWebRequest $request)
+  {
+    $this->marka_color_scheme = $this->getRoute()->getObject();
+    $this->form = $this->configuration->getForm($this->marka_color_scheme);
+
+    if ( $this->processForm($request, $this->form) )
+      $this->redirect(array('sf_route' => 'marka_color_scheme_edit', 'sf_subject' => $this->marka_color_scheme));
+    else
+      $this->setTemplate('edit');
+  }
+  
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));

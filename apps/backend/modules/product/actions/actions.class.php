@@ -32,6 +32,17 @@ class productActions extends autoProductActions
     }    
   }
   
+  public function executeUpdate(sfWebRequest $request)
+  {
+    $this->marka_product = $this->getRoute()->getObject();
+    $this->form = $this->configuration->getForm($this->marka_product);
+
+    if ( $this->processForm($request, $this->form) )
+      $this->redirect(array('sf_route' => 'marka_product_edit', 'sf_subject' => $this->marka_product));
+    else
+      $this->setTemplate('edit');
+  }
+  
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));

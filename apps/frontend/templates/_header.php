@@ -2,7 +2,7 @@
 
   <div class="w25p">
     <div class="logo"> 
-      <a href="<?php echo url_for('@home'); ?>" class="logo_img"><img src="/images/marka-logo.png" alt="Marka Designs" width="150" height="80"></a>
+      <a href="<?php echo url_for('@home'); ?>" class="logo_img"><img src="/images/marka-logo.png" alt="Marka Designs" title="Marka Designs" width="150" height="80"></a>
     </div> 
   </div>
 
