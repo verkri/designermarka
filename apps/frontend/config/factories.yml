@@ -57,7 +57,7 @@ all:
         class: Swift_SmtpTransport
         param:
           host:       localhost
-          port:       25
+          port:       7500
           encryption: ~
           username:   ~
           password:   ~
