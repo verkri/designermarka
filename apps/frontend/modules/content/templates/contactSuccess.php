@@ -97,7 +97,7 @@
     <?php endif ?>
     
     <div class="w25p"><?php echo $form['email']->renderLabel(); ?></div>
-    <div class="w75p"><?php echo $form['email']->render(); ?></div>
+    <div class="w75p"><?php echo $form['email']->render(array('size' => 40)); ?></div>
   
     <?php if ( $form['subject']->hasError() ) : ?>
       <div class="w100p">
@@ -106,7 +106,7 @@
     <?php endif ?>
     
     <div class="w25p"><?php echo $form['subject']->renderLabel(); ?></div>
-    <div class="w75p"><?php echo $form['subject']->render(); ?></div>
+    <div class="w75p"><?php echo $form['subject']->render(array('size' => 40)); ?></div>
     
     <?php if ( $form['message']->hasError() ) : ?>
       <div class="w100p">
@@ -115,7 +115,7 @@
     <?php endif ?>
     
     <div class="w25p"><?php echo $form['message']->renderLabel(); ?></div>
-    <div class="w75p"><?php echo $form['message']->render(); ?></div>
+    <div class="w75p"><?php echo $form['message']->render(array('rows' => 15, 'cols' => 52)); ?></div>
     
     <?php echo $form['_csrf_token']->render(); ?>
     

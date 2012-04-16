@@ -1,5 +1,5 @@
-<?php if ($value): ?>
-  <?php echo image_tag(sfConfig::get('sf_admin_module_web_dir').'/images/tick.png', array('alt' => __($desc, array(), 'sf_admin'), 'title' => __($desc, array(), 'sf_admin'))) ?>
-<?php else: ?>
-  <?php echo image_tag(sfConfig::get('sf_admin_module_web_dir').'/images/error.png', array('alt' => __($desc, array(), 'sf_admin'), 'title' => __($desc, array(), 'sf_admin'))) ?>
+<?php if ($value && ( !isset($display_icon) || $display_icon == true ) ) : ?>
+  <?php echo image_tag('/images/icons/tick.png', array('alt' => __($desc, array(), 'sf_admin'), 'title' => __($desc, array(), 'sf_admin'))) ?>
+<?php elseif (!$value && ( !isset($display_icon) || $display_icon == true ) ) : ?>
+  <?php echo image_tag('/images/icons/error.png', array('alt' => __($desc, array(), 'sf_admin'), 'title' => __($desc, array(), 'sf_admin'))) ?>
 <?php endif; ?>

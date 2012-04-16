@@ -1,14 +1,18 @@
 # You can find more information about this file on the symfony website:
 # http://www.symfony-project.org/reference/1_4/en/05-Factories
 
-
-
 prod:
   logger:
-    class:   sfNoLogger
+    logger:
+    class: sfAggregateLogger
     param:
-      level:   err
-      loggers: ~
+      level: err
+      loggers:
+        sf_file_debug:
+          class: sfFileLogger
+          param:
+            level: err
+            file: %SF_LOG_DIR%/%SF_APP%_%SF_ENVIRONMENT%.log
 
 test:
   storage:
@@ -57,3 +61,8 @@ all:
           encryption: ~
           username:   ~
           password:   ~
+          
+  storage:
+    class: sfSessionStorage
+    param:
+      session_name: marka

@@ -54,22 +54,6 @@ EOF
         $this->setTemplate('contact');
       }
     }
-    
-    
-    /*$this->message = $this->getMailer()->compose(
-      array('jobeet@example.com' => 'Jobeet Bot'),
-      'test@stock-server',
-      'Jobeet affiliate token',
-      <<<EOF
-Your Jobeet affiliate account has been activated.
- 
-Your token is.
- 
-The Jobeet Bot.
-EOF
-    );
- 
-    $this->getMailer()->send($this->message);*/
   }
   
   public function executeAbout(sfWebRequest $request)

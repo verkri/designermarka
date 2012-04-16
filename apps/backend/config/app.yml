@@ -7,5 +7,6 @@ all:
   
   sf_guard_plugin:
     allow_login_with_email:   false
-    success_signin_url:       @marka_product
+    success_signin_url:       '@marka_product'
     success_signout_url:      http://www.designermarka.com
+    remember_cookie_name:     marka_remember_me

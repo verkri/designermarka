@@ -14,10 +14,26 @@
   $ <?php echo $marka_product->getCadprice() ?>.0 CAD
 </td>
 <td class="sf_admin_boolean sf_admin_list_td_featured">
-  <?php echo get_partial('product/list_field_boolean', array('value' => $marka_product->getFeatured())) ?>
+  <?php 
+    $options = null;
+    if ( $marka_product->getFeatured() ) {
+      $options = array ( 'value' => true, 'desc' => 'Featured.');
+    } else {
+      $options = array ( 'value' => false, 'desc' => 'Not featured', 'display_icon' => false);
+    }
+    echo get_partial('product/list_field_status', $options) 
+  ?>
 </td> 
 <td class="sf_admin_boolean sf_admin_list_td_is_active">
-  <?php echo get_partial('product/list_field_boolean', array('value' => $marka_product->getIsActive())) ?>
+  <?php 
+    $options = null;
+    if ( $marka_product->getIsActive() ) {
+      $options = array ( 'value' => true, 'desc' => 'Active');
+    } else {
+      $options = array ( 'value' => false, 'desc' => 'Inactive');
+    }
+    echo get_partial('product/list_field_status', $options) 
+  ?>
 </td>
 <td class="sf_admin_boolean sf_admin_list_td_imagecount">
   <?php 
