@@ -38,7 +38,7 @@ class contentActions extends sfActions
         $email = $this->form->getValue('email');
         
         $this->message = $this->getMailer()->compose(
-            'contact@designermaka.com',
+            'contact@designermarka.com',
             sfConfig::get('app_contact_email'),
             $this->form->getValue('subject'),
             <<<EOF
