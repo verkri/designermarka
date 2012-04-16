@@ -66,6 +66,10 @@ about:
 contact:
   url:   /contact
   param: { module: content, action: contact }
+  
+contact-submit:
+  url:   /contact/submit
+  param: { module: content, action: contactSubmit }
 
 home:
   url:   /

@@ -20,6 +20,56 @@ class contentActions extends sfActions
   public function executeContact(sfWebRequest $request)
   {
     sfConfig::set('app_menu','contact');
+    $this->form = new ContactForm();
+  }
+  
+  public function executeContactSubmit(sfWebRequest $request)
+  {
+    sfConfig::set('app_menu','contact');
+    
+    $this->form = new ContactForm();
+    
+    if ($request->isMethod('post'))
+    {
+      $this->form->bind($request->getParameter('contact'));
+      if ($this->form->isValid()) {
+
+        $msg = $this->form->getValue('message');
+
+        $this->message = $this->getMailer()->compose(
+            $this->form->getValue('email'),
+            'test@stock-server',
+            $this->form->getValue('subject'),
+            <<<EOF
+$msg
+EOF
+        );
+ 
+        $this->getMailer()->send($this->message);
+        
+        $this->getUser()->setFlash('notice','Your message has been successfully submitted.');
+        $this->redirect('@contact');
+      } else {
+        $this->getUser()->setFlash('error','An error occured when processing your message.');
+        $this->setTemplate('contact');
+      }
+    }
+    
+    
+    /*$this->message = $this->getMailer()->compose(
+      array('jobeet@example.com' => 'Jobeet Bot'),
+      'test@stock-server',
+      'Jobeet affiliate token',
+      <<<EOF
+Your Jobeet affiliate account has been activated.
+ 
+Your token is.
+ 
+The Jobeet Bot.
+EOF
+    );
+ 
+    $this->getMailer()->send($this->message);*/
   }
   
   public function executeAbout(sfWebRequest $request)
