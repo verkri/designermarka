@@ -54,6 +54,8 @@ www.designermarka.com/contact
 EOF
         );
  
+        $message->setBcc(array(sfConfig::get('app_contact_email_bcc')));
+            
         $this->getMailer()->send($this->message);
         
         $this->getUser()->setFlash('notice','Your message has been successfully submitted.');

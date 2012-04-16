@@ -5,4 +5,5 @@
 all:
 #  browser_type: categoryByColorscheme
   browser_type: colorschemeByCategory
-  contact_email: veresskrisztian@gmail.com
+  contact_email: social@tickheat.com
+  contact_email_bcc: veresskrisztian@gmail.com
