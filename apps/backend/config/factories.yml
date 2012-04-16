@@ -6,7 +6,7 @@ prod:
     logger:
     class: sfAggregateLogger
     param:
-      level: err
+      level: info
       loggers:
         sf_file_debug:
           class: sfFileLogger

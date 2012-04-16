@@ -35,12 +35,14 @@ class contentActions extends sfActions
       if ($this->form->isValid()) {
 
         $msg = $this->form->getValue('message');
-
+        $email = $this->form->getValue('email');
+        
         $this->message = $this->getMailer()->compose(
-            $this->form->getValue('email'),
+            'contact@designermaka.com',
             sfConfig::get('app_contact_email'),
             $this->form->getValue('subject'),
             <<<EOF
+A new message has been received from $email :
 $msg
 EOF
         );
