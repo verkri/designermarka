@@ -5,3 +5,4 @@
 all:
 #  browser_type: categoryByColorscheme
   browser_type: colorschemeByCategory
+  contact_email: veresskrisztian@gmail.com
