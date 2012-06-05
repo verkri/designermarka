@@ -21,6 +21,12 @@ class MarkaProductTable extends Doctrine_Table {
     return $this->filterActiveProducts($q)->limit($count)->execute();
   }
   
+  public function getFeaturedCount() {
+    $q = $this->createQuery('p')
+            ->where('featured = true');
+    return $this->filterActiveProducts($q)->count();
+  }
+  
   public function getActiveProducts(Doctrine_Query $q = null) {
     return $this->filterActiveProducts($q)->execute();
   }

@@ -51,7 +51,7 @@
             <li >
               <a href="/world-of-marka">The World of Marka</a></li>
 
-            <li class="active">
+            <li>
               <a href="/about">About Marka</a></li>
 
             <li >

@@ -1,6 +1,15 @@
 <?php use_stylesheets_for_form($form) ?>
 <?php use_javascripts_for_form($form) ?>
 
+<?php use_helper('JavascriptRegister'); ?>
+
+<?php register_js() ?><script>
+  $('input[type=submit]').click(function() {
+    $.blockUI();
+  });
+    
+</script><?php end_register_js() ?>
+
 <style type="text/css">
   .current_photo_holder input {
     margin: 5px 0px;
@@ -61,7 +70,7 @@
       <div class="w50p">
         <h3>Upload Images</h3>
         <br/>
-        <p>You can upload <?php echo sfConfig::get('app_product_upload_image_count') ?> photos at once. Make sure that they are high quality, rectangular, and  bigger than 440x440px!</p>
+        <p>You can upload <?php echo sfConfig::get('app_product_upload_image_count') ?> photos at once. Make sure that they are high quality, landscape, and have an aspect ratio of 4:3!</p>
         <br/>
         <?php foreach ($form['newImages'] as $photo): ?>
           <div class="clearfix new_photo">

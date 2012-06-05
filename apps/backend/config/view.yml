@@ -23,6 +23,7 @@ default:
 
   javascripts:  
     - libs/jquery-1.7.1.min.js
+    - plugins/jquery.blockui.js
     
   has_layout:     true
   layout:         layout

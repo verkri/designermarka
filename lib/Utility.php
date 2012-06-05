@@ -38,4 +38,8 @@ class Utility {
     static public function markaActiveCategories() {
       return Doctrine_Core::getTable('MarkaCategory')->getNotEmptyCategories();
     }
+    
+    static public function logModel($model,$string) {
+      file_put_contents(sfConfig::get('sf_log_dir').DIRECTORY_SEPARATOR.$model.'.log', $string."\n", FILE_APPEND);
+    }
 }

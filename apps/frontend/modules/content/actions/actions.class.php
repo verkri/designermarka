@@ -54,7 +54,7 @@ www.designermarka.com/contact
 EOF
         );
  
-        $this->message->setBcc(array(sfConfig::get('app_contact_email_bcc')));
+        //$this->message->setBcc(array(sfConfig::get('app_contact_email_bcc')));
             
         $this->getMailer()->send($this->message);
         
@@ -82,6 +82,8 @@ EOF
     } else {
       $this->categories = Doctrine_Core::getTable('MarkaCategory')->getActiveCategories();
     }
+    
+    $this->featured_count = Doctrine_Core::getTable('MarkaProduct')->getFeaturedCount();
     
     sfConfig::set('app_menu','world');
   }  

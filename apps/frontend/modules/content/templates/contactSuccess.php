@@ -11,7 +11,7 @@
 <style type="text/css">
   input[type=submit] {
     margin-top: 20px;
-    margin-left: 400px;
+    margin-left: 145px;
   }
 
   label {
@@ -69,7 +69,7 @@
   
 </style>
 
-<div class="w50p">
+<div class="w60p">
   <h1>Contact us</h1>
   <p>May have any question or want to place an order, please fill the form below to contact us.</p>
   
@@ -115,10 +115,10 @@
     <?php endif ?>
     
     <div class="w25p"><?php echo $form['message']->renderLabel(); ?></div>
-    <div class="w75p"><?php echo $form['message']->render(array('rows' => 15, 'cols' => 52)); ?></div>
+    <div class="w75p"><?php echo $form['message']->render(array('rows' => 15, 'cols' => 50)); ?></div>
     
     <?php echo $form['_csrf_token']->render(); ?>
+    <input class="button" type="submit" id="submit" value="Send message"/>
     
-    <input class="button" type="submit" id="submit" value="Send"/>
   </form>
 </div>

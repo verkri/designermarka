@@ -25,8 +25,8 @@
   // prefetch the featured products
   //$('#product-list').html('<p class="loader"><img src="/images/ajax-loader.gif" width="220" height="19"/><br/>Loading content ...</p>');
   <?php if ( $cs_slug.$cat_slug == "" ) : ?>
-    $('#featured').click();
-    $('#li-featured > a').click();
+    $('#product-nav .toggle-container:first-child h4').click();
+    $('#product-nav .toggle-container:first-child a:first-child').click();
   <?php else : ?>
     $('#<?php echo $cs_slug ?>').click();
     $('#li-<?php echo $cs_slug.'_'.$cat_slug ?> > a').click();
@@ -73,6 +73,7 @@
 
 <nav class="w25p" id="product-nav">
   
+  <?php if ($featured_count > 0) : ?>
   <div class="toggle-container">
     <h4 id="featured" class="toggle">Featured</h4>
     <div class="toggle-content">
@@ -81,6 +82,7 @@
       </ul>
     </div>
   </div>
+  <?php endif ?>
   
   <?php 
     if ( sfConfig::get('app_browser_type') == 'colorschemeByCategory' ) {

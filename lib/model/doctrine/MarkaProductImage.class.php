@@ -17,11 +17,14 @@ class MarkaProductImage extends BaseMarkaProductImage
   
   public function preDelete($event)
   {
+    Utility::logModel('MarkaProductImage',"preDelete :".$this->getFilename());
     $this->filename_predelete = $this->getFilename();
   }
   
   public function save(Doctrine_Connection $conn = null)
   {
+    Utility::logModel('MarkaProductImage',"save :".$this->getFilename());
+    
     if ( $this->hasImage() ) {
       $image_file = sfConfig::get('sf_web_dir').$this->getImagePath();
       $img = new sfImage($image_file);
@@ -43,7 +46,10 @@ class MarkaProductImage extends BaseMarkaProductImage
   
   public function postDelete($event)
   {
+    Utility::logModel('MarkaProductImage','postDelete: '.$this->getFilename());
+    
     $path = sfConfig::get('sf_web_dir').sfConfig::get('app_product_image_thumbnail_dir').$this->filename_predelete;
+    
     if ( is_file($path) )
       unlink($path);
     
