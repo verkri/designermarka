@@ -27,7 +27,7 @@ generator:
           attributes: { size: 4 }
         short:
           label: Short description
-          attributes: { maxlength: 100, size: 100 }
+          attributes: { maxlength: 100, size: 80 }
           help: Physical sizes, materials, etc.
         description:
           attributes: { rows: 13, cols: 80 }
@@ -55,11 +55,4 @@ generator:
             label: Featured
             help: If checked, the product will be added to the featured products set.
       new:
-        display: [name, category_id, colorscheme_id, is_active, featured, manufactured, stockqty, cadprice, is_active, short, description]
-        fields:
-          is_active:
-            label: Publish?
-            help: If checked, the product will go online, otherwise customers won't see it until activated.
-          featured:
-            label: Featured
-            help: If checked, the product will be added to the featured products set.
+        display: [name, category_id, colorscheme_id, manufactured, stockqty, cadprice, short, description]

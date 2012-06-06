@@ -12,7 +12,7 @@
  */
 class MarkaProduct extends BaseMarkaProduct
 {
-  
+   
   public function save(Doctrine_Connection $conn = null)
   {
     if ( $this->isNew() ) {

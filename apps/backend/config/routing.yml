@@ -46,6 +46,21 @@ marka_product:
     column:               slug
     with_wildcard_routes: true
 
+
+#marka_product_image_upload:
+#  url:     /product/uploadimage/:slug
+#  class:   sfDoctrineRoute
+#  options: { model: MarkaProduct, type: object }
+#  param:   { module: product, action: uploadimage }
+#  requirements: { sf_method: post }
+
+#marka_product_image_delete:
+#  url:     /product/deleteimage/:slug
+#  class:   sfDoctrineRoute
+#  options: { model: MarkaProduct, type: object }
+#  param:   { module: product, action: deleteimage }
+#  requirements: { sf_method: post }
+ 
 marka_category:
   class: sfDoctrineRouteCollection
   options:

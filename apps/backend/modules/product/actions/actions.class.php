@@ -20,6 +20,70 @@ class productActions extends autoProductActions
     sfConfig::set('app_menu','product');
   }
   
+  public function executeEdit(sfWebRequest $request)
+  {
+    $this->marka_product = $this->getRoute()->getObject();
+    $this->form = $this->configuration->getForm($this->marka_product);
+    
+    $this->image_count = $this->marka_product->getImages()->count();
+    
+  }
+  
+  /*
+  public function executeNew(sfWebRequest $request)
+  {
+    $this->form = $this->configuration->getForm();
+    $this->marka_product = $this->form->getObject();
+        
+    $uploadForm = $this->configuration->getUploadImagesForm($this->marka_product);
+    $this->form->embedForm('Upload',$uploadForm);
+
+  }
+*/
+  
+  /*public function executeUploadimage(sfWebRequest $request)
+  {
+    $this->marka_product = $this->getRoute()->getObject();
+    $this->form = $this->configuration->getForm($this->marka_product);    
+    
+    $this->uform = $this->form->getEmbeddedForm('Upload');
+    
+    $this->getUser()->setFlash('notice', 'IMAGES have been uploaded!');
+    sfContext::getInstance()->getLogger()->notice('UPLOAD IMAGE');
+    
+    $upload_form = $this->configuration->getUploadImagesForm($this->marka_product);
+    $this->form->embedForm('Upload',$upload_form);
+    
+    $this->setTemplate('edit'); 
+    //$this->redirect(array('sf_route' => 'marka_product_edit', 'sf_subject' => $this->marka_product));
+  }
+  
+  public function executeDeleteimage(sfWebRequest $request)
+  {
+    $this->marka_product = $this->getRoute()->getObject();
+      
+    $this->getUser()->setFlash('notice', 'IMAGES have been DELETED!');
+    sfContext::getInstance()->getLogger()->notice('DELETE IMAGE');
+    
+    $this->redirect(array('sf_route' => 'marka_product_edit', 'sf_subject' => $this->marka_product));
+  }*/
+  
+  /*
+  public function executeEdit(sfWebRequest $request)
+  {
+    $this->marka_product = $this->getRoute()->getObject();
+    $this->form = $this->configuration->getForm($this->marka_product);
+    
+    //$upload_form = $this->configuration->getUploadImagesForm($this->marka_product);
+    //$this->form->embedForm('Upload',$upload_form);
+    
+    //$this->remove_form = $this->configuration->getRemoveImagesForm($this->marka_product);
+    
+    //$this->current_images_form = $this->configuration->getCurrentImagesForm($this->marka_product->getImages());
+    //$this->upload_images_form = $this->configuration->getUploadImagesForm();
+  }*/
+  
+  /*
   public function executeCreate(sfWebRequest $request)
   {
     $this->form = $this->configuration->getForm();
@@ -42,7 +106,8 @@ class productActions extends autoProductActions
     else
       $this->setTemplate('edit');
   }
-  
+  */
+  /*
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
@@ -75,7 +140,7 @@ class productActions extends autoProductActions
       return false;
     }
     return true;
-  }
+  }*/
     
   public function executeBatchActivate(sfWebRequest $request)
   {

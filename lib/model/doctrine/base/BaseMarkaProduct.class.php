@@ -135,7 +135,10 @@ abstract class BaseMarkaProduct extends sfDoctrineRecord
 
         $this->hasMany('MarkaProductImage as Images', array(
              'local' => 'id',
-             'foreign' => 'product_id'));
+             'foreign' => 'product_id',
+             'cascade' => array(
+             0 => 'delete',
+             )));
 
         $timestampable0 = new Doctrine_Template_Timestampable(array(
              'created' => 

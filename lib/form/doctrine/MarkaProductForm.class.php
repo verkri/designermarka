@@ -10,45 +10,65 @@
  */
 class MarkaProductForm extends BaseMarkaProductForm
 {
-  public function configure()
-  {
+  public function configure() {
     unset($this['created_at'], $this['slug'], $this['token']);
+
+    $subForm = new sfForm();
+    for ($i = 0; $i < 4; $i++) {
+      $productPhoto = new MarkaProductImage();
+      $productPhoto->Product = $this->getObject();
+
+      $form = new MarkaProductImageForm($productPhoto);
+      $form->configureForUpload();
+      $subForm->embedForm($i, $form);
+      
+    }
+    $subForm->mergePostValidator(new MarkaProductUploadImageValidatorSchema());
+    $this->embedForm('newPhotos', $subForm);
     
-    $form = new MarkaProductCurrentImageForm(null, array(
-      'product' => $this->getObject()
-    ));
-    $this->embedForm('currentImages',$form);
+    $i = 0;
+    $subForm = new sfForm();
+    foreach ( $this->getObject()->getImages() as $image ) {
+      $form = new MarkaProductImageForm($image);
+      $form->configureForDisplayAndRemove();
+      
+      $subForm->embedForm($i++, $form);
+    }
+    $this->embedForm('Photos', $subForm);
     
-    $form = new MarkaProductUploadImageForm(null, array(
-      'product' => $this->getObject()
-    ));
-    $this->embedForm('newImages', $form);
-  }
+  } 
   
   public function saveEmbeddedForms($con = null, $forms = null) {
     if (null === $forms) {
       
-      $images = $this->getValue('newImages');
+      $images = $this->getValue('newPhotos');
       $forms = $this->embeddedForms;
       
-      foreach ($this->embeddedForms['newImages'] as $name => $form) {
+      foreach ($this->embeddedForms['newPhotos'] as $name => $form) {
         if (!isset($images[$name])) {
-          unset($forms['newImages'][$name]);
+          unset($forms['newPhotos'][$name]);
         }
       }
     }
     return parent::saveEmbeddedForms($con, $forms);
   }
   
+  
   /* This is needed because the database records are not deleted when an image is deleted physically,
    * rather the image filename is set to blank.
    */
+  
   protected function doSave($con = null) {
+       
     parent::doSave($con);
+    
+    // do the DB cleanup and filesystem cleanup
     foreach ($this->getObject()->getImages() as $photo) {
       if ($photo->getFilename() == '') {
         $photo->delete();
       }
     }
+    
+  
   }
 }

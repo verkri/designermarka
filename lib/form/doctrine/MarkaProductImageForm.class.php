@@ -8,7 +8,7 @@
  * @author     Your name here
  * @version    SVN: $Id: sfDoctrineFormTemplate.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class MarkaProductImageForm extends BaseMarkaProductImageForm
+class MarkaProductImageForm extends BaseMarkaProductImageForm 
 {
 
   public function configureForUpload()
@@ -34,8 +34,7 @@ class MarkaProductImageForm extends BaseMarkaProductImageForm
       'file_src' => $this->getObject()->getImagepath(),
       'edit_mode' => true,
       'with_delete' => true,
-      'delete_label' => 'Delete photo',
-      'template'  => '<div class="current_photo">%file%</div><br/>%delete%%delete_label%'
+      'template'  => '%file%<br/>%delete%'
     );
     $this->widgetSchema['filename'] = new sfWidgetFormInputFileEditable($image_options);
     
@@ -46,7 +45,6 @@ class MarkaProductImageForm extends BaseMarkaProductImageForm
     ));
     
     $this->validatorSchema['filename_delete'] = new sfValidatorPass();
-  }
-  
+  } 
 
 }

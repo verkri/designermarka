@@ -42,19 +42,19 @@ MarkaProduct:
       local: colorscheme_id
       foreign: id
       foreignAlias: Products
+    Images:
+      type: many
+      class: MarkaProductImage
+      local: id
+      foreign: product_id
+      cascade: [delete]
+      foreignAlias: Product
 
 MarkaProductImage:
   columns:
     filename: { type: string(255) }
     product_id: { type: integer }
-  relations:
-    Product: 
-      class: MarkaProduct
-      onDelete: CASCADE
-      local: product_id
-      foreign: id
-      foreignAlias: Images
-      
+        
 MarkaHomeSlider:
   columns:
     filename: { type: string(255) }

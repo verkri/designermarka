@@ -40,7 +40,6 @@ abstract class BaseMarkaProductImage extends sfDoctrineRecord
         parent::setUp();
         $this->hasOne('MarkaProduct as Product', array(
              'local' => 'product_id',
-             'foreign' => 'id',
-             'onDelete' => 'CASCADE'));
+             'foreign' => 'id'));
     }
 }

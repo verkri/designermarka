@@ -10,6 +10,10 @@
   text-decoration: underline;
 }
 
+#sf_admin_container a.button:hover {
+  text-decoration: none;
+}
+
 #sf_admin_container h1
 {
   margin: 0;

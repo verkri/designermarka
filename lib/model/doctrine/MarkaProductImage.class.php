@@ -13,19 +13,13 @@
 class MarkaProductImage extends BaseMarkaProductImage
 {
   
-  private $filename_predelete = "";
-  
-  public function preDelete($event)
-  {
-    Utility::logModel('MarkaProductImage',"preDelete :".$this->getFilename());
-    $this->filename_predelete = $this->getFilename();
-  }
-  
   public function save(Doctrine_Connection $conn = null)
   {
+    $ret = parent::save($conn);
     Utility::logModel('MarkaProductImage',"save :".$this->getFilename());
     
     if ( $this->hasImage() ) {
+      
       $image_file = sfConfig::get('sf_web_dir').$this->getImagePath();
       $img = new sfImage($image_file);
       $sizes = explode('x',sfConfig::get('app_product_image_size'));
@@ -37,27 +31,30 @@ class MarkaProductImage extends BaseMarkaProductImage
       $sizes = explode('x',sfConfig::get('app_product_image_thumbnail_size'));
       $img->resize($sizes[0],$sizes[1])->saveAs(sfConfig::get('sf_web_dir').$this->getThumbnailPath());
       
-    } else {
-      $this->setFilename("");
-    }
-      
-    $ret = parent::save($conn);
-  }
+    } 
+    
+  }  
   
   public function postDelete($event)
   {
-    Utility::logModel('MarkaProductImage','postDelete: '.$this->getFilename());
+    parent::postDelete($event);
     
-    $path = sfConfig::get('sf_web_dir').sfConfig::get('app_product_image_thumbnail_dir').$this->filename_predelete;
+    Utility::logModel('MarkaProductImage',"postDelete : ".$this->getFilename());
     
+    $path = sfConfig::get('sf_web_dir').sfConfig::get('app_product_image_thumbnail_dir').$this->getFilename();
     if ( is_file($path) )
       unlink($path);
     
-    $path = sfConfig::get('sf_web_dir').sfConfig::get('app_product_image_medium_dir').$this->filename_predelete;
+    $path = sfConfig::get('sf_web_dir').sfConfig::get('app_product_image_medium_dir').$this->getFilename();
     if ( is_file($path) )
       unlink($path);
+    
+    $path = sfConfig::get('sf_web_dir').sfConfig::get('app_product_image_dir').$this->getFilename();
+    if ( is_file($path) )
+      unlink($path);
+    
   }
-    
+  
   public function hasImage() {
     $image_file = sfConfig::get('sf_web_dir').$this->getImagePath();
     return is_file($image_file);
