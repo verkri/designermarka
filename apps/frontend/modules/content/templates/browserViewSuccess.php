@@ -1,4 +1,5 @@
 <?php use_helper('JavascriptRegister'); ?>
+<?php use_helper('CssRegister'); ?>
 
 <?php register_js() ?><script>
   $('.toggle-container h4').click(function () {
@@ -34,6 +35,7 @@
     
 </script><?php end_register_js() ?>
 
+<?php register_css() ?>
 <style type="text/css">
 
   p.loader, p.notfound { margin-top: 250px; text-align: center; font-size: 1.3em; }
@@ -58,8 +60,8 @@
     margin:0; 
   }
 
-  .toggle { background: url('/images/toggle.png') no-repeat 10px 6px; }
-  h4.active { background: url('/images/toggle.png') no-repeat 10px -46px;}
+  .toggle { background: url('/images/toggle.png') no-repeat 10px 10px; }
+  h4.active { background: url('/images/toggle.png') no-repeat 10px -40px;}
 
   .toggle-container p, .toggle-container div { padding:10px 10px 10px 32px; margin:0px; } 
   .toggle-content { display:none; }
@@ -68,8 +70,41 @@
     font-size: 1.5em;
     margin: 5px auto;
   }
+  
+  
+  .product {
+    margin: 5px 0px;
+    border: 1px solid transparent;
+    padding: 10px;
+    background-color: rgb(255,240,240);
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    color: black;
+  }
+  
+  #plist li:hover .product { border: 1px solid #ffb4b4; }
+  
+  #plist a:hover { text-decoration: none; }
+  
+  .product h1 { 
+    font-size: 1.6em; 
+    color: #f14343;
+    text-shadow: #888 1px 1px 2px;
+    -moz-text-shadow:  #888 1px 1px 2px;
+    -webkit-text-shadow:  #888 1px 1px 2px;
+    margin: 5px auto;
+  }
+  
+  .product h2 { font-size: 1.4em; }
+  
+  .product img {
+    border: 1px solid #888;
+    padding: 2px;    
+  }
 
 </style>
+<?php end_register_css() ?>
 
 <nav class="w25p" id="product-nav">
   

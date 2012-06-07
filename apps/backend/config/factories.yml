@@ -1,19 +1,6 @@
 # You can find more information about this file on the symfony website:
 # http://www.symfony-project.org/reference/1_4/en/05-Factories
 
-prod:
-  logger:
-    logger:
-    class: sfAggregateLogger
-    param:
-      level: info
-      loggers:
-        sf_file_debug:
-          class: sfFileLogger
-          param:
-            level: err
-            file: %SF_LOG_DIR%/%SF_APP%_%SF_ENVIRONMENT%.log
-
 test:
   storage:
     class: sfSessionTestStorage
@@ -34,6 +21,25 @@ dev:
     param:
       delivery_strategy: none
 
+prod:
+  logger:
+    class: sfAggregateLogger
+    param:
+      level: info
+      loggers:
+        sf_file_errors:
+          class: sfFileLogger
+          param:
+            level: err
+            file: %SF_LOG_DIR%/%SF_APP%_%SF_ENVIRONMENT%-error.log
+            format: %time% [%priority%] %message%%EOL%
+        sf_file_notices:
+          class: sfFileLogger
+          param:
+            level: notice
+            file: %SF_LOG_DIR%/%SF_APP%_%SF_ENVIRONMENT%-notice.log
+            format: %time% [%priority%] %message%%EOL%
+            
 all:
   routing:
     class: slashIndependentPatternRouting

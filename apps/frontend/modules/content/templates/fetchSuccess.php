@@ -1,37 +1,3 @@
-<style type="text/css">
-
-  .product {
-    margin: 10px 0px;
-    border: 1px solid transparent;
-    padding: 10px;
-    background-color: rgb(255,240,240);
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    color: black;
-  }
-  
-  #plist li:hover .product { border: 1px solid #ffb4b4; }
-  
-  #plist a:hover { text-decoration: none; }
-  
-  .product h1 { 
-    font-size: 1.6em; 
-    color: #f14343;
-    text-shadow: #888 1px 1px 2px;
-    -moz-text-shadow:  #888 1px 1px 2px;
-    -webkit-text-shadow:  #888 1px 1px 2px;
-    margin: 5px auto;
-  }
-  
-  .product h2 { font-size: 1.3em; }
-  
-  .product img {
-    border: 1px solid #888;
-    padding: 2px;    
-  }
-</style>
-
 <?php if ( $products->count() == 0 ) : ?>
 
 <p class="notfound">No such Marka products found.</p>

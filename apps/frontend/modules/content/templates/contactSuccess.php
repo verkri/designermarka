@@ -1,4 +1,5 @@
 <?php use_helper('JavascriptRegister'); ?>
+<?php use_helper('CssRegister'); ?>
 
 <?php register_js() ?><script>
  $('#submit').click(function(){
@@ -7,7 +8,7 @@
  });
 </script><?php end_register_js() ?>
 
-
+<?php register_css() ?>
 <style type="text/css">
   input[type=submit] {
     margin-top: 20px;
@@ -68,6 +69,7 @@
   
   
 </style>
+<?php end_register_css() ?>
 
 <div class="w60p">
   <h1>Contact us</h1>

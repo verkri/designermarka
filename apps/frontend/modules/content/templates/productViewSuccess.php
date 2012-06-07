@@ -1,5 +1,6 @@
 <?php use_helper('Date') ?>
 <?php use_helper('JavascriptRegister'); ?>
+<?php use_helper('CssRegister'); ?>
 
 <?php register_js() ?><script>
   
@@ -33,6 +34,7 @@
   });
 </script><?php end_register_js() ?>
 
+<?php register_css() ?>
 <style type="text/css">
 
   .thumb img {
@@ -65,6 +67,7 @@
   
   #ctrlpanel { margin-top: 20px;}
 </style>
+<?php end_register_css() ?>
   
 <section id="productimages" class="w60p">
   

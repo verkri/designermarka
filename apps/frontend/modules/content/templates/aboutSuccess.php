@@ -1,4 +1,6 @@
+<?php use_helper('CssRegister'); ?>
 
+<?php register_css() ?>
 <style type="text/css">
   
   h1,h2 { margin: 10px auto; }
@@ -9,7 +11,7 @@
     padding: 3px;
   }
 </style>
-
+<?php end_register_css() ?>
 
 <section class="w50p" id="about">
   <header>
@@ -22,8 +24,6 @@
   <p> The daughter of a Olympian swimmer took her father's example of hard work,  determination and perseverance. From her childhood Karen's creativity made her stand out from the rest. Following her dreams Karen graduated as a Industrial Designer from OCAD University. Multitalented Karen's curriculum includes painting, Interior decorating, Graphic Design, Photography, Flower arrangement and her passion for hand crafted Jewellery.
 </p>
 </section>
-
-
 
 <div class="w50p txtc">
   <img id="about-img" src="/app/about/karen.jpg" alt="Karen's Photo" title="The designer" width="400" height="400"/>

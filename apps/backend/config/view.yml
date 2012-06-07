@@ -2,28 +2,17 @@
 # http://www.symfony-project.org/reference/1_4/en/13-View
 
 default:
-  http_metas:
-    X-UA-Compatible: IE=edge,chrome=1
-    content-type: text/html   
-
-  metas:
-    description:  Marka Designs
-    author:       Krisztian Veress
-    viewport:     initial-scale=1.0; maximum-scale=1.0;
-    #keywords:
-    #robots:       index, follow
-
   stylesheets:
-    - html5-reset.css:    { media: all }
-    - grid.css:           { media: all }
+    - reset.css:    { media: all }
+    - grid.css:     { media: all }
     - http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin
     - http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700
     - marka.css
     - backend.css
-
-  javascripts:  
+    
+  javascripts:
     - libs/jquery-1.7.1.min.js
-    - plugins/jquery.blockui.js
+    - plugins.js
     
   has_layout:     true
   layout:         layout

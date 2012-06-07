@@ -1,9 +1,11 @@
 <?php use_helper('JavascriptRegister'); ?>
+<?php use_helper('CssRegister'); ?>
 
 <?php register_js() ?><script>
  $('.peKenBurns').peKenburnsSlider();
 </script><?php end_register_js() ?>
 
+<?php register_css() ?>
 <style type="text/css">
 .peKenBurns {
   width: 800px;
@@ -18,7 +20,7 @@
 .peKenBurns .peKb_slides .peKb_caption .peKb_real {
   padding: 10px 30px;
 }
-</style>
+</style><?php end_register_css() ?>
 
 <div class="peKenBurns peNoJs" data-autopause="image" data-mode="kb" data-controls="disabled" data-shadow="enabled" data-logo="disabled">
   

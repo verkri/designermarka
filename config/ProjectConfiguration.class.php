@@ -11,6 +11,7 @@ class ProjectConfiguration extends sfProjectConfiguration
     $this->enablePlugins('sfThumbnailPlugin');
     $this->enablePlugins('sfImageTransformPlugin');
     $this->enablePlugins('sfDoctrineGuardPlugin');
+    $this->enablePlugins('sfCombinePlugin');
   }
   
   public function configureDoctrine(Doctrine_Manager $manager) 

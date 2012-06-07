@@ -3,6 +3,7 @@ CREATE TABLE marka_color_scheme (id BIGSERIAL, name VARCHAR(100) NOT NULL UNIQUE
 CREATE TABLE marka_home_slider (id BIGSERIAL, filename VARCHAR(255), caption VARCHAR(100) NOT NULL, priority BIGINT DEFAULT 1 NOT NULL, PRIMARY KEY(id));
 CREATE TABLE marka_product (id BIGSERIAL, name VARCHAR(50) NOT NULL UNIQUE, slug VARCHAR(50) NOT NULL UNIQUE, category_id BIGINT NOT NULL, colorscheme_id BIGINT NOT NULL, manufactured DATE, token VARCHAR(255) NOT NULL UNIQUE, stockqty BIGINT DEFAULT 1 NOT NULL, cadprice FLOAT NOT NULL, is_active BOOLEAN DEFAULT 'false' NOT NULL, featured BOOLEAN DEFAULT 'false' NOT NULL, description VARCHAR(2000), short VARCHAR(100), created_at TIMESTAMP NOT NULL, PRIMARY KEY(id));
 CREATE TABLE marka_product_image (id BIGSERIAL, filename VARCHAR(255), product_id BIGINT, PRIMARY KEY(id));
+CREATE TABLE sf_combine (asset_key VARCHAR(40), files TEXT NOT NULL, PRIMARY KEY(asset_key));
 CREATE TABLE sf_guard_forgot_password (id BIGSERIAL, user_id BIGINT NOT NULL, unique_key VARCHAR(255), expires_at TIMESTAMP NOT NULL, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, PRIMARY KEY(id));
 CREATE TABLE sf_guard_group (id BIGSERIAL, name VARCHAR(255) UNIQUE, description VARCHAR(1000), created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, PRIMARY KEY(id));
 CREATE TABLE sf_guard_group_permission (group_id BIGINT, permission_id BIGINT, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, PRIMARY KEY(group_id, permission_id));
@@ -14,7 +15,7 @@ CREATE TABLE sf_guard_user_permission (user_id BIGINT, permission_id BIGINT, cre
 CREATE INDEX is_active_idx ON sf_guard_user (is_active);
 ALTER TABLE marka_product ADD CONSTRAINT marka_product_colorscheme_id_marka_color_scheme_id FOREIGN KEY (colorscheme_id) REFERENCES marka_color_scheme(id) ON DELETE RESTRICT NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE marka_product ADD CONSTRAINT marka_product_category_id_marka_category_id FOREIGN KEY (category_id) REFERENCES marka_category(id) ON DELETE RESTRICT NOT DEFERRABLE INITIALLY IMMEDIATE;
-ALTER TABLE marka_product_image ADD CONSTRAINT marka_product_image_product_id_marka_product_id FOREIGN KEY (product_id) REFERENCES marka_product(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE marka_product_image ADD CONSTRAINT marka_product_image_product_id_marka_product_id FOREIGN KEY (product_id) REFERENCES marka_product(id) NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE sf_guard_forgot_password ADD CONSTRAINT sf_guard_forgot_password_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE sf_guard_group_permission ADD CONSTRAINT sf_guard_group_permission_permission_id_sf_guard_permission_id FOREIGN KEY (permission_id) REFERENCES sf_guard_permission(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE sf_guard_group_permission ADD CONSTRAINT sf_guard_group_permission_group_id_sf_guard_group_id FOREIGN KEY (group_id) REFERENCES sf_guard_group(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
