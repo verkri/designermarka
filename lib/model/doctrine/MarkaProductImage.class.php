@@ -16,7 +16,6 @@ class MarkaProductImage extends BaseMarkaProductImage
   public function save(Doctrine_Connection $conn = null)
   {
     $ret = parent::save($conn);
-    Utility::logModel('MarkaProductImage',"save :".$this->getFilename());
     
     if ( $this->hasImage() ) {
       
@@ -30,7 +29,6 @@ class MarkaProductImage extends BaseMarkaProductImage
       
       $sizes = explode('x',sfConfig::get('app_product_image_thumbnail_size'));
       $img->resize($sizes[0],$sizes[1])->saveAs(sfConfig::get('sf_web_dir').$this->getThumbnailPath());
-      
     } 
     
   }  
@@ -38,8 +36,6 @@ class MarkaProductImage extends BaseMarkaProductImage
   public function postDelete($event)
   {
     parent::postDelete($event);
-    
-    Utility::logModel('MarkaProductImage',"postDelete : ".$this->getFilename());
     
     $path = sfConfig::get('sf_web_dir').sfConfig::get('app_product_image_thumbnail_dir').$this->getFilename();
     if ( is_file($path) )

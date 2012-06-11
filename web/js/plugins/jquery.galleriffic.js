@@ -625,6 +625,9 @@
 				var gallery = this;
 				var nextIndex = this.getNextIndex(imageData.index);
 
+                //remove old stuff
+                this.$imageContainer.empty();
+        
 				// Construct new hidden span for the image
 				var newSlide = this.$imageContainer
 					.append('<span class="image-wrapper current"><a class="advance-link" rel="history" href="#'+this.data[nextIndex].hash+'" title="'+imageData.title+'">&nbsp;</a></span>')

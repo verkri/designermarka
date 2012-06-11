@@ -14,14 +14,10 @@ abstract class BaseFormDoctrine extends sfFormDoctrine
   {
   }
   
-  
   protected function removeFile($field)
   {
-   
-    Utility::logModel('BaseFormDoctrine','removeFile: '.$this->getObject()->$field);
-    
+
     $directory = $this->validatorSchema[$field]->getOption('path');
-    Utility::logModel('BaseFormDoctrine','directory: '.$directory);
     
     if ($directory && is_file($directory.DIRECTORY_SEPARATOR.$this->getObject()->$field) )
     {
