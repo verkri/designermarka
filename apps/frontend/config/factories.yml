@@ -63,11 +63,11 @@ all:
       transport:
         class: Swift_SmtpTransport
         param:
-          host:       localhost
-          port:       25
-          encryption: ~
-          username:   ~
-          password:   ~
+          host:       smtp.gmail.com
+          port:       465
+          encryption: tls
+          username:   system@designermarka.com
+          password:   michael_mic_i686
           
   storage:
     class: sfSessionStorage

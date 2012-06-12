@@ -47,30 +47,39 @@ class contentActions extends sfActions
         
         $this->logMessage('[ FORM ] Contact form is valid. End user is '.$email,'notice');
         
-        $this->message = $this->getMailer()->compose(
-            array('contact@designermarka.com' => 'DesignerMarka.com Contact'),
-            sfConfig::get('app_contact_email'),
-            $this->form->getValue('subject'),
-            <<<EOF
-Hi Karen,
-                
-A new message has been received from $email :
-
-$msg
-  
-DesignerMarka.com
-Contact Service
-www.designermarka.com/contact
-EOF
-        );
- 
-        //$this->message->setBcc(array(sfConfig::get('app_contact_email_bcc')));
-            
-        if ( $this->getMailer()->send($this->message) ) {
-          $this->getUser()->setFlash('notice','Your message has been successfully submitted.');
-          $this->logMessage('[ MAILER ] Notification e-mail with the message sent successfully to '.sfConfig::get('app_contact_email'),'notice');
+        $message = $this->getMailer()->compose( 
+                  array(sfConfig::get('app_contact_email') => 'DesignerMarka Contact'), 
+                  sfConfig::get('app_contact_email'), 
+                  $this->form->getValue('subject'), 
+                  $msg );
+        
+        $message->setReplyTo($email);
+        
+        if ( $this->getMailer()->send($message) ) {
           
+          $this->logMessage('[ MAILER ] E-mail sent successfully to '.sfConfig::get('app_contact_email'),'notice');
+          
+          // Check if notification is needed
+          if ( sfConfig::get('app_write_notification_email') == true ) {
+            
+            $this->logMessage('[ NOTIFIER ] E-mail notification requested to '.sfConfig::get('app_notification_email'),'notice');
+            
+            if ( $this->getMailer()->composeAndSend(
+                    array(sfConfig::get('app_contact_email') => 'DesignerMarka Notification'),
+                    sfConfig::get('app_notification_email'),
+                    'New contact message received!',
+                    file_get_contents(sfConfig::get('sf_data_dir').'/mails/notification.html')
+              ) ) {
+              $this->logMessage('[ NOTIFIER ] E-mail notification sent successfully to '.sfConfig::get('app_notification_email'),'notice');              
+            } else {
+              $this->logMessage('[ NOTIFIER ] E-mail notification failed!','crit');
+            }
+          }
+          
+          $this->getUser()->setFlash('notice','Your message has been successfully submitted. We will contact you soon!');
           $this->redirect('@contact');
+        
+          
         } else {
           $this->logMessage('[ MAILER ] E-mail sending failed.','crit');
         }

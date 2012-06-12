@@ -5,8 +5,13 @@
 all:
 #  browser_type: categoryByColorscheme
   browser_type: colorschemeByCategory
-  contact_email: veresskrisztian@gmail.com
-  contact_email_bcc: veresskrisztian@gmail.com
+  contact_email: contact@designermarka.com
+  
+  write_notification_email: true
+  notification_email: veresskrisztian@gmail.com
+  
+prod:
+  notification_email: karenmc-idesign@rogers.com
   
 dev:
   sfCombinePlugin:
