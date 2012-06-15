@@ -3,10 +3,10 @@
 
 default:
   stylesheets:
-    - reset.css:    { media: all }
-    - grid.css:     { media: all }
     - http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin
     - http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700
+    - reset.css
+    - grid.css
     - marka.css
     - backend.css
     

@@ -10,7 +10,7 @@ all:
     success_signin_url:       '@marka_product'
     success_signout_url:      http://www.designermarka.com
     remember_cookie_name:     marka_remember_me
-    
+ 
 dev:
   sfCombinePlugin:
     enabled:        false         # disable the plugin in development
