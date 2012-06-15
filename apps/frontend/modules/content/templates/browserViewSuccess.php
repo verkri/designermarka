@@ -1,6 +1,8 @@
 <?php use_helper('JavascriptRegister'); ?>
 <?php use_helper('CssRegister'); ?>
 
+<?php slot('title', 'Browse the Marka World - Marka Designs') ?>
+
 <?php register_js() ?><script>
   $('.toggle-container h4').click(function () {
     var text = $(this).parent().children('.toggle-content');
@@ -41,6 +43,8 @@
   p.loader, p.notfound { margin-top: 250px; text-align: center; font-size: 1.3em; }
   p.loader > img { margin-bottom: 10px;}
   
+  p.fallback { margin-top: 250px;  font-size: 1.6em; }
+  
   #product-nav { margin-top: 20px; }
   
   .toggle-container { width:100%; }
@@ -71,24 +75,30 @@
     margin: 5px auto;
   }
   
+  .product img {
+    border: 1px solid #888;
+    padding: 1px;
+  }
   
   .product {
     margin: 5px 0px;
     border: 1px solid transparent;
     padding: 10px;
-    background-color: rgb(255,240,240);
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     color: black;
   }
   
-  #plist li:hover .product { border: 1px solid #ffb4b4; }
+  #plist li:hover .product { 
+    border: 1px solid #ffb4b4;
+    background-color: rgb(255,250,250);
+  }
   
   #plist a:hover { text-decoration: none; }
   
   .product h1 { 
-    font-size: 1.6em; 
+    font-size: 1.8em; 
     color: #f14343;
     text-shadow: #888 1px 1px 2px;
     -moz-text-shadow:  #888 1px 1px 2px;
@@ -98,10 +108,11 @@
   
   .product h2 { font-size: 1.4em; }
   
-  .product img {
-    border: 1px solid #888;
-    padding: 2px;    
+  h2.price {
+    font-size: 1.5em;
   }
+  
+  
 
 </style>
 <?php end_register_css() ?>
@@ -140,5 +151,5 @@
 </nav>
 
 <section id="product-list" class="w75p">
-    
+   <p class="fallback">Sorry, there are no products uploaded yet. Stay tuned!</p>
 </section>

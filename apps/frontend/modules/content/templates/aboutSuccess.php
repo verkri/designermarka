@@ -1,5 +1,7 @@
 <?php use_helper('CssRegister'); ?>
 
+<?php slot('title', 'About Us - Marka Designs') ?>
+
 <?php register_css() ?>
 <style type="text/css">
   

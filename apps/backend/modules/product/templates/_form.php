@@ -80,7 +80,7 @@
             <?php if ($marka_product->getImages()->count() > 0) : ?>
             
               <?php foreach ($marka_product->getImages() as $image): ?>
-                <div class="w20p txtc photo">
+                <div class="w25p txtc photo">
                   <?php echo image_tag($image->getThumbnailpath(), array('size' => sfConfig::get('app_product_image_thumbnail_size'))); ?>  
                 </div>
               <?php endforeach; ?>
@@ -114,7 +114,7 @@
     <?php if (!$form->isNew()) : ?>
     <div class="sf_admin_form" id="product-image-upload" style="display:none;">
         <h2>Upload Images</h2>
-        <p>You can upload <?php echo sfConfig::get('app_product_upload_image_count') ?> photos at once. Make sure that they are high quality, landscape, and have an aspect ratio of 4:3!</p>
+        <p>You can upload <?php echo sfConfig::get('app_product_upload_image_count') ?> photos at once. Make sure that they are high quality, landscape, and have an aspect ratio of 1.5! The size of the images should exceed 575x383!</p>
         <br/>
 
         <?php foreach ($form['newPhotos'] as $upload): ?>
@@ -134,8 +134,8 @@
         
         <div class="clearfix">
         <?php foreach ($form['Photos'] as $photo): ?>
-          <div class="w20p txtc photo">
-            <?php echo $photo['filename']->renderRow(array('width' => 100)) ?>
+          <div class="w25p txtc photo">
+            <?php echo $photo['filename']->renderRow(array('width' => '83%')) ?>
             <span class="delete_label">Delete</span>
           </div>
         <?php endforeach; ?>

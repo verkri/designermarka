@@ -17,6 +17,7 @@ generator:
       fields:
         filename:
           label: Slide
+          help: The image should have an aspect ratio of 1.5 and bigger than 1296x864
         caption:
           help: The text that is shown during the effect
           attributes: { size: 70, maxlength: 100 }

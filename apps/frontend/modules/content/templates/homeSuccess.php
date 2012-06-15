@@ -1,6 +1,8 @@
 <?php use_helper('JavascriptRegister'); ?>
 <?php use_helper('CssRegister'); ?>
 
+<?php slot('title', 'Welcome to Marka Designs') ?>
+
 <?php register_js() ?><script>
  $('.peKenBurns').peKenburnsSlider();
 </script><?php end_register_js() ?>
@@ -8,8 +10,8 @@
 <?php register_css() ?>
 <style type="text/css">
 .peKenBurns {
-  width: 800px;
-  height: 500px;
+  width: 810px;
+  height: 540px;
   margin: 10px auto;
 }
 

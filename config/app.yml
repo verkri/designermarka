@@ -5,16 +5,16 @@
 all:
   
   slider_image_dir: /app/homeslider/
-  slider_image_size: 1024x768
+  slider_image_size: 1296x864
   
   product_image_dir: /app/product/
-  product_image_size: 440x440
+  product_image_size: 575x383
   
   product_image_thumbnail_dir: /app/product/thumbs/
-  product_image_thumbnail_size: 100x100
+  product_image_thumbnail_size: 140x93
   
   product_image_medium_dir: /app/product/medium/
-  product_image_medium_size: 143x143
+  product_image_medium_size: 201x134
   
   featured_display_count: 8
     

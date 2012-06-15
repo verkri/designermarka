@@ -28,6 +28,23 @@
     <?php echo CssRegister::get_content() ?>
   </style>
   
+  <?php if (sfConfig::get('sf_environment') == 'prod') : ?>
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-3008801-5']);
+  _gaq.push(['_setDomainName', 'designermarka.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+  </script>
+  <?php endif ?>
+  
 </head>
 
 <body class="_960wide">
@@ -43,15 +60,6 @@
   <?php include_partial('global/footer') ?>
 
   <?php include_combined_javascripts() ?>
-
-  <!--
-  <script>
-    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-    s.parentNode.insertBefore(g,s)}(document,'script'));
-  </script>
-  -->
   
   <script type="text/javascript">
     <?php echo JavascriptRegister::get_functional() ?>

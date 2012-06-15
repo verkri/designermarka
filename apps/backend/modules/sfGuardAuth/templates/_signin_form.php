@@ -28,6 +28,7 @@
     <div class="w25p"><?php echo $form['username']->renderLabel(); ?></div>
     <div class="w75p"><?php echo $form['username']->render(array('size' => 30)); ?></div>
   
+    <div class="clear"></div>
     <?php if ( $form['password']->hasError() ) : ?>
       <div class="w100p">
         <?php echo $form['password']->renderError(); ?>
@@ -37,6 +38,7 @@
     <div class="w25p"><?php echo $form['password']->renderLabel(); ?></div>
     <div class="w75p"><?php echo $form['password']->render(array('size' => 30)); ?></div>
     
+    <div class="clear"></div>
     <?php echo $form['_csrf_token']->render(); ?>
     
     <input type="submit" value="Log in" />

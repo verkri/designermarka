@@ -1,6 +1,8 @@
 <?php use_helper('JavascriptRegister'); ?>
 <?php use_helper('CssRegister'); ?>
 
+<?php slot('title', 'Contact Us - Marka Designs') ?>
+
 <?php register_js() ?><script>
  $('#submit').click(function(){
    $('form, .notice, .error').hide();

@@ -6,7 +6,7 @@
 
 <ul id="plist" class="clearfix">
 <?php foreach ($products as $p): ?>
-  <li class="w25p clearfix">
+  <li class="w33p clearfix">
     <a href="<?php
       echo url_for('world_product', array('sf_subject' => $p,
         'colorscheme_slug' => $p->getColorScheme()->getSlug(),
@@ -14,7 +14,7 @@
       ))
       ?>">
       
-      <article class="product">
+      <article class="product clearfix">
 
       <?php $image = $p->getImages()->getFirst() ?>
       <?php if ( $image == null ) : ?>
@@ -25,10 +25,12 @@
                 array('size' => sfConfig::get('app_product_image_medium_size'), 'alt' => $p->getName(), 'title' => $p->getName() )); ?> 
       <?php endif; ?>
       
-        <hgroup>
+        <hgroup class="clearfix">
           <h1><?php echo $p->getName() ?></h1>
+          <div class="w50p">
           <h2><?php echo $p->getCategory()->getName() ?></h2>
-          <h2 class="txtr">$<?php echo $p->getCadprice() ?>.0 CAD</h2>
+          </div>
+          <h2 class="w50p price txtr">$<?php echo $p->getCadprice() ?>.0 CAD</h2>
         </hgroup>
         
       </article>
