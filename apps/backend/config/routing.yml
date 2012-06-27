@@ -78,6 +78,15 @@ marka_color_scheme:
     prefix_path:          /colorscheme
     column:               slug
     with_wildcard_routes: true
+    
+marka_type:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                MarkaType
+    module:               type
+    prefix_path:          /type
+    column:               id
+    with_wildcard_routes: true
 
 # You can find more information about this file on the symfony website:
 # http://www.symfony-project.org/reference/1_4/en/10-Routing

@@ -4,8 +4,8 @@
 <td class="sf_admin_foreignkey sf_admin_list_td_category_id">
   <?php echo $marka_product->getCategory()->getName() ?>
 </td>
-<td class="sf_admin_foreignkey sf_admin_list_td_colorscheme_id">
-  <?php echo $marka_product->getColorScheme()->getName() ?>
+<td class="sf_admin_foreignkey sf_admin_list_td_type_id">
+  <?php echo $marka_product->getType()->getName() ?>
 </td>
 <td class="sf_admin_text sf_admin_list_td_stockqty">
   <?php echo $marka_product->getStockqty() ?>

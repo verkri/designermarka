@@ -8,7 +8,7 @@
  * @property string $name
  * @property string $slug
  * @property integer $category_id
- * @property integer $colorscheme_id
+ * @property integer $type_id
  * @property date $manufactured
  * @property string $token
  * @property integer $stockqty
@@ -18,39 +18,39 @@
  * @property string $description
  * @property string $short
  * @property MarkaCategory $Category
- * @property MarkaColorScheme $ColorScheme
+ * @property MarkaType $Type
  * @property Doctrine_Collection $Images
  * 
- * @method string              getName()           Returns the current record's "name" value
- * @method string              getSlug()           Returns the current record's "slug" value
- * @method integer             getCategoryId()     Returns the current record's "category_id" value
- * @method integer             getColorschemeId()  Returns the current record's "colorscheme_id" value
- * @method date                getManufactured()   Returns the current record's "manufactured" value
- * @method string              getToken()          Returns the current record's "token" value
- * @method integer             getStockqty()       Returns the current record's "stockqty" value
- * @method double              getCadprice()       Returns the current record's "cadprice" value
- * @method boolean             getIsActive()       Returns the current record's "is_active" value
- * @method boolean             getFeatured()       Returns the current record's "featured" value
- * @method string              getDescription()    Returns the current record's "description" value
- * @method string              getShort()          Returns the current record's "short" value
- * @method MarkaCategory       getCategory()       Returns the current record's "Category" value
- * @method MarkaColorScheme    getColorScheme()    Returns the current record's "ColorScheme" value
- * @method Doctrine_Collection getImages()         Returns the current record's "Images" collection
- * @method MarkaProduct        setName()           Sets the current record's "name" value
- * @method MarkaProduct        setSlug()           Sets the current record's "slug" value
- * @method MarkaProduct        setCategoryId()     Sets the current record's "category_id" value
- * @method MarkaProduct        setColorschemeId()  Sets the current record's "colorscheme_id" value
- * @method MarkaProduct        setManufactured()   Sets the current record's "manufactured" value
- * @method MarkaProduct        setToken()          Sets the current record's "token" value
- * @method MarkaProduct        setStockqty()       Sets the current record's "stockqty" value
- * @method MarkaProduct        setCadprice()       Sets the current record's "cadprice" value
- * @method MarkaProduct        setIsActive()       Sets the current record's "is_active" value
- * @method MarkaProduct        setFeatured()       Sets the current record's "featured" value
- * @method MarkaProduct        setDescription()    Sets the current record's "description" value
- * @method MarkaProduct        setShort()          Sets the current record's "short" value
- * @method MarkaProduct        setCategory()       Sets the current record's "Category" value
- * @method MarkaProduct        setColorScheme()    Sets the current record's "ColorScheme" value
- * @method MarkaProduct        setImages()         Sets the current record's "Images" collection
+ * @method string              getName()         Returns the current record's "name" value
+ * @method string              getSlug()         Returns the current record's "slug" value
+ * @method integer             getCategoryId()   Returns the current record's "category_id" value
+ * @method integer             getTypeId()       Returns the current record's "type_id" value
+ * @method date                getManufactured() Returns the current record's "manufactured" value
+ * @method string              getToken()        Returns the current record's "token" value
+ * @method integer             getStockqty()     Returns the current record's "stockqty" value
+ * @method double              getCadprice()     Returns the current record's "cadprice" value
+ * @method boolean             getIsActive()     Returns the current record's "is_active" value
+ * @method boolean             getFeatured()     Returns the current record's "featured" value
+ * @method string              getDescription()  Returns the current record's "description" value
+ * @method string              getShort()        Returns the current record's "short" value
+ * @method MarkaCategory       getCategory()     Returns the current record's "Category" value
+ * @method MarkaType           getType()         Returns the current record's "Type" value
+ * @method Doctrine_Collection getImages()       Returns the current record's "Images" collection
+ * @method MarkaProduct        setName()         Sets the current record's "name" value
+ * @method MarkaProduct        setSlug()         Sets the current record's "slug" value
+ * @method MarkaProduct        setCategoryId()   Sets the current record's "category_id" value
+ * @method MarkaProduct        setTypeId()       Sets the current record's "type_id" value
+ * @method MarkaProduct        setManufactured() Sets the current record's "manufactured" value
+ * @method MarkaProduct        setToken()        Sets the current record's "token" value
+ * @method MarkaProduct        setStockqty()     Sets the current record's "stockqty" value
+ * @method MarkaProduct        setCadprice()     Sets the current record's "cadprice" value
+ * @method MarkaProduct        setIsActive()     Sets the current record's "is_active" value
+ * @method MarkaProduct        setFeatured()     Sets the current record's "featured" value
+ * @method MarkaProduct        setDescription()  Sets the current record's "description" value
+ * @method MarkaProduct        setShort()        Sets the current record's "short" value
+ * @method MarkaProduct        setCategory()     Sets the current record's "Category" value
+ * @method MarkaProduct        setType()         Sets the current record's "Type" value
+ * @method MarkaProduct        setImages()       Sets the current record's "Images" collection
  * 
  * @package    sf_sandbox
  * @subpackage model
@@ -78,7 +78,7 @@ abstract class BaseMarkaProduct extends sfDoctrineRecord
              'type' => 'integer',
              'notnull' => true,
              ));
-        $this->hasColumn('colorscheme_id', 'integer', null, array(
+        $this->hasColumn('type_id', 'integer', null, array(
              'type' => 'integer',
              'notnull' => true,
              ));
@@ -128,8 +128,8 @@ abstract class BaseMarkaProduct extends sfDoctrineRecord
              'foreign' => 'id',
              'onDelete' => 'RESTRICT'));
 
-        $this->hasOne('MarkaColorScheme as ColorScheme', array(
-             'local' => 'colorscheme_id',
+        $this->hasOne('MarkaType as Type', array(
+             'local' => 'type_id',
              'foreign' => 'id',
              'onDelete' => 'RESTRICT'));
 

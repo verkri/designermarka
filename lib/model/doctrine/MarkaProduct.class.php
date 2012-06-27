@@ -22,13 +22,13 @@ class MarkaProduct extends BaseMarkaProduct
     $ret = parent::save($conn);
   }
   
-  public function getColorSchemeSlug() {
-    return $this->getColorScheme()->getSlug();
-  }
-  
   public function getCategorySlug() {
     return $this->getCategory()->getSlug();
   }
+  
+  public function getTypeSlug() {
+    return $this->getType()->getSlug();
+  }  
   
   public function getImagecount() {
     return $this->getImages()->count();

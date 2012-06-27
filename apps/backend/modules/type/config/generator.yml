@@ -1,0 +1,31 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           MarkaType
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          marka_type
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+    css:                   false
+    
+    config:
+      actions: ~
+      fields:
+        name: 
+          attributes: { size: 70, maxlength: 100 } 
+          help: Should be no longer than 20 characters (maximum is 100 characters)
+        products: {label: Product count}
+      list:
+        display: [=name, products]
+        batch_actions: {}
+      filter:
+        class: false
+      form:    ~
+      edit:
+        display: [name]
+      new:
+        display: [name]

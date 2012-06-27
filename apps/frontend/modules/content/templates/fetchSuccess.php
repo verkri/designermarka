@@ -9,8 +9,8 @@
   <li class="w33p clearfix">
     <a href="<?php
       echo url_for('world_product', array('sf_subject' => $p,
-        'colorscheme_slug' => $p->getColorScheme()->getSlug(),
-        'category_slug' => $p->getCategory()->getSlug()
+        'type_slug' => $t_slug,
+        'category_slug' => $cat_slug
       ))
       ?>">
       

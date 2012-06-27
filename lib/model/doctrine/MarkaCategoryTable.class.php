@@ -24,7 +24,7 @@ class MarkaCategoryTable extends Doctrine_Table
     
     public function getChoices()
     {
-      $categories = $this->getNotEmptyCategories();
+      $categories = $this->getActiveCategories();
       $ret = array();
       foreach ($categories as $cat) {
         $ret[$cat->getSlug()] = $cat->getName();

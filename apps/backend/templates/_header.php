@@ -2,7 +2,7 @@
 
     <div class="w25p">
       <div class="logo"> 
-        <a href="http://dev.designermarka.com" class="logo_img"><img src="/images/marka-logo.png" alt="Marka Designs"></a>
+        <a href="http://designermarka.com" class="logo_img"><img src="/images/marka-logo2.png" alt="Marka Designs" title="Marka Designs" width="189" height="80"></a>
       </div> 
     </div>
 
@@ -15,11 +15,11 @@
             <li <?php echo (sfConfig::get('app_menu') == 'home_slider' ? 'class="active"' : '') ?>>
               <?php echo link_to('Home Slider','marka_home_slider') ?></li>
             
-            <li <?php echo (sfConfig::get('app_menu') == 'colorscheme' ? 'class="active"' : '') ?>>
-              <?php echo link_to('Colorschemes','marka_color_scheme') ?></li>
-            
             <li <?php echo (sfConfig::get('app_menu') == 'category' ? 'class="active"' : '') ?>>
               <?php echo link_to('Categories','marka_category') ?></li>
+            
+            <li <?php echo (sfConfig::get('app_menu') == 'type' ? 'class="active"' : '') ?>>
+              <?php echo link_to('Types','marka_type') ?></li>
             
             <li <?php echo (sfConfig::get('app_menu') == 'product' ? 'class="active"' : '') ?>>
               <?php echo link_to('Products','marka_product') ?></li>

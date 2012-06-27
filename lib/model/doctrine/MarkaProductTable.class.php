@@ -6,10 +6,18 @@ class MarkaProductTable extends Doctrine_Table {
     return Doctrine_Core::getTable('MarkaProduct');
   }
   
-  public function getProductsFiltered(MarkaCategory $category, MarkaColorScheme $cs) {
+  /*public function getProductsFiltered(MarkaCategory $category, MarkaColorScheme $cs) {
     $q = $this->createQuery('p')
             ->where('category_id = ?',$category->getId())
             ->andWhere('colorscheme_id = ?',$cs->getId())
+            ->orderBy('cadprice DESC');
+    return $this->filterActiveProducts($q)->execute();
+  }*/
+  
+  public function getProductsFiltered(MarkaCategory $category, MarkaType $t) {
+    $q = $this->createQuery('p')
+            ->where('category_id = ?',$category->getId())
+            ->andWhere('type_id = ?',$t->getId())
             ->orderBy('cadprice DESC');
     return $this->filterActiveProducts($q)->execute();
   }

@@ -22,12 +22,24 @@ class MarkaCategory extends BaseMarkaCategory
     return $this->getProducts()->count();
   }
   
-  public function getActiveColorschemes()
+  /*public function getActiveColorschemes()
   {
     $q = Doctrine_Query::create()
       ->select('c.*')
       ->from('MarkaColorscheme c')
       ->innerJoin('c.Products p')
+      ->where('p.category_id = ?', $this->getId())
+      ->andWhere('p.is_active = true');
+ 
+    return $q->execute();
+  }*/
+  
+  public function getActiveTypes()
+  {
+    $q = Doctrine_Query::create()
+      ->select('t.*')
+      ->from('MarkaType t')
+      ->innerJoin('t.Products p')
       ->where('p.category_id = ?', $this->getId())
       ->andWhere('p.is_active = true');
  

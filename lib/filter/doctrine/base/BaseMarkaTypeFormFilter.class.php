@@ -1,14 +1,14 @@
 <?php
 
 /**
- * MarkaColorScheme filter form base class.
+ * MarkaType filter form base class.
  *
  * @package    sf_sandbox
  * @subpackage filter
  * @author     Your name here
  * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 29570 2010-05-21 14:49:47Z Kris.Wallsmith $
  */
-abstract class BaseMarkaColorSchemeFormFilter extends BaseFormFilterDoctrine
+abstract class BaseMarkaTypeFormFilter extends BaseFormFilterDoctrine
 {
   public function setup()
   {
@@ -22,7 +22,7 @@ abstract class BaseMarkaColorSchemeFormFilter extends BaseFormFilterDoctrine
       'slug' => new sfValidatorPass(array('required' => false)),
     ));
 
-    $this->widgetSchema->setNameFormat('marka_color_scheme_filters[%s]');
+    $this->widgetSchema->setNameFormat('marka_type_filters[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
 
@@ -33,7 +33,7 @@ abstract class BaseMarkaColorSchemeFormFilter extends BaseFormFilterDoctrine
 
   public function getModelName()
   {
-    return 'MarkaColorScheme';
+    return 'MarkaType';
   }
 
   public function getFields()

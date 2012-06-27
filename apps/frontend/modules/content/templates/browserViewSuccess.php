@@ -27,12 +27,12 @@
   
   // prefetch the featured products
   //$('#product-list').html('<p class="loader"><img src="/images/ajax-loader.gif" width="220" height="19"/><br/>Loading content ...</p>');
-  <?php if ( $cs_slug.$cat_slug == "" ) : ?>
+  <?php if ( $cat_slug.$t_slug == "" ) : ?>
     $('#product-nav .toggle-container:first-child h4').click();
     $('#product-nav .toggle-container:first-child a:first-child').click();
   <?php else : ?>
-    $('#<?php echo $cs_slug ?>').click();
-    $('#li-<?php echo $cs_slug.'_'.$cat_slug ?> > a').click();
+    $('#<?php echo $cat_slug ?>').click();
+    $('#li-<?php echo $cat_slug.'_'.$t_slug ?> > a').click();
   <?php endif; ?>
     
 </script><?php end_register_js() ?>
@@ -130,24 +130,19 @@
   </div>
   <?php endif ?>
   
-  <?php 
-    if ( sfConfig::get('app_browser_type') == 'colorschemeByCategory' ) {
-      include_partial('colorschemeByCategory', 
-          array(
-              'cat_slug' => $cat_slug,
-              'cs_slug' => $cs_slug,
-              'colorschemes' => $colorschemes
-          ));
-    } else {
-      include_partial('categoryByColorscheme', 
-          array(
-              'cat_slug' => $cat_slug,
-              'cs_slug' => $cs_slug,
-              'categories' => $categories
-          ));
-    }
-  ?>
-  
+  <?php foreach ($categories as $cat): ?>
+  <div class="toggle-container">
+    <h4 id="<?php echo $cat->getSlug() ?>" class="toggle"><?php echo $cat->getName() ?></h4>
+    <div class="toggle-content">
+      <ul>
+        <?php foreach ($cat->getActiveTypes() as $type): ?>
+          <li id="li-<?php echo $cat->getSlug() . '_' . $type->getSlug() ?>" class="category"><a href="/fetch/<?php echo $cat->getSlug() . '/' . $type->getSlug() ?>"><?php echo $type->getName() ?></a></li>
+        <?php endforeach; ?>  
+      </ul>
+    </div>
+  </div>
+<?php endforeach ?>
+    
 </nav>
 
 <section id="product-list" class="w75p">

@@ -164,7 +164,7 @@
         </aside>
 
         <footer id="ctrlpanel" class="clearfix">
-          <a class="button right light" href="<?php echo '/world-of-marka?colorscheme=' . $colorscheme->getSlug() . '&category=' . $category->getSlug() ?>" style="margin-left: 20px;">Back</a>      
+          <a class="button right light" href="<?php echo '/world-of-marka?category_slug=' . $category->getSlug() . '&type_slug=' . $type->getSlug() ?>" style="margin-left: 20px;">Back</a>
         </footer>
     </section>
   </div>

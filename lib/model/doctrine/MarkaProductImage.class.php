@@ -20,13 +20,16 @@ class MarkaProductImage extends BaseMarkaProductImage
     if ( $this->hasImage() ) {
       
       $image_file = sfConfig::get('sf_web_dir').$this->getImagePath();
+      
       $img = new sfImage($image_file);
       $sizes = explode('x',sfConfig::get('app_product_image_size'));
       $img->resize($sizes[0],$sizes[1])->save();
     
+      $img = new sfImage($image_file);
       $sizes = explode('x',sfConfig::get('app_product_image_medium_size'));
       $img->resize($sizes[0],$sizes[1])->saveAs(sfConfig::get('sf_web_dir').$this->getMediumPath());
       
+      $img = new sfImage($image_file);
       $sizes = explode('x',sfConfig::get('app_product_image_thumbnail_size'));
       $img->resize($sizes[0],$sizes[1])->saveAs(sfConfig::get('sf_web_dir').$this->getThumbnailPath());
     } 

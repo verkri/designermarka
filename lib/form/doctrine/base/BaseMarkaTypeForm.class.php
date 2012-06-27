@@ -1,16 +1,16 @@
 <?php
 
 /**
- * MarkaColorScheme form base class.
+ * MarkaType form base class.
  *
- * @method MarkaColorScheme getObject() Returns the current form's model object
+ * @method MarkaType getObject() Returns the current form's model object
  *
  * @package    sf_sandbox
  * @subpackage form
  * @author     Your name here
  * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 29553 2010-05-20 14:33:00Z Kris.Wallsmith $
  */
-abstract class BaseMarkaColorSchemeForm extends BaseFormDoctrine
+abstract class BaseMarkaTypeForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -28,12 +28,12 @@ abstract class BaseMarkaColorSchemeForm extends BaseFormDoctrine
 
     $this->validatorSchema->setPostValidator(
       new sfValidatorAnd(array(
-        new sfValidatorDoctrineUnique(array('model' => 'MarkaColorScheme', 'column' => array('name'))),
-        new sfValidatorDoctrineUnique(array('model' => 'MarkaColorScheme', 'column' => array('slug'))),
+        new sfValidatorDoctrineUnique(array('model' => 'MarkaType', 'column' => array('name'))),
+        new sfValidatorDoctrineUnique(array('model' => 'MarkaType', 'column' => array('slug'))),
       ))
     );
 
-    $this->widgetSchema->setNameFormat('marka_color_scheme[%s]');
+    $this->widgetSchema->setNameFormat('marka_type[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
 
@@ -44,7 +44,7 @@ abstract class BaseMarkaColorSchemeForm extends BaseFormDoctrine
 
   public function getModelName()
   {
-    return 'MarkaColorScheme';
+    return 'MarkaType';
   }
 
 }

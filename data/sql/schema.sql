@@ -1,8 +1,8 @@
 CREATE TABLE marka_category (id BIGSERIAL, name VARCHAR(100) NOT NULL UNIQUE, slug VARCHAR(100) NOT NULL UNIQUE, PRIMARY KEY(id));
-CREATE TABLE marka_color_scheme (id BIGSERIAL, name VARCHAR(100) NOT NULL UNIQUE, slug VARCHAR(100) NOT NULL UNIQUE, PRIMARY KEY(id));
 CREATE TABLE marka_home_slider (id BIGSERIAL, filename VARCHAR(255), caption VARCHAR(100) NOT NULL, priority BIGINT DEFAULT 1 NOT NULL, PRIMARY KEY(id));
-CREATE TABLE marka_product (id BIGSERIAL, name VARCHAR(50) NOT NULL UNIQUE, slug VARCHAR(50) NOT NULL UNIQUE, category_id BIGINT NOT NULL, colorscheme_id BIGINT NOT NULL, manufactured DATE, token VARCHAR(255) NOT NULL UNIQUE, stockqty BIGINT DEFAULT 1 NOT NULL, cadprice FLOAT NOT NULL, is_active BOOLEAN DEFAULT 'false' NOT NULL, featured BOOLEAN DEFAULT 'false' NOT NULL, description VARCHAR(2000), short VARCHAR(100), created_at TIMESTAMP NOT NULL, PRIMARY KEY(id));
+CREATE TABLE marka_product (id BIGSERIAL, name VARCHAR(50) NOT NULL UNIQUE, slug VARCHAR(50) NOT NULL UNIQUE, category_id BIGINT NOT NULL, type_id BIGINT NOT NULL, manufactured DATE, token VARCHAR(255) NOT NULL UNIQUE, stockqty BIGINT DEFAULT 1 NOT NULL, cadprice FLOAT NOT NULL, is_active BOOLEAN DEFAULT 'false' NOT NULL, featured BOOLEAN DEFAULT 'false' NOT NULL, description VARCHAR(2000), short VARCHAR(100), created_at TIMESTAMP NOT NULL, PRIMARY KEY(id));
 CREATE TABLE marka_product_image (id BIGSERIAL, filename VARCHAR(255), product_id BIGINT, PRIMARY KEY(id));
+CREATE TABLE marka_type (id BIGSERIAL, name VARCHAR(100) NOT NULL UNIQUE, slug VARCHAR(100) NOT NULL UNIQUE, PRIMARY KEY(id));
 CREATE TABLE sf_combine (asset_key VARCHAR(40), files TEXT NOT NULL, PRIMARY KEY(asset_key));
 CREATE TABLE sf_guard_forgot_password (id BIGSERIAL, user_id BIGINT NOT NULL, unique_key VARCHAR(255), expires_at TIMESTAMP NOT NULL, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, PRIMARY KEY(id));
 CREATE TABLE sf_guard_group (id BIGSERIAL, name VARCHAR(255) UNIQUE, description VARCHAR(1000), created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, PRIMARY KEY(id));
@@ -13,7 +13,7 @@ CREATE TABLE sf_guard_user (id BIGSERIAL, first_name VARCHAR(255), last_name VAR
 CREATE TABLE sf_guard_user_group (user_id BIGINT, group_id BIGINT, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, PRIMARY KEY(user_id, group_id));
 CREATE TABLE sf_guard_user_permission (user_id BIGINT, permission_id BIGINT, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, PRIMARY KEY(user_id, permission_id));
 CREATE INDEX is_active_idx ON sf_guard_user (is_active);
-ALTER TABLE marka_product ADD CONSTRAINT marka_product_colorscheme_id_marka_color_scheme_id FOREIGN KEY (colorscheme_id) REFERENCES marka_color_scheme(id) ON DELETE RESTRICT NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE marka_product ADD CONSTRAINT marka_product_type_id_marka_type_id FOREIGN KEY (type_id) REFERENCES marka_type(id) ON DELETE RESTRICT NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE marka_product ADD CONSTRAINT marka_product_category_id_marka_category_id FOREIGN KEY (category_id) REFERENCES marka_category(id) ON DELETE RESTRICT NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE marka_product_image ADD CONSTRAINT marka_product_image_product_id_marka_product_id FOREIGN KEY (product_id) REFERENCES marka_product(id) NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE sf_guard_forgot_password ADD CONSTRAINT sf_guard_forgot_password_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;

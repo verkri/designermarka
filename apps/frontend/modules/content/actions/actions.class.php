@@ -105,16 +105,19 @@ class contentActions extends sfActions
   {
     sfConfig::set('app_menu','world');
     
-    $this->cs_slug = $request->getParameter('colorscheme');
-    $this->cat_slug = $request->getParameter('category');
+    //$this->cs_slug = $request->getParameter('colorscheme');
+    $this->cat_slug = $request->getParameter('category_slug');
+    $this->t_slug = $request->getParameter('type_slug');
   
-    $this->logMessage('[ DISPLAY ] BrowserView, Main/Subcategory : ['.$this->cs_slug.'/'.$this->cat_slug.']','notice');
+    $this->logMessage('[ DISPLAY ] BrowserView, Category/Type : ['.$this->cat_slug.'/'.$this->t_slug.']','notice');
     
-    if ( sfConfig::get('app_browser_type') == 'colorschemeByCategory' ) {
+    $this->categories = Doctrine_Core::getTable('MarkaCategory')->getActiveCategories();
+    
+    /*if ( sfConfig::get('app_browser_type') == 'colorschemeByCategory' ) {
       $this->colorschemes = Doctrine_Core::getTable('MarkaColorScheme')->getActiveColorSchemes();
     } else {
       $this->categories = Doctrine_Core::getTable('MarkaCategory')->getActiveCategories();
-    }
+    }*/
     
     $this->featured_count = Doctrine_Core::getTable('MarkaProduct')->getFeaturedCount();
 
@@ -129,21 +132,24 @@ class contentActions extends sfActions
     $this->logMessage('[ PRODUCT VIEW ] '.$this->product->getName(),'notice');
     
     $cat_slug = $request->getParameter('category_slug');
-    $cs_slug = $request->getParameter('colorscheme_slug');
+    //$cs_slug = $request->getParameter('colorscheme_slug');
+    $t_slug = $request->getParameter('type_slug');
     
     $this->category = Doctrine_Core::getTable('MarkaCategory')->findBy('slug',$cat_slug)->getFirst();
-    $this->colorscheme = Doctrine_Core::getTable('MarkaColorScheme')->findBy('slug',$cs_slug)->getFirst();
+    $this->type = Doctrine_Core::getTable('MarkaType')->findBy('slug',$t_slug)->getFirst();
+    //$this->colorscheme = Doctrine_Core::getTable('MarkaColorScheme')->findBy('slug',$cs_slug)->getFirst();
         
     $this->images = $this->product->getImages();
         
     $date = new DateTime($this->product->getManufactured());
     $this->manufactured_timestamp = $date->format('U');
     
-    $this->forward404Unless( $this->category && $this->colorscheme );
+    $this->forward404Unless( $this->category && $this->type );
     
     // extra check for URL forgery
     $validURI = $this->product->getCategoryId() == $this->category->getId();
-    $validURI &= $this->product->getColorschemeId() == $this->colorscheme->getId();
+    //$validURI &= $this->product->getColorschemeId() == $this->colorscheme->getId();
+    $validURI &= $this->product->getTypeId() == $this->type->getId();
     $this->forward404Unless($validURI);
     
   }
@@ -151,18 +157,19 @@ class contentActions extends sfActions
   public function executeFetch(sfWebRequest $request)
   {
     $cat_slug = $request->getParameter('category_slug');
-    $cs_slug = $request->getParameter('colorscheme_slug');
+    $t_slug = $request->getParameter('type_slug');
     
-    $this->logMessage('[ FETCH ] Main/Subcategory : ['.$cs_slug.'/'.$cat_slug.']','notice');
+    $this->logMessage('[ FETCH ] Category/Type : ['.$cat_slug.'/'.$t_slug.']','notice');
     
     $this->category = Doctrine_Core::getTable('MarkaCategory')->findBy('slug',$cat_slug)->getFirst();
-    $this->colorscheme = Doctrine_Core::getTable('MarkaColorScheme')->findBy('slug',$cs_slug)->getFirst();
+    $this->type = Doctrine_Core::getTable('MarkaType')->findBy('slug',$t_slug)->getFirst();
+    //$this->colorscheme = Doctrine_Core::getTable('MarkaColorScheme')->findBy('slug',$cs_slug)->getFirst();
       
     $this->products = Doctrine_Core::getTable('MarkaProduct')
-            ->getProductsFiltered($this->category,$this->colorscheme);
+            ->getProductsFiltered($this->category,$this->type);
     
     if ( $this->products->count() == 0 )
-      $this->logMessage('[ FETCH ] There are no products in : ['.$cs_slug.'/'.$cat_slug.']','crit');
+      $this->logMessage('[ FETCH ] There are no products in : ['.$cat_slug.'/'.$t_slug.']','crit');
     
   }
   

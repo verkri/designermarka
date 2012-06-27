@@ -35,7 +35,7 @@ generator:
         imagecount:
           label: Images
       list:
-        display: [=name, category_id, colorscheme_id, stockqty, cadprice, featured, is_active, imagecount]
+        display: [=name, category_id, type_id, stockqty, cadprice, featured, is_active, imagecount]
         fields:
           is_active:
             label: Active
@@ -43,10 +43,10 @@ generator:
           cadprice: {label: Price }
         batch_actions: { _delete: ~, _activate: ~, _deactivate: ~ }
       filter:
-        display: [category_id, colorscheme_id, is_active, featured]
+        display: [category_id, type_id, is_active, featured]
       form:    ~
       edit:
-        display: [name, category_id, colorscheme_id, is_active, featured, manufactured, stockqty, cadprice, short, description]
+        display: [name, category_id, type_id, is_active, featured, manufactured, stockqty, cadprice, short, description]
         fields:
           is_active:
             label: Publish?
@@ -55,4 +55,4 @@ generator:
             label: Featured
             help: If checked, the product will be added to the featured products set.
       new:
-        display: [name, category_id, colorscheme_id, manufactured, stockqty, cadprice, short, description]
+        display: [name, category_id, type_id, manufactured, stockqty, cadprice, short, description]

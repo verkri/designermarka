@@ -3,7 +3,7 @@
 
 # Showcase of structure
 world_product:
-  url:     /world-of-marka/:colorscheme_slug/:category_slug/:slug
+  url:     /world-of-marka/:category_slug/:type_slug/:slug
   class:   sfDoctrineRoute
   options: { model: MarkaProduct, type: object }
   param:   { module: content, action: productView }
@@ -18,7 +18,7 @@ world:
     sf_method: [get]
     
 world_fetch:
-  url:    /fetch/:colorscheme_slug/:category_slug
+  url:    /fetch/:category_slug/:type_slug
   class:  sfRequestRoute
   param:  { module: content, action: fetch }
 
