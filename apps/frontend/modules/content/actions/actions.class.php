@@ -171,6 +171,7 @@ class contentActions extends sfActions
     if ( $this->products->count() == 0 )
       $this->logMessage('[ FETCH ] There are no products in : ['.$cat_slug.'/'.$t_slug.']','crit');
     
+    $this->is_featured_displayed = false;
   }
   
   public function executeFetchFeatured(sfWebRequest $request)
@@ -182,6 +183,7 @@ class contentActions extends sfActions
       $this->logMessage('[ FETCH ] There are no featured products!','crit');
     
     $this->setTemplate('fetch');
+    $this->is_featured_displayed = true;
   }
   
 }

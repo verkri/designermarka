@@ -40,6 +40,26 @@
 <?php register_css() ?>
 <style type="text/css">
 
+  .category_text {
+    background: url('/images/black-alpha-20.png') repeat-x;
+    
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    padding: 5px 20px;
+    margin-top: 10px;
+  }
+  
+  .category_text p {
+    margin: 0;
+    font-style: italic;
+    font-size: 1.3em;
+    color: white;
+    text-shadow: #888 1px 1px 2px;
+    -moz-text-shadow:  #888 1px 1px 2px;
+    -webkit-text-shadow:  #888 1px 1px 2px;
+  }
+  
   p.loader, p.notfound { margin-top: 250px; text-align: center; font-size: 1.3em; }
   p.loader > img { margin-bottom: 10px;}
   

@@ -135,10 +135,6 @@
         </p>
 
         <aside id="metainfo" class="clearfix">
-          <div class="clearfix meta">
-            <div class="w60p txtr hdr"><h4>Manufactured:</h4></div>
-            <div class="w40p txtr dat"><?php echo time_ago_in_words($manufactured_timestamp) ?> ago</div>
-          </div>
 
           <div class="clearfix meta">
             <div class="w60p txtr hdr"><h4>In stock:</h4></div>

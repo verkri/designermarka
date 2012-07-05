@@ -4,6 +4,12 @@
 
 <?php else : ?>
 
+<?php if (! $is_featured_displayed ) : ?>
+<div class="category_text clearfix">
+  <p><?php echo $category->getDescription(); ?></p>
+</div>
+<?php endif ?>
+
 <ul id="plist" class="clearfix">
 <?php foreach ($products as $p): ?>
   <li class="w33p clearfix">

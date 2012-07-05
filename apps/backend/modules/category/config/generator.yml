@@ -18,6 +18,9 @@ generator:
         name: 
           attributes: { size: 70, maxlength: 100 } 
           help: Should be no longer than 20 characters (maximum is 100 characters)
+        description: 
+          attributes: { size: 70, maxlength: 255 } 
+          help: Maximum length is 255 characters!
       list:
         display: [=name, products]
         batch_actions: {}
@@ -25,6 +28,6 @@ generator:
         class: false
       form:    ~
       edit:
-        display: [name]
+        display: [name, description]
       new:
-        display: [name]
+        display: [name, description]

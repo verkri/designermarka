@@ -46,7 +46,7 @@ generator:
         display: [category_id, type_id, is_active, featured]
       form:    ~
       edit:
-        display: [name, category_id, type_id, is_active, featured, manufactured, stockqty, cadprice, short, description]
+        display: [name, category_id, type_id, is_active, featured, stockqty, cadprice, short, description]
         fields:
           is_active:
             label: Publish?
@@ -55,4 +55,4 @@ generator:
             label: Featured
             help: If checked, the product will be added to the featured products set.
       new:
-        display: [name, category_id, type_id, manufactured, stockqty, cadprice, short, description]
+        display: [name, category_id, type_id, stockqty, cadprice, short, description]
