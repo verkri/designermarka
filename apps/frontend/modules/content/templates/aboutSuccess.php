@@ -35,5 +35,6 @@ hand crafted jewellery.
 </section>
 
 <div class="w50p txtc">
-  <img id="about-img" src="/app/about/karen.jpg" alt="Karen's Photo" title="The designer" width="400" height="400"/>
+  &nbsp;
+  <?php /*<img id="about-img" src="/app/about/karen.jpg" alt="Karen's Photo" title="The designer" width="400" height="400"/> */ ?>
 </div>
