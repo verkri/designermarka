@@ -10,8 +10,7 @@
  */
 class MarkaCategoryForm extends BaseMarkaCategoryForm
 {
-   public function configure()
-   {
-    unset( $this['created_at'], $this['slug'] );
+  public function configure()
+  {
   }
 }
