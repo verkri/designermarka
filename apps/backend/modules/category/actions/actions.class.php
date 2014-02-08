@@ -58,7 +58,19 @@ class categoryActions extends autoCategoryActions
     
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
+//$debug_form = $form->__toString();
+//$this->logMessage("Category processform $debug_form", 'notice');
+//$debug_request = $request->getContent();
+//$this->logMessage("Request : $debug_request", 'notice');
+
+//    $this->logMessage('Category processForm called. Request object : '.$request->getContent(), 'error');
+//    $this->logMessage(' Form object: '.$form->__toString(), 'error');
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+//    $this->logMessage('Category processForm called. Request object : '.$request->getContent(), 'error');
+//    $this->logMessage(' Form object: '.$form->__toString(), 'error');
+// $debug_form = $form->__toString();
+//$this->logMessage("Category processform $debug_form", 'notice');
+
     if ($form->isValid())
     {
       $notice = $form->getObject()->isNew() ? 'The item was created successfully.' : 'The item was updated successfully.';
