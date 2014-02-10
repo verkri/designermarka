@@ -4,7 +4,7 @@ all:
     param:
       dsn: 'pgsql:host=localhost;dbname=marka'
       username: postgres
-      password: michael_mic_i686      
+      password: postgres
       encoding: utf8
       attributes:
         default_table_collate: utf8_general_ci

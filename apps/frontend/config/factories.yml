@@ -67,7 +67,7 @@ all:
           port:       465
           encryption: tls
           username:   system@designermarka.com
-          password:   michael_mic_i686
+          password:   system
           
   storage:
     class: sfSessionStorage
