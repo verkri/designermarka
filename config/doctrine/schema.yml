@@ -73,11 +73,11 @@ MarkaEvent:
         disabled: true
         
   columns:
-    event_id:   { type: integer, notnull: true, unique: true }
+    id:         { type: integer, notnull: true, unique: true }
     name:       { type: string(255), notnull: true, unique: true }
     place:      { type: string(255), notnull: true }
     date:       { type: date, notnull: true }
-    state:      { type: boolean, notnull: true, default: 1 }
+    is_upcoming: { type: boolean, notnull: true, default: 1 }
     description: { type: string(2000) }
     short:      { type: string(100) }
     
@@ -85,12 +85,13 @@ MarkaEvent:
     Images:
       type: many
       class: MarkaEventImage
-      local: event_id
-      foreign: event_picture_id
+      local: id
+      foreign: event_id
       cascade: [delete]
       foreignAlias: Event
     
 MarkaEventImage:
   columns:
+    event_id: { type: integer }
     filename: { type: string(255) }
-    event_picture_id: { type: integer }
+    
