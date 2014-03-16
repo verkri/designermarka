@@ -46,6 +46,15 @@ marka_product:
     column:               slug
     with_wildcard_routes: true
 
+marka_event:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                MarkaEvent
+    module:               event
+    prefix_path:          /event
+    column:               slug
+    with_wildcard_routes: true	
+
 
 #marka_product_image_upload:
 #  url:     /product/uploadimage/:slug

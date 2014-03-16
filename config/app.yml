@@ -16,6 +16,15 @@ all:
   product_image_medium_dir: /app/product/medium/
   product_image_medium_size: 201x134
   
+  event_image_dir: /app/product/
+  event_image_size: 575x383
+  
+  event_image_thumbnail_dir: /app/product/thumbs/
+  event_image_thumbnail_size: 140x93
+  
+  event_image_medium_dir: /app/product/medium/
+  event_image_medium_size: 201x134
+  
   featured_display_count: 8
     
   sfImageTransformPlugin:
