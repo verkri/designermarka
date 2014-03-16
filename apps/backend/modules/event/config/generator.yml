@@ -18,41 +18,26 @@ generator:
         name:
           help: Event.
           attributes: { maxlength: 50, size: 50 }
-        stockqty:
-          label: Quantity
-          help: How many you have in stock
-          attributes: { size: 2 }
-        cadprice:
-          label: Price (CAD)
-          attributes: { size: 4 }
+        place:
+          help: Place.
+          attributes: { maxlength: 50, size: 50 }
         short:
           label: Short description
           attributes: { maxlength: 100, size: 80 }
-          help: Physical sizes, materials, etc.
+          help: info
         description:
           attributes: { rows: 13, cols: 80 }
           help: Should fill the whole textarea (maximum length is 2000 characters)!
         imagecount:
           label: Images
       list:
-        display: [=name, category_id, type_id, stockqty, cadprice, featured, is_active, imagecount]
+        display: [=name, imagecount]
         fields:
           is_active:
             label: Active
-          stockqty: {label: Qty }
-          cadprice: {label: Price }
-        batch_actions: { _delete: ~, _activate: ~, _deactivate: ~ }
-      filter:
-        display: [category_id, type_id, is_active, featured]
+        batch_actions: { _delete: ~}
       form:    ~
       edit:
-        display: [name, category_id, type_id, is_active, featured, stockqty, cadprice, short, description]
-        fields:
-          is_active:
-            label: Publish?
-            help: If checked, the product will go online, otherwise customers won't see it until activated.
-          featured:
-            label: Featured
-            help: If checked, the product will be added to the featured products set.
+        display: [name, short, description]
       new:
-        display: [name, category_id, type_id, stockqty, cadprice, short, description]
+        display: [name, short, description]
