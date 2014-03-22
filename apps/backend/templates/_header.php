@@ -24,9 +24,9 @@
             <li <?php echo (sfConfig::get('app_menu') == 'product' ? 'class="active"' : '') ?>>
               <?php echo link_to('Products','marka_product') ?></li>
 			  
-			   <li <?php echo (sfConfig::get('app_menu') == 'event' ? 'class="active"' : '') ?>>
-              <?php echo link_to('Events','marka_product') ?></li>
-            
+			<li <?php echo (sfConfig::get('app_menu') == 'event' ? 'class="active"' : '') ?>>
+              <?php echo link_to('Events','marka_event') ?></li>
+			  
             <li><?php echo link_to('Logout','sf_guard_signout') ?></li>
             
           </ul>
