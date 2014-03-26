@@ -11,24 +11,7 @@
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 class MarkaEvent extends BaseMarkaEvent
-{
-   
-  public function save(Doctrine_Connection $conn = null)
-  {
-    if ( $this->isNew() ) {
-      $this->setSlug( Utility::slugify($this->getName()) );
-      $this->setToken(sha1($this->getSlug()));
-    }
-    $ret = parent::save($conn);
-  }
-  
-  public function getCategorySlug() {
-    return $this->getCategory()->getSlug();
-  }
-  
-  public function getTypeSlug() {
-    return $this->getType()->getSlug();
-  }  
+{ 
   
   public function getImagecount() {
     return $this->getImages()->count();
