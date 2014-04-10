@@ -19,12 +19,21 @@ generator:
           help: Event.
           attributes: { maxlength: 50, size: 50 }
         place:
+          label: Place
           help: Place.
           attributes: { maxlength: 50, size: 50 }
         short:
           label: Short description
           attributes: { maxlength: 100, size: 80 }
           help: info
+        date:
+          label: Date
+          attributes: { }
+          help: date
+        upcoming:
+          label: upcoming
+          attributes: {}
+          help: yes or no
         description:
           attributes: { rows: 13, cols: 80 }
           help: Should fill the whole textarea (maximum length is 2000 characters)!
@@ -38,6 +47,6 @@ generator:
         batch_actions: { _delete: ~}
       form:    ~
       edit:
-        display: [name, short, description]
+        display: [name, place, date, upcoming, short, description]
       new:
-        display: [name, short, description]
+        display: [name, place, date, upcoming, short, description]

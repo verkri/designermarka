@@ -4,7 +4,7 @@
 # default values
 all:
   product_upload_image_count: 4
-  event_upload_image_count: 4
+  event_upload_image_count: 10
   
   sf_guard_plugin:
     allow_login_with_email:   false

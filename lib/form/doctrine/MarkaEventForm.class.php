@@ -11,7 +11,7 @@
 class MarkaEventForm extends BaseMarkaEventForm
 {
   public function configure() {
-    unset($this['created_at'], $this['slug'], $this['token']);
+    unset($this['created_at']);
 
     $subForm = new sfForm();
     for ($i = 0; $i < 4; $i++) {

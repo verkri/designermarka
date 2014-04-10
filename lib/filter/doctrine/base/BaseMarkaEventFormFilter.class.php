@@ -14,7 +14,7 @@ abstract class BaseMarkaEventFormFilter extends BaseFormFilterDoctrine
   {
     $this->setWidgets(array(
       'name'         => new sfWidgetFormFilterInput(array('with_empty' => false)),
-     'date' => new sfWidgetFormFilterDate(array('to_date' => new sfWidgetFormDate())),
+      'date' => new sfWidgetFormFilterDate(array('to_date' => new sfWidgetFormDate())),
       'place'        => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'is_upcoming'    => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
       'description'  => new sfWidgetFormFilterInput(),

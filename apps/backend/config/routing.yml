@@ -52,7 +52,7 @@ marka_event:
     model:                MarkaEvent
     module:               event
     prefix_path:          /event
-    column:               slug
+    column:               id
     with_wildcard_routes: true	
 
 
