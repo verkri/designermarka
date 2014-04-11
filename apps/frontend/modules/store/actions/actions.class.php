@@ -34,6 +34,7 @@ class storeActions extends sfActions
     $this->marka_categories = Doctrine_Core::getTable('MarkaCategory')->getNotEmptyCategories();
     $this->marka_colorschemes = Doctrine_Core::getTable('MarkaColorScheme')->getNotEmptyColorSchemes();
     $this->marka_products = Doctrine_Core::getTable('MarkaProduct')->getActiveProducts();
+	$this->marka_events = Doctrine_Core::getTable('MarkaEvent')->getActiveProducts();
   }
   
   public function executeShowcolorscheme(sfWebRequest $request)
@@ -55,5 +56,15 @@ class storeActions extends sfActions
     $this->product = $this->getRoute()->getObject();
     $this->category = $this->product->getCategory();
   }
+
+  public function executeShowevent(sfWebRequest $request)
+  {
+    $this->setMenus();
+    $this->form = new StoreFilterForm();
+
+    $this->marka_categories = Doctrine_Core::getTable('MarkaCategory')->getNotEmptyCategories();
+    $this->event = $this->getRoute()->getObject();
+    $this->category = $this->product->getCategory();
+  } 
   
 }

@@ -11,6 +11,21 @@ world_product:
     token: ([a-fA-F\d]){32}
     sf_method: [get]
 
+event:
+  url:     /event/:id
+  class:   sfDoctrineRoute
+  options: { model: MarkaEvent, type: object }
+  param:   { module: content, action: eventView }
+  requirements:
+    token: ([a-fA-F\d]){32}
+    sf_method: [get]
+
+event_full:
+  url:     /event
+  param:   { module: content, action: eventbrowserView }
+  requirements:
+    sf_method: [get]
+
 world:
   url:     /world-of-marka
   param:   { module: content, action: browserView }

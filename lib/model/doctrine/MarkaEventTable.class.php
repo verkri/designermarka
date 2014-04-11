@@ -22,6 +22,20 @@ class MarkaEventTable extends Doctrine_Table {
     return $this->filterActiveEvents($q)->execute();
   }
   
+    public function getUpcoming() {
+    $q = $this->createQuery('p')
+            ->where('is_upcoming = true')
+            ->orderBy('date');            
+    return $this->filterActiveEvents($q)->execute();
+  }
+  
+    public function getNotUpcoming() {
+    $q = $this->createQuery('p')
+            ->where('is_upcoming = false')
+            ->orderBy('date');            
+    return $this->filterActiveEvents($q)->execute();
+  }
+  
   public function getFeatured($count = 8) {
     $q = $this->createQuery('p')
             ->where('featured = true')
@@ -59,7 +73,7 @@ class MarkaEventTable extends Doctrine_Table {
 
     $alias = $q->getRootAlias();
 
-    $q->andWhere($alias . '.is_active = true');
+   
     return $q;
   }
 

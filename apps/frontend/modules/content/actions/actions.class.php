@@ -154,6 +154,67 @@ class contentActions extends sfActions
     
   }
   
+    public function executeEventbrowserView(sfWebRequest $request)
+  {
+    sfConfig::set('app_menu','event');
+    
+    //$this->cs_slug = $request->getParameter('colorscheme');
+   // $this->cat_slug = $request->getParameter('category_slug');
+   // $this->t_slug = $request->getParameter('type_slug');
+  
+    $this->logMessage('[ DISPLAY ] BrowserView, Category/Type : ['.$this->cat_slug.'/'.$this->t_slug.']','notice');
+    
+   // $this->categories = Doctrine_Core::getTable('MarkaCategory')->getActiveCategories();
+	
+	$this->events = Doctrine_Core::getTable('MarkaEvent')->getUpcoming();
+	
+	$this->events_n = Doctrine_Core::getTable('MarkaEvent')->getNotUpcoming();
+	
+
+	
+	
+    
+    /*if ( sfConfig::get('app_browser_type') == 'colorschemeByCategory' ) {
+      $this->colorschemes = Doctrine_Core::getTable('MarkaColorScheme')->getActiveColorSchemes();
+    } else {
+      $this->categories = Doctrine_Core::getTable('MarkaCategory')->getActiveCategories();
+    }*/
+    
+    $this->featured_count = Doctrine_Core::getTable('MarkaProduct')->getFeaturedCount();
+
+    $this->logMessage('[ DISPLAY ] Featured item count is '.$this->featured_count,'notice');
+  } 
+  
+   public function executeEventView(sfWebRequest $request)
+  {
+    sfConfig::set('app_menu','event');
+    $this->event = $this->getRoute()->getObject();
+    $this->logMessage('[ EVENT VIEW ] '.$this->event->getName(),'notice');
+    
+    //$cat_slug = $request->getParameter('category_slug');
+    //$cs_slug = $request->getParameter('colorscheme_slug');
+    
+	$event_id = $request->getParameter('id');
+    
+    //$this->category = Doctrine_Core::getTable('MarkaCategory')->findBy('slug',$cat_slug)->getFirst();
+    //$this->type = Doctrine_Core::getTable('MarkaType')->findBy('slug',$t_slug)->getFirst();
+    //$this->colorscheme = Doctrine_Core::getTable('MarkaColorScheme')->findBy('slug',$cs_slug)->getFirst();
+       
+    $this->images = $this->event->getImages();
+        
+    $date = new DateTime($this->event->getDate());
+    //$this->manufactured_timestamp = $date->format('U');
+    
+ //   $this->forward404Unless( $this->category && $this->type );
+    
+    // extra check for URL forgery
+   // $validURI = $this->event->getName() == $this->category->getName();
+    //$validURI &= $this->product->getColorschemeId() == $this->colorscheme->getId();
+   // $validURI &= $this->event->getTypeName() == $this->type->getName();
+  //  $this->forward404Unless($validURI);
+    
+  }
+  
   public function executeFetch(sfWebRequest $request)
   {
     $cat_slug = $request->getParameter('category_slug');
