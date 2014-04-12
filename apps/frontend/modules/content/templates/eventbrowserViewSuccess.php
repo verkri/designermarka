@@ -144,8 +144,10 @@
   <table width=600>
   <?php foreach ($events as $event): ?>
   <tr>
-  <td>
-    <h3 id="<?php echo $event->getName() ?>" ><?php echo $event->getName() ?></h3>
+  <td><a href=<?php echo url_for('event', array('sf_subject' => $p,
+        'id' => $event->getId()
+      )) ?> >
+    <h3 id="<?php echo $event->getName() ?>" ><?php echo $event->getName()?></h3></a>
 	</td>
 	
 	  <td>

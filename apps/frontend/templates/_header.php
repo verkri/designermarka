@@ -12,7 +12,7 @@
           <li <?php echo (sfConfig::get('app_menu') == 'world' ? 'class="active"' : '') ?>>
             <a href="<?php echo url_for('@world'); ?>">The World of Marka</a></li>
           <li <?php echo (sfConfig::get('app_menu') == 'event' ? 'class="active"' : '') ?>>
-            <a href="<?php echo url_for('@event'); ?>">Events</a></li>
+            <a href="<?php echo url_for('@event_full'); ?>">Events</a></li>
           <li <?php echo (sfConfig::get('app_menu') == 'about' ? 'class="active"' : '') ?>>
             <a href="<?php echo url_for('@about'); ?>">About Marka</a></li>
           <li <?php echo (sfConfig::get('app_menu') == 'contact' ? 'class="active"' : '') ?>>
