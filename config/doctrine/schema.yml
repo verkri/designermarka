@@ -73,7 +73,6 @@ MarkaEvent:
         disabled: true
         
   columns:
-    id:         { type: integer, notnull: true, unique: true }
     name:       { type: string(255), notnull: true, unique: true }
     place:      { type: string(255), notnull: true }
     date:       { type: date, notnull: true }
