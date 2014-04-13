@@ -3,39 +3,7 @@
 
 <?php slot('title', 'Browse the Marka World - Marka Designs') ?>
 
-<?php register_js() ?><script>
-  $('.toggle-container h4').click(function () {
-    var text = $(this).parent().children('.toggle-content');
-    
-    if (text.is(':hidden')) {
-      text.slideDown('fast');
-      $(this).addClass('active');		
-    } else {
-      text.slideUp('fast');
-      $(this).removeClass('active');		
-    }		
-  });
-   
-  $('.category a').click(function() {
-    $('li.category').removeClass('active');
-    $(this).parent('li').addClass('active');
-    
-    $('#product-list').html('<p class="loader"><img src="/images/ajax-loader.gif" width="220" height="19"/><br/>Loading content ...</p>');
-    $('#product-list').load($(this).attr('href'));
-    return false;
-  });
-  
-  // prefetch the featured products
-  //$('#product-list').html('<p class="loader"><img src="/images/ajax-loader.gif" width="220" height="19"/><br/>Loading content ...</p>');
-  <?php if ( $cat_slug.$t_slug == "" ) : ?>
-    $('#product-nav .toggle-container:first-child h4').click();
-    $('#product-nav .toggle-container:first-child a:first-child').click();
-  <?php else : ?>
-    $('#<?php echo $cat_slug ?>').click();
-    $('#li-<?php echo $cat_slug.'_'.$t_slug ?> > a').click();
-  <?php endif; ?>
-    
-</script><?php end_register_js() ?>
+
 
 <?php register_css() ?>
 <style type="text/css">

@@ -23,6 +23,7 @@
   <?php include_combined_stylesheets() ?>
 
   <script src="/js/libs/modernizr-1.7.min.js"></script>
+  <script src="/js/libs/jquery.fs.zoomer.js"></script>
 
   <style type="text/css">
     <?php echo CssRegister::get_content() ?>
