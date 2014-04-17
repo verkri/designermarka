@@ -13,18 +13,13 @@ abstract class BaseMarkaEventFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'name'         => new sfWidgetFormFilterInput(array('with_empty' => false)),
-      'place'        => new sfWidgetFormFilterInput(array('with_empty' => false)),
-     
+      'is_upcoming'    => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
       'date'   => new sfWidgetFormDate(),
     ));
 
     $this->setValidators(array(
-      'name'         => new sfValidatorPass(array('required' => false)),
-      'date' => new sfValidatorDate(array('required' => false)),
-      'place'        => new sfValidatorPass(array('required' => false)),
-     
-   //   'date'   => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
+      'is_upcoming'    => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
+      'date'        => new sfValidatorPass(array('required' => false)),   
     ));
 
     $this->widgetSchema->setNameFormat('marka_event_filters[%s]');

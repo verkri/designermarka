@@ -29,6 +29,42 @@ class eventActions extends autoEventActions
     
   }
   
-   
+ public function executeBatchMarkAsPastEvent(sfWebRequest $request)
+  {
+    $ids = $request->getParameter('ids');
+
+    $records = Doctrine_Query::create()
+      ->from('MarkaEvent')
+      ->whereIn('id', $ids)
+      ->execute();
+
+    foreach ($records as $record)
+    {
+      $this->dispatcher->notify(new sfEvent($this, 'admin.past_object', array('object' => $record)));
+      $record->markAsPastEvent();
+    }
+
+    $this->getUser()->setFlash('notice', 'The selected items have been marked as past event.');
+    $this->redirect('@marka_event');
+  }
+  
+      public function executeBatchMarkAsUpcomingEvent(sfWebRequest $request)
+  {
+    $ids = $request->getParameter('ids');
+
+    $records = Doctrine_Query::create()
+      ->from('MarkaEvent')
+      ->whereIn('id', $ids)
+      ->execute();
+
+    foreach ($records as $record)
+    {
+      $this->dispatcher->notify(new sfEvent($this, 'admin.upcoming_object', array('object' => $record)));
+      $record->markAsUpcomingEvent();
+    }
+
+    $this->getUser()->setFlash('notice', 'The selected items have been marked as upcoming event.');
+    $this->redirect('@marka_event');
+  }
   
 }

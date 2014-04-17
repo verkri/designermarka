@@ -24,11 +24,7 @@ class MarkaEventImage extends BaseMarkaEventImage
       $img = new sfImage($image_file);
       $sizes = explode('x',sfConfig::get('app_event_image_size'));
       $img->resize($sizes[0],$sizes[1])->save();
-    
-      $img = new sfImage($image_file);
-      $sizes = explode('x',sfConfig::get('app_event_image_medium_size'));
-      $img->resize($sizes[0],$sizes[1])->saveAs(sfConfig::get('sf_web_dir').$this->getMediumPath());
-      
+       
       $img = new sfImage($image_file);
       $sizes = explode('x',sfConfig::get('app_event_image_thumbnail_size'));
       $img->resize($sizes[0],$sizes[1])->saveAs(sfConfig::get('sf_web_dir').$this->getThumbnailPath());
@@ -43,11 +39,7 @@ class MarkaEventImage extends BaseMarkaEventImage
     $path = sfConfig::get('sf_web_dir').sfConfig::get('app_event_image_thumbnail_dir').$this->getFilename();
     if ( is_file($path) )
       unlink($path);
-    
-    $path = sfConfig::get('sf_web_dir').sfConfig::get('app_event_image_medium_dir').$this->getFilename();
-    if ( is_file($path) )
-      unlink($path);
-    
+
     $path = sfConfig::get('sf_web_dir').sfConfig::get('app_event_image_dir').$this->getFilename();
     if ( is_file($path) )
       unlink($path);
@@ -66,10 +58,7 @@ class MarkaEventImage extends BaseMarkaEventImage
   public function getThumbnailpath() {
     return sfConfig::get('app_event_image_thumbnail_dir') . $this->getFilename();
   }
-  
-  public function getMediumpath() {
-    return sfConfig::get('app_event_image_medium_dir') . $this->getFilename();
-  }
+
   
   
 }

@@ -163,6 +163,7 @@ class contentActions extends sfActions
 	$this->events = Doctrine_Core::getTable('MarkaEvent')->getUpcoming();
 	
 	$this->events_n = Doctrine_Core::getTable('MarkaEvent')->getNotUpcoming();
+	
 
     $this->logMessage('[ DISPLAY ] Featured item count is '.$this->featured_count,'notice');
   } 
@@ -173,7 +174,7 @@ class contentActions extends sfActions
     $this->event = $this->getRoute()->getObject();
     $this->logMessage('[ EVENT VIEW ] '.$this->event->getName(),'notice');
     
-	$event_id = $request->getParameter('id');
+	$event_name = $request->getParameter('name');
 
     $this->images = $this->event->getImages();
    

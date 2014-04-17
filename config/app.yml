@@ -17,9 +17,10 @@ all:
   product_image_medium_size: 201x134
   
   event_image_dir: /app/event/
+  event_image_size: 600x400
   
   event_image_thumbnail_dir: /app/event/thumbs/
-  event_image_thumbnail_size: 140x93
+  event_image_thumbnail_size: 100x66
   
   featured_display_count: 8
     

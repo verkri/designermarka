@@ -17,23 +17,14 @@ class MarkaEvent extends BaseMarkaEvent
     return $this->getImages()->count();
   }
   
-  public function activate() {
-    $this->setIsActive(true);
+  public function markAsPastEvent() {
+    $this->setIsUpcoming(false);
     $this->save();
   }
   
-  public function deactivate() {
-    $this->setIsActive(false);
-    $this->save();
-  }
- 
-  public function featurize() {
-    $this->setFeatured(true);
+  public function markAsUpcomingEvent() {
+    $this->setIsUpcoming(true);
     $this->save();
   }
   
-  public function unfeaturize() {
-    $this->setFeatured(false);
-    $this->save();
-  }
 }

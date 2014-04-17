@@ -16,21 +16,21 @@ generator:
       actions: ~
       fields:
         name:
-          help: Event.
+          help: The event.
           attributes: { maxlength: 50, size: 50 }
         place:
           label: Place
-          help: Place.
+          help: The place of the event.
           attributes: { maxlength: 50, size: 50 }
         short:
           label: Short description
           attributes: { maxlength: 100, size: 80 }
-          help: info
+          help: Short description
         date:
           label: Date
           attributes: { }
-          help: date
-        upcoming:
+          help: The date of the event M/D/Y
+        is_upcoming:
           label: upcoming
           attributes: {}
           help: yes or no
@@ -44,9 +44,11 @@ generator:
         fields:
           is_active:
             label: Active
-        batch_actions: { _delete: ~}
+        batch_actions: { _delete: ~, _batchMarkAsPastEvent~ , _batchMarkAsUpcomingEvent~}
+      filter:
+        display: [date, is_upcoming]
       form:    ~
       edit:
-        display: [name, place, date, upcoming, short, description]
+        display: [name, place, date, is_upcoming, short, description]
       new:
-        display: [name, place, date, upcoming, short, description]
+        display: [name, place, date, is_upcoming, short, description]

@@ -13,23 +13,23 @@ abstract class BaseMarkaEventFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'name'         => new sfWidgetFormFilterInput(array('with_empty' => false)),
-      'date' => new sfWidgetFormFilterDate(array('to_date' => new sfWidgetFormDate())),
-      'place'        => new sfWidgetFormFilterInput(array('with_empty' => false)),
-      'is_upcoming'    => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
-      'description'  => new sfWidgetFormFilterInput(),
-      'short'        => new sfWidgetFormFilterInput(),
-     'created_at'  => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
+      'name'        => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'place'       => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'date'        => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
+      'is_upcoming' => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
+      'description' => new sfWidgetFormFilterInput(),
+      'short'       => new sfWidgetFormFilterInput(),
+      'created_at'  => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
     ));
 
     $this->setValidators(array(
-      'name'         => new sfValidatorPass(array('required' => false)),
-	  'date' => new sfValidatorDateRange(array('required' => false )),
-      'place'        => new sfValidatorPass(array('required' => false)),
-      'is_upcoming'    => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
-      'description'  => new sfValidatorPass(array('required' => false)),
-      'short'        => new sfValidatorPass(array('required' => false)),
-     'created_at'  => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
+      'name'        => new sfValidatorPass(array('required' => false)),
+      'place'       => new sfValidatorPass(array('required' => false)),
+      'date'        => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDateTime(array('required' => false)))),
+      'is_upcoming' => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
+      'description' => new sfValidatorPass(array('required' => false)),
+      'short'       => new sfValidatorPass(array('required' => false)),
+      'created_at'  => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
     ));
 
     $this->widgetSchema->setNameFormat('marka_event_filters[%s]');
@@ -49,15 +49,14 @@ abstract class BaseMarkaEventFormFilter extends BaseFormFilterDoctrine
   public function getFields()
   {
     return array(
-      'id'           => 'Number',
-      'name'         => 'Text',
-      'date'         => 'Date',
+      'id'          => 'Number',
+      'name'        => 'Text',
+      'place'       => 'Text',
+      'date'        => 'Date',
+      'is_upcoming' => 'Boolean',
+      'description' => 'Text',
+      'short'       => 'Text',
       'created_at'  => 'Date',
-      'place'        => 'Text',
-      'is_upcoming'    => 'Boolean',
-      'description'  => 'Text',
-      'short'        => 'Text',
-      'created_at'   => 'Date',
     );
   }
 }
